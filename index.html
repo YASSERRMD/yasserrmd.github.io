@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Yasser - Solution Architect</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+ :root {
+    --primary-gradient: linear-gradient(135deg, #00897b, #00695c);
+    --secondary-gradient: linear-gradient(135deg, #4db6ac, #26a69a);
+    --light-gradient: linear-gradient(135deg, #f5f5f5, #e0f2f1);
+    --primary-color: #00695c;
+    --secondary-color: #26a69a;
+    --light-color: #f5f5f5;
+    --dark-color: #212121;
+    --text-color: #455a64;
+}   
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: #ffffff;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 10px;
+        }
+        
+        .btn-primary-gradient {
+            background: var(--primary-gradient);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(43, 81, 255, 0.2);
+        }
+        
+        .btn-primary-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(43, 81, 255, 0.3);
+        }
+        
+        .hero {
+            background: var(--light-gradient);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-gradient);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+        
+        .hero-img {
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border: 5px solid white;
+        }
+        
+        .profile-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .profile-header {
+            background: var(--primary-gradient);
+            padding: 30px;
+            color: white;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .exp-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .exp-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .exp-header {
+            background: var(--light-gradient);
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .exp-body {
+            padding: 20px;
+        }
+        
+        .skill-badge {
+            background: var(--light-gradient);
+            color: var(--primary-color);
+            border-radius: 50px;
+            padding: 8px 15px;
+            margin: 5px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gradient);
+            color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .footer {
+            background: var(--light-gradient);
+            padding: 40px 0;
+        }
+        
+        /* Service cards */
+        .service-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gradient);
+            color: var(--primary-color);
+            font-size: 28px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            background: var(--primary-gradient);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        /* Testimonial section */
+        .testimonial-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin: 20px 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial-body {
+            padding: 0 20px 20px;
+            font-style: italic;
+            color: #6c757d;
+        }
+        
+        .quote-icon {
+            font-size: 24px;
+            color: var(--secondary-color);
+            opacity: 0.2;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span style="font-weight: 700; color: var(--primary-color);">Mohamed</span> 
+                <span style="font-weight: 400; color: var(--secondary-color);">Yasser</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Mohamed Yasser</h1>
+                    <h3 class="mb-4" style="color: var(--primary-color);">Government Solution Architect | Emerging Technology Strategist</h3>
+                    <p class="lead mb-4">A Goal-driven Software Solutions Architect with 18+ years of experience designing advanced software solutions for government organizations, specializing in blockchain, AI, and digital transformation.</p>
+                    <div class="d-flex mt-5">
+                        <a href="#contact" class="btn btn-primary-gradient me-3">Get In Touch</a>
+                        <a href="#experience" class="btn btn-outline-secondary px-4 py-2 rounded-pill">View Experience</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://media.licdn.com/dms/image/v2/D5603AQE9qG3_y3hXsw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704986493653?e=1746662400&v=beta&t=NUn0rqRmHo44hH1jp5QuQTQhstpVhNEaaJIA3BPzXMY" alt="Mohamed Yasser" class="img-fluid hero-img" style="max-width: 80%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-header">
+                        <h2 class="section-title">About Me</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="profile-card">
+                        <div class="profile-header text-center">
+                            <img src="https://media.licdn.com/dms/image/v2/D5603AQE9qG3_y3hXsw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1704986493653?e=1746662400&v=beta&t=NUn0rqRmHo44hH1jp5QuQTQhstpVhNEaaJIA3BPzXMY" alt="Mohamed Yasser" class="profile-img">
+                            <h3 class="mb-1">Mohamed Yasser</h3>
+                            <p class="mb-3">Technology Analyst | Visionary Futurist | Community Builder</p>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/moyasser/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/yasserrmd" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://huggingface.co/yasserrmd" class="social-icon" target="_blank"><i class="fas fa-robot"></i></a>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <p class="lead mb-4">A Goal-driven Software Solutions Architect with a distinguished career spanning over 18 years, renowned for designing and developing advanced software solutions for prestigious government organizations.</p>
+                            <p>Adept at leveraging a comprehensive range of technologies and tools to drive innovation and achieve exceptional outcomes. Demonstrated expertise in spearheading impactful Proof of Concept (POC) initiatives, showcasing proficiency in emerging technologies such as blockchain and AI.</p>
+                            <p>Committed to optimizing business productivity and efficiency through the implementation of cutting-edge software solutions. Passionate about mentoring future tech leaders and building technology communities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section" style="background: var(--light-gradient);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-header">
+                        <h2 class="section-title">Professional Experience</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0">Team Leader / Software Solution Architect</h4>
+                                <span class="badge bg-primary">2015 - Present</span>
+                            </div>
+                            <p class="mb-0 mt-2">Sharjah City Municipality - Sharjah, UAE</p>
+                        </div>
+                        <div class="exp-body">
+                            <ul class="mb-3">
+                                <li>Lead the end-to-end design and development of software solutions for complex government projects, ensuring scalability, reliability, and maintainability.</li>
+                                <li>Collaborate with cross-functional teams to analyze project requirements, define technical architectures, and deliver high-quality solutions within strict timelines.</li>
+                                <li>Champion the adoption of best practices, design patterns, and industry standards to streamline software development processes.</li>
+                                <li>Architect and implement robust APIs for seamless data exchange and integration, leveraging RESTful principles and microservices architecture.</li>
+                                <li>Design and optimize databases for performance, data integrity, and scalability, employing relational and NoSQL database technologies.</li>
+                            </ul>
+                            <div>
+                                <span class="skill-badge">Creative Problem Solving</span>
+                                <span class="skill-badge">Communication</span>
+                                <span class="skill-badge">Computer Vision</span>
+                                <span class="skill-badge">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0">Senior Software Developer</h4>
+                                <span class="badge bg-primary">2013 - 2015</span>
+                            </div>
+                            <p class="mb-0 mt-2">IT Department - Sharjah, UAE</p>
+                        </div>
+                        <div class="exp-body">
+                            <ul class="mb-3">
+                                <li>Played a key role in the successful migration of existing systems to ASP.NET applications and SharePoint, improving system performance and user experience.</li>
+                                <li>Led the design and analysis of the architecture for the Sharjah Food Safety Program system, ensuring compliance with industry regulations and standards.</li>
+                                <li>Deployed applications in IIIS and SharePoint environments, ensuring smooth deployment and integration.</li>
+                                <li>Administered the Team Foundation Server, facilitating effective collaboration and version control among development teams.</li>
+                            </ul>
+                            <div>
+                                <span class="skill-badge">Creative Problem Solving</span>
+                                <span class="skill-badge">Communication</span>
+                                <span class="skill-badge">Computer Vision</span>
+                                <span class="skill-badge">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0">Technical Consultant</h4>
+                                <span class="badge bg-primary">2012 - 2013</span>
+                            </div>
+                            <p class="mb-0 mt-2">Freelancing - Sharjah, UAE</p>
+                        </div>
+                        <div class="exp-body">
+                            <ul class="mb-3">
+                                <li>Provided expert consultation on IT systems and solutions, guiding clients in making informed technology decisions aligned with their business goals.</li>
+                                <li>Designed and developed web applications and commercial websites, focusing on user-centric design and seamless functionality.</li>
+                                <li>Managed web hosting and server administration, ensuring reliable and secure web presence for clients.</li>
+                                <li>Implemented robust security and surveillance systems, safeguarding client data and assets.</li>
+                            </ul>
+                            <div>
+                                <span class="skill-badge">Communication</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="exp-card">
+                        <div class="exp-header">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="mb-0">System Analyst</h4>
+                                <span class="badge bg-primary">2010 - 2012</span>
+                            </div>
+                            <p class="mb-0 mt-2">Nanosoft Solutions - Dubai, UAE</p>
+                        </div>
+                        <div class="exp-body">
+                            <ul class="mb-3">
+                                <li>Developed innovative solutions for complex business problems, analyzing user requirements and translating them into technical solutions.</li>
+                                <li>Collaborated closely with development teams to ensure seamless integration, technical compatibility, and user satisfaction.</li>
+                                <li>Led the successful implementation of various new systems, leveraging emerging technologies and industry best practices.</li>
+                            </ul>
+                            <div>
+                                <span class="skill-badge">Communication</span>
+                                <span class="skill-badge">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-header">
+                        <h2 class="section-title">Technical Skills</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <div class="service-icon mx-auto">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <h4>Software Development</h4>
+                            </div>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-badge">ASP.NET</span>
+                                <span class="skill-badge">C#</span>
+                                <span class="skill-badge">JavaScript</span>
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">React</span>
+                                <span class="skill-badge">Node.js</span>
+                                <span class="skill-badge">REST APIs</span>
+                                <span class="skill-badge">Microservices</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <div class="service-icon mx-auto">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h4>Database & Infrastructure</h4>
+                            </div>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-badge">SQL Server</span>
+                                <span class="skill-badge">Oracle</span>
+                                <span class="skill-badge">MongoDB</span>
+                                <span class="skill-badge">Azure</span>
+                                <span class="skill-badge">AWS</span>
+                                <span class="skill-badge">DevOps</span>
+                                <span class="skill-badge">CI/CD</span>
+                                <span class="skill-badge">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm rounded-4">
+                        <div class="card-body p-4">
+                            <div class="text-center mb-4">
+                                <div class="service-icon mx-auto">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h4>Emerging Technologies</h4>
+                            </div>
+                            <div class="d-flex flex-wrap">
+                                <span class="skill-badge">Artificial Intelligence</span>
+                                <span class="skill-badge">Machine Learning</span>
+                                <span class="skill-badge">Blockchain</span>
+                                <span class="skill-badge">Computer Vision</span>
+                                <span class="skill-badge">IoT</span>
+                                <span class="skill-badge">Big Data</span>
+                                <span class="skill-badge">Data Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section" style="background: var(--light-gradient);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="section-header">
+                        <h2 class="section-title">Services</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card p-4 text-center h-100">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h4 class="mb-3">Solution Architecture</h4>
+                        <p>Designing scalable, reliable, and maintainable software architectures for complex government and enterprise projects.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card p-4 text-center h-100">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4 class="mb-3">Digital Transformation</h4>
+                        <p>Guiding organizations through digital transformation journeys with strategic technology implementation and process optimization.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card p-4 text-center h-100">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="mb-3">AI & Blockchain Integration</h4>
+                        <p>Leveraging cutting-edge AI and blockchain technologies to create innovative solutions for modern business challenges.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card p-4 text-center h-100">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h4 class="mb-3">DevOps Implementation</h4>
+                        <p>Establishing efficient CI/CD pipelines and DevOps practices to streamline software delivery and enhance team productivity.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card p-4 text-center h-100">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h4 class="mb-3">Technical Consultation</h4>
+                        <p>Providing expert technical advice and strategic guidance for organizations looking to optimize their technology investments.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card p-4 text-center h-100">
+                        <div class="service-icon mx-auto">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="mb-3">Technology Mentorship</h4>
+                        <p>Mentoring and training tech professionals to develop their skills and advance their careers in the rapidly evolving technology landscape.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+<section id="testimonials" class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-header">
+                    <h2 class="section-title">Testimonials</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/60/60" alt="Adamu Muktar" class="img-fluid">
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Adamu Muktar</h5>
+                            <p class="mb-0 text-muted">Full Stack Developer</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>I've been mentored by Mohamed Yasser, an accomplished solution architect and e-government expert with a vast skill set. His guidance has been invaluable in my career growth, especially when he advised me to learn Flutter. His expertise and innovative approach make him an exceptional asset to any organization.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/60/60" alt="Nooruddin Bhatti" class="img-fluid">
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Nooruddin Bhatti</h5>
+                            <p class="mb-0 text-muted">Senior System Analyst</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>A driven, ambitious individual with an infectious enthusiasm for any project. I am personally envious of Mohamed Yasser's many obvious achievements and his dedication to the pursuit of business excellence. Very inspirational to work with him. A systematic and smart Developer who knows how to manage work.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/60/60" alt="Atheek Ahamed" class="img-fluid">
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Atheek Ahamed</h5>
+                            <p class="mb-0 text-muted">Technical Lead</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Yasser arafath is a well skilled & experienced professional in IT development fields. He is also a good technical lead & team player. He is always curious on new technologies. And also a good solution provider for any kind of technical problems.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/60/60" alt="Mohamed Riaz" class="img-fluid">
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Mohamed Riaz</h5>
+                            <p class="mb-0 text-muted">Logistics Digital Transformation Leader</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Yasser Arafat is a professional keen to identify the best fit solution for any given problem. Taking care of the customer needs is in his priority list and never shies away from taking ownership of providing the best service. He is a natural thought leader amongst a team. Excellent to work with.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/60/60" alt="Mohamed Fahad" class="img-fluid">
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Mohamed Fahad</h5>
+                            <p class="mb-0 text-muted">Systems Manager</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Mohammed Yasser Arafath is a well experienced analyst in IT development. Good solution provider for difficult technical task. Good team worker.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="/api/placeholder/60/60" alt="Adnan Ali" class="img-fluid">
+                        </div>
+                        <div>
+                            <h5 class="mb-0">Adnan Ali</h5>
+                            <p class="mb-0 text-muted">Senior Software Engineer</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-body">
+                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Yasser is a thorough professional. With remarkable solution finding skills and technological enthusiasm; he was an asset to the team, and will continue to be so in any organization which he would be working for.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section" style="background: var(--light-gradient);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm rounded-4 p-4">
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="service-icon me-3" style="width: 50px; height: 50px; font-size: 20px;">
+                                        <i class="far fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">Email</h5>
+                                        <a href="mailto:yasser.experiments@gmail.com" class="text-decoration-none" style="color: var(--primary-color);">yasser.experiments@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="d-flex align-items-center">
+                                    <div class="service-icon me-3" style="width: 50px; height: 50px; font-size: 20px;">
+                                        <i class="fab fa-linkedin"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">LinkedIn</h5>
+                                        <a href="https://www.linkedin.com/in/moyasser/" class="text-decoration-none" style="color: var(--primary-color);" target="_blank">moyasser</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="service-icon me-3" style="width: 50px; height: 50px; font-size: 20px;">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="mb-1">GitHub</h5>
+                                        <a href="https://github.com/yasserrmd" class="text-decoration-none" style="color: var(--primary-color);" target="_blank">yasserrmd</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <h5 class="mb-3">Connect With Me</h5>
+                            <div class="d-flex justify-content-center">
+                                <a href="https://www.linkedin.com/in/moyasser/" class="social-icon mx-2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/yasserrmd" class="social-icon mx-2" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://huggingface.co/yasserrmd" class="social-icon mx-2" target="_blank"><i class="fas fa-robot"></i></a>
+                                <a href="mailto:yasser.experiments@gmail.com" class="social-icon mx-2"><i class="far fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <p class="mb-0">&copy; 2025 Mohamed Yasser. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
