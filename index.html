@@ -33,6 +33,8 @@
       --radius-md: 18px;
       --rail-width: 108px;
       --content-max: 1380px;
+      --parallax-x: 0;
+      --parallax-y: 0;
     }
 
     * {
@@ -102,6 +104,10 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    section[id] {
+      scroll-margin-top: 110px;
     }
 
     button,
@@ -451,7 +457,11 @@
       left: 54%;
       width: min(100%, 520px);
       aspect-ratio: 1;
-      transform: translate(-50%, -50%);
+      transform: translate(
+        calc(-50% + (var(--parallax-x) * 18px)),
+        calc(-50% + (var(--parallax-y) * 18px))
+      );
+      transition: transform 260ms ease-out;
       pointer-events: none;
     }
 
@@ -502,6 +512,7 @@
       transform: translateX(50%);
       background: radial-gradient(circle, rgba(197, 151, 69, 0.2), transparent 72%);
       filter: blur(22px);
+      opacity: 0.8;
     }
 
     .brand-mark {
@@ -529,6 +540,11 @@
       box-shadow: 0 24px 54px rgba(17, 37, 67, 0.14);
       backdrop-filter: blur(16px);
       z-index: 2;
+      transform: translate(
+        calc(var(--parallax-x) * -12px),
+        calc(var(--parallax-y) * -12px)
+      );
+      transition: transform 260ms ease-out, box-shadow 220ms ease;
     }
 
     .portrait-card img {
@@ -973,6 +989,7 @@
         );
       mix-blend-mode: screen;
       opacity: 0.55;
+      background-size: 180% 100%, auto, auto;
     }
 
     .work-visual--municipality {
@@ -1172,6 +1189,174 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
+    }
+
+    .motion-ready .motion-item {
+      opacity: 0;
+      transform: translate3d(0, 34px, 0) scale(0.985);
+      filter: blur(10px);
+      transition:
+        opacity 720ms ease,
+        transform 820ms cubic-bezier(0.2, 0.85, 0.18, 1),
+        filter 720ms ease;
+      transition-delay: var(--motion-delay, 0ms);
+      will-change: opacity, transform, filter;
+    }
+
+    .motion-ready .motion-item.is-visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    .motion-ready .hero-copy.motion-item {
+      transition-duration: 820ms, 920ms, 820ms;
+    }
+
+    .motion-ready .hero-art.motion-item {
+      transform: translate3d(0, 18px, 0) scale(0.99);
+    }
+
+    .motion-ready .hero-art.motion-item.is-visible,
+    .motion-ready .hero-aside.motion-item.is-visible {
+      transform: none;
+    }
+
+    .motion-ready .hero-aside.motion-item {
+      transform: translate3d(18px, 18px, 0) scale(0.985);
+    }
+
+    body:not(.motion-ready) .motion-item {
+      opacity: 1;
+      transform: none;
+      filter: none;
+    }
+
+    @keyframes floatSlabOne {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+      50% { transform: translateX(-50%) translateY(-14px) rotate(45deg); }
+    }
+
+    @keyframes floatSlabTwo {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+      50% { transform: translateX(-50%) translateY(-10px) rotate(45deg); }
+    }
+
+    @keyframes floatSlabThree {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+      50% { transform: translateX(-50%) translateY(-8px) rotate(45deg); }
+    }
+
+    @keyframes floatSlabFour {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
+      50% { transform: translateX(-50%) translateY(-6px) rotate(45deg); }
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { opacity: 0.55; transform: translateX(50%) scale(0.95); }
+      50% { opacity: 0.9; transform: translateX(50%) scale(1.05); }
+    }
+
+    @keyframes logoDrift {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+
+    @keyframes portraitFloat {
+      0%, 100% { box-shadow: 0 24px 54px rgba(17, 37, 67, 0.14); }
+      50% { box-shadow: 0 30px 70px rgba(17, 37, 67, 0.18); }
+    }
+
+    @keyframes layerHover {
+      0%, 100% { transform: translateX(-50%) rotate(-2deg); }
+      50% { transform: translateX(-50%) translateY(-8px) rotate(-2deg); }
+    }
+
+    @keyframes scanVisual {
+      0% { background-position: 0% 0%, 0 0, 0 0; }
+      100% { background-position: 140% 0%, 0 0, 0 0; }
+    }
+
+    @keyframes ambientTilt {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(1deg) scale(1.02); }
+    }
+
+    .stack-slab--one {
+      animation: floatSlabOne 7.8s ease-in-out infinite;
+    }
+
+    .stack-slab--two {
+      animation: floatSlabTwo 7.2s ease-in-out infinite;
+    }
+
+    .stack-slab--three {
+      animation: floatSlabThree 6.8s ease-in-out infinite;
+    }
+
+    .stack-slab--four {
+      animation: floatSlabFour 6.3s ease-in-out infinite;
+    }
+
+    .stack-glow {
+      animation: glowPulse 6.8s ease-in-out infinite;
+    }
+
+    .brand-mark {
+      animation: logoDrift 6.3s ease-in-out infinite;
+    }
+
+    .portrait-card {
+      animation: portraitFloat 7.5s ease-in-out infinite;
+    }
+
+    .layer-node {
+      animation: layerHover 8s ease-in-out infinite;
+    }
+
+    .layer-node--logic {
+      animation-delay: 140ms;
+    }
+
+    .layer-node--data {
+      animation-delay: 280ms;
+    }
+
+    .layer-node--infrastructure {
+      animation-delay: 420ms;
+    }
+
+    .work-visual::after {
+      animation: scanVisual 12s linear infinite;
+    }
+
+    .work-visual::before {
+      animation: ambientTilt 10s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .motion-ready .motion-item,
+      .motion-ready .motion-item.is-visible,
+      .stack-slab--one,
+      .stack-slab--two,
+      .stack-slab--three,
+      .stack-slab--four,
+      .stack-glow,
+      .brand-mark,
+      .portrait-card,
+      .layer-node,
+      .work-visual::after,
+      .work-visual::before {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+      }
     }
 
     @media (max-width: 1200px) {
@@ -1723,5 +1908,100 @@
       </div>
     </main>
   </div>
+  <script>
+    (() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const motionItems = [
+        ...document.querySelectorAll(".hero-copy, .hero-art, .hero-aside, .philosophy-intro, .philosophy-card, .systems-card, .thinking-copy, .flow-box, .layer-stack, .work-intro, .work-card, .impact-intro, .impact-card, .connect-copy, .contact-link")
+      ];
+      const navLinks = [...document.querySelectorAll(".phase-link[data-section]")];
+      const sections = navLinks
+        .map((link) => document.getElementById(link.dataset.section))
+        .filter(Boolean);
+
+      motionItems.forEach((item, index) => {
+        item.classList.add("motion-item");
+        item.style.setProperty("--motion-delay", `${Math.min((index % 6) * 70, 350)}ms`);
+      });
+
+      const setActiveSection = (id) => {
+        navLinks.forEach((link) => {
+          const active = link.dataset.section === id;
+          link.classList.toggle("is-active", active);
+          if (active) {
+            link.setAttribute("aria-current", "true");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+          if (visible) {
+            setActiveSection(visible.target.id);
+          }
+        },
+        {
+          threshold: [0.2, 0.45, 0.7],
+          rootMargin: "-12% 0px -42% 0px"
+        }
+      );
+
+      sections.forEach((section) => sectionObserver.observe(section));
+      setActiveSection("intro");
+
+      if (reduceMotion) {
+        motionItems.forEach((item) => item.classList.add("is-visible"));
+      } else {
+        requestAnimationFrame(() => {
+          document.body.classList.add("motion-ready");
+          document
+            .querySelectorAll(".hero-copy, .hero-art, .hero-aside")
+            .forEach((item) => item.classList.add("is-visible"));
+        });
+
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.16,
+            rootMargin: "0px 0px -10% 0px"
+          }
+        );
+
+        motionItems.forEach((item) => revealObserver.observe(item));
+
+        const hero = document.querySelector(".hero");
+        const finePointer = window.matchMedia("(pointer: fine)").matches;
+
+        if (hero && finePointer) {
+          const setParallax = (x, y) => {
+            hero.style.setProperty("--parallax-x", x.toFixed(3));
+            hero.style.setProperty("--parallax-y", y.toFixed(3));
+          };
+
+          hero.addEventListener("pointermove", (event) => {
+            const rect = hero.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / rect.width - 0.5;
+            const y = (event.clientY - rect.top) / rect.height - 0.5;
+            setParallax(x, y);
+          });
+
+          hero.addEventListener("pointerleave", () => setParallax(0, 0));
+        }
+      }
+    })();
+  </script>
 </body>
 </html>

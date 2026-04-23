@@ -1,25 +1,74 @@
-<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="640" height="640" viewBox="0 0 640 640" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="gold" x1="34" y1="20" x2="222" y2="236" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F7E8B5"/>
-      <stop offset="0.35" stop-color="#D9B561"/>
-      <stop offset="0.7" stop-color="#A46E22"/>
-      <stop offset="1" stop-color="#F3D58A"/>
+    <linearGradient id="goldFrame" x1="182" y1="96" x2="496" y2="388" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE9B0"/>
+      <stop offset="0.18" stop-color="#F7C962"/>
+      <stop offset="0.48" stop-color="#C48A24"/>
+      <stop offset="0.76" stop-color="#8B5208"/>
+      <stop offset="1" stop-color="#FFE3A4"/>
     </linearGradient>
-    <linearGradient id="slate" x1="54" y1="46" x2="194" y2="210" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#F9FBFF"/>
-      <stop offset="0.4" stop-color="#DEE6F3"/>
-      <stop offset="1" stop-color="#9FB0CA"/>
+    <linearGradient id="goldEdge" x1="206" y1="124" x2="468" y2="362" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5B3400"/>
+      <stop offset="0.45" stop-color="#B16A0D"/>
+      <stop offset="1" stop-color="#623A02"/>
     </linearGradient>
-    <filter id="shadow" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#0D1E39" flood-opacity="0.22"/>
+    <linearGradient id="silverTop" x1="194" y1="196" x2="444" y2="374" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDFEFF"/>
+      <stop offset="0.35" stop-color="#E9EDF2"/>
+      <stop offset="0.72" stop-color="#C8CDD4"/>
+      <stop offset="1" stop-color="#A4AAB3"/>
+    </linearGradient>
+    <linearGradient id="silverFace" x1="222" y1="236" x2="430" y2="390" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.4" stop-color="#ECEEF1"/>
+      <stop offset="1" stop-color="#C7CDD3"/>
+    </linearGradient>
+    <linearGradient id="blueTop" x1="162" y1="266" x2="478" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17345E"/>
+      <stop offset="0.48" stop-color="#0D1C37"/>
+      <stop offset="1" stop-color="#071327"/>
+    </linearGradient>
+    <linearGradient id="blueEdge" x1="140" y1="314" x2="500" y2="522" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#264A84"/>
+      <stop offset="0.35" stop-color="#102746"/>
+      <stop offset="1" stop-color="#020A16"/>
+    </linearGradient>
+    <linearGradient id="navyLetter" x1="208" y1="170" x2="352" y2="296" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B3B72"/>
+      <stop offset="0.44" stop-color="#0E2243"/>
+      <stop offset="1" stop-color="#020C1C"/>
+    </linearGradient>
+    <linearGradient id="goldLetter" x1="332" y1="226" x2="466" y2="370" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE4A1"/>
+      <stop offset="0.32" stop-color="#F0B63A"/>
+      <stop offset="0.72" stop-color="#B37010"/>
+      <stop offset="1" stop-color="#F7D48A"/>
+    </linearGradient>
+    <filter id="shadow" x="64" y="84" width="512" height="500" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#071327" flood-opacity="0.22"/>
+    </filter>
+    <filter id="letterShadow" x="152" y="124" width="336" height="300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#09172E" flood-opacity="0.24"/>
     </filter>
   </defs>
+
   <g filter="url(#shadow)">
-    <path d="M128 20L232 128L128 236L24 128L128 20Z" fill="rgba(255,255,255,0.02)"/>
-    <path d="M128 28L224 128L128 228L32 128L128 28Z" fill="none" stroke="url(#gold)" stroke-width="8"/>
-    <path d="M128 48L204 128L128 208L52 128L128 48Z" fill="url(#slate)" fill-opacity="0.32" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
-    <text x="78" y="152" fill="#1C355C" font-family="'Times New Roman', Georgia, serif" font-size="96" font-weight="700">M</text>
-    <text x="145" y="172" fill="url(#gold)" font-family="'Times New Roman', Georgia, serif" font-size="76" font-weight="700">Y</text>
+    <path d="M122 420L320 522L518 420L320 318L122 420Z" fill="url(#blueEdge)"/>
+    <path d="M122 420L320 318L518 420" stroke="#2D4D86" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M158 366L320 450L482 366L320 282L158 366Z" fill="url(#blueTop)"/>
+    <path d="M158 366L320 282L482 366" stroke="#4A6BA6" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M176 300L320 376L464 300L320 224L176 300Z" fill="url(#silverTop)"/>
+    <path d="M176 300L320 224L464 300" stroke="#F9FBFD" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M176 300V306L320 388V376L176 300Z" fill="#B5BBC4"/>
+    <path d="M464 300V306L320 388V376L464 300Z" fill="#E7EAEE"/>
+    <path d="M194 224L446 224L446 224.4L320 300L194 224.4V224Z" fill="url(#silverFace)" opacity="0.68"/>
   </g>
+
+  <g filter="url(#letterShadow)">
+    <text x="280" y="296" fill="url(#navyLetter)" font-family="'Times New Roman', Georgia, serif" font-size="190" font-weight="700" text-anchor="middle" stroke="#0B1D39" stroke-width="8">M</text>
+    <text x="386" y="338" fill="url(#goldLetter)" font-family="'Times New Roman', Georgia, serif" font-size="160" font-weight="700" text-anchor="middle" stroke="#87510A" stroke-width="8">Y</text>
+  </g>
+
+  <path d="M320 104L500 250L320 396L140 250L320 104Z" fill="none" stroke="url(#goldFrame)" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M320 122L478 250L320 378L162 250L320 122Z" fill="none" stroke="url(#goldEdge)" stroke-width="8" stroke-linejoin="round"/>
 </svg>
