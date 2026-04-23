@@ -17,14 +17,15 @@
       --panel-hi:   rgba(255,255,255,0.92);
       --ink:        #14253E;
       --ink-soft:   #526070;
-      --navy:       #0E1F38;
-      --navy-mid:   #163052;
-      --gold:       #C59745;
-      --gold-lt:    #ECD48A;
-      --gold-glow:  rgba(197,151,69,0.22);
-      --sh-xl:      0 40px 100px rgba(14,31,56,0.12);
-      --sh-lg:      0 22px 60px rgba(14,31,56,0.10);
-      --sh-md:      0 12px 36px rgba(14,31,56,0.08);
+      --navy:       #0A1F44;
+      --navy-mid:   #142D5E;
+      --gold:       #C9A227;
+      --gold-lt:    #F0D68A;
+      --gold-glow:  rgba(201,162,39,0.22);
+      --gray:       #E5E7EB;
+      --sh-xl:      0 40px 100px rgba(10,31,68,0.12);
+      --sh-lg:      0 22px 60px rgba(10,31,68,0.10);
+      --sh-md:      0 12px 36px rgba(10,31,68,0.08);
       --r-xl: 34px; --r-lg: 24px; --r-md: 18px;
       --rail: 108px;
     }
@@ -35,8 +36,8 @@
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at 6% 10%, rgba(197,151,69,0.15), transparent 26%),
-        radial-gradient(circle at 94% 88%, rgba(14,31,56,0.08), transparent 28%),
+        radial-gradient(circle at 6% 10%, rgba(201,162,39,0.15), transparent 26%),
+        radial-gradient(circle at 94% 88%, rgba(10,31,68,0.08), transparent 28%),
         linear-gradient(180deg, #F5F7FB 0%, #EEF1F7 42%, #EBF0F8 100%);
       overflow-x: hidden;
     }
@@ -44,19 +45,19 @@
       content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
         linear-gradient(rgba(255,255,255,0.48), rgba(255,255,255,0.12)),
-        repeating-linear-gradient(90deg, transparent 0, transparent 89px, rgba(20,37,62,0.03) 90px),
-        repeating-linear-gradient(0deg,  transparent 0, transparent 89px, rgba(20,37,62,0.03) 90px);
+        repeating-linear-gradient(90deg, transparent 0, transparent 89px, rgba(10,31,68,0.03) 90px),
+        repeating-linear-gradient(0deg,  transparent 0, transparent 89px, rgba(10,31,68,0.03) 90px);
       opacity: 0.52;
     }
     body::after {
       content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
       background:
-        radial-gradient(circle at 12% 16%, rgba(197,151,69,0.20) 0 2px, transparent 2px),
-        radial-gradient(circle at 38% 44%, rgba(197,151,69,0.14) 0 1.5px, transparent 1.5px),
-        radial-gradient(circle at 74% 22%, rgba(197,151,69,0.14) 0 1.7px, transparent 1.7px),
-        radial-gradient(circle at 88% 60%, rgba(197,151,69,0.16) 0 2px, transparent 2px),
-        radial-gradient(circle at 20% 76%, rgba(197,151,69,0.15) 0 1.6px, transparent 1.6px),
-        radial-gradient(circle at 56% 86%, rgba(197,151,69,0.12) 0 1.4px, transparent 1.4px);
+        radial-gradient(circle at 12% 16%, rgba(201,162,39,0.20) 0 2px, transparent 2px),
+        radial-gradient(circle at 38% 44%, rgba(201,162,39,0.14) 0 1.5px, transparent 1.5px),
+        radial-gradient(circle at 74% 22%, rgba(201,162,39,0.14) 0 1.7px, transparent 1.7px),
+        radial-gradient(circle at 88% 60%, rgba(201,162,39,0.16) 0 2px, transparent 2px),
+        radial-gradient(circle at 20% 76%, rgba(201,162,39,0.15) 0 1.6px, transparent 1.6px),
+        radial-gradient(circle at 56% 86%, rgba(201,162,39,0.12) 0 1.4px, transparent 1.4px);
     }
     img { display: block; max-width: 100%; }
     a { color: inherit; text-decoration: none; }
@@ -67,7 +68,7 @@
     #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
     .pt {
       position: absolute; border-radius: 50%;
-      background: radial-gradient(circle, rgba(197,151,69,0.85), rgba(197,151,69,0.18) 70%);
+      background: radial-gradient(circle, rgba(201,162,39,0.85), rgba(201,162,39,0.18) 70%);
       animation: ptRise linear infinite; opacity: 0;
     }
     @keyframes ptRise {
@@ -126,8 +127,8 @@
     .phase-link:hover, .phase-link.is-active { color: var(--gold); transform: translateY(-1px); }
     .phase-link.is-active::before {
       content: ""; position: absolute; inset: 0.08rem 0.32rem; border-radius: 14px;
-      border: 1px solid rgba(197,151,69,0.24); background: rgba(255,255,255,0.70);
-      box-shadow: 0 8px 20px rgba(197,151,69,0.10); z-index: -1;
+      border: 1px solid rgba(201,162,39,0.24); background: rgba(255,255,255,0.70);
+      box-shadow: 0 8px 20px rgba(201,162,39,0.10); z-index: -1;
     }
     .phase-icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .phase-num   { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; }
@@ -580,9 +581,66 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .mi { opacity: 1 !important; transform: none !important; filter: none !important; }
     }
+
+    /* ── PAGE LOADER ── */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.55s ease, visibility 0.55s ease;
+    }
+    #loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .loader-inner { display: flex; flex-direction: column; align-items: center; gap: 1.6rem; }
+    .loader-logo {
+      width: 92px; height: 92px; object-fit: contain;
+      animation: loaderLogoIn 0.8s cubic-bezier(0.2,0.85,0.18,1) both;
+    }
+    @keyframes loaderLogoIn {
+      from { transform: scale(0.55) rotate(-8deg); opacity: 0; filter: blur(6px); }
+      to   { transform: scale(1) rotate(0deg); opacity: 1; filter: blur(0); }
+    }
+    .loader-bar {
+      width: 180px; height: 2px; background: rgba(229,231,235,0.12); border-radius: 2px; overflow: hidden;
+    }
+    .loader-progress {
+      height: 100%; width: 0; border-radius: 2px;
+      background: linear-gradient(90deg, #C9A227, #F0D68A 50%, #C9A227);
+      animation: loaderFill 1.0s cubic-bezier(0.4,0,0.2,1) 0.3s forwards;
+    }
+    @keyframes loaderFill { to { width: 100%; } }
+    .loader-txt {
+      font-size: 0.60rem; font-weight: 800; letter-spacing: 0.45em; text-transform: uppercase;
+      color: rgba(229,231,235,0.35);
+      animation: loaderTxtIn 0.6s ease 0.2s both;
+    }
+    @keyframes loaderTxtIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ── HERO CASCADE (fires after loader fades) ── */
+    @keyframes heroIn {
+      from { opacity: 0; transform: translateY(20px); filter: blur(7px); }
+      to   { opacity: 1; transform: none; filter: none; }
+    }
+    .hero-eyebrow { animation: heroIn 0.70s cubic-bezier(0.2,0.85,0.18,1) 0.85s both; }
+    .hero-name    { animation: heroIn 0.80s cubic-bezier(0.2,0.85,0.18,1) 1.05s both; }
+    .hero-lead    { animation: heroIn 0.70s cubic-bezier(0.2,0.85,0.18,1) 1.22s both; }
+    .hero-tagline { animation: heroIn 0.65s cubic-bezier(0.2,0.85,0.18,1) 1.38s both; }
+    .hero-actions { animation: heroIn 0.65s cubic-bezier(0.2,0.85,0.18,1) 1.52s both; }
+    .hero-art     { animation: heroIn 0.90s cubic-bezier(0.2,0.85,0.18,1) 1.10s both; }
+
+    /* ── WORK CARD SVG ── */
+    .work-visual svg { display: block; width: 100%; height: 178px; border-radius: 18px; }
   </style>
 </head>
 <body>
+  <!-- Page Loader -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <img class="loader-logo" src="assets/logo.png" alt="">
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+      <p class="loader-txt">Loading</p>
+    </div>
+  </div>
+
   <div id="particles" aria-hidden="true"></div>
 
   <!-- Mobile header -->
@@ -666,7 +724,7 @@
       <section id="intro" class="glass-hi hero">
         <div class="hero-grid">
 
-          <div class="hero-copy mi">
+          <div class="hero-copy">
             <div class="hero-eyebrow">
               <span class="eyebrow-dot"></span>
               <span class="eyebrow-txt">Solution Architect</span>
@@ -688,18 +746,11 @@
             </div>
           </div>
 
-          <div class="hero-art mi" style="--md:110ms">
+          <div class="hero-art">
             <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:1.4rem;width:100%">
               <div class="logo-glow"></div>
               <div class="logo-hero-wrap">
                 <img src="assets/logo.png" alt="MY — Solution Architect logo">
-              </div>
-              <div class="portrait-card glass-hi mi" id="portrait-card" style="--md:240ms">
-                <img src="assets/mohamed-yasser-photo.jpg" alt="Mohamed Yasser">
-                <div>
-                  <p class="portrait-name">Mohamed Yasser</p>
-                  <p class="portrait-role">Solution Architect &amp; Systems Designer</p>
-                </div>
               </div>
             </div>
           </div>
@@ -874,8 +925,44 @@
 
           <article class="glass work-card mi" style="--md:75ms">
             <div class="work-visual">
-              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80" alt="Municipality AI System">
-              <div class="work-overlay"></div>
+              <svg viewBox="0 0 400 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="wv1bg" x1="0" y1="0" x2="0" y2="178" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#061428"/><stop offset="1" stop-color="#0A1F44"/></linearGradient>
+                  <linearGradient id="wv1scan" x1="0" y1="0" x2="0" y2="6" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#C9A227" stop-opacity="0"/><stop offset="0.5" stop-color="#C9A227" stop-opacity="0.5"/><stop offset="1" stop-color="#C9A227" stop-opacity="0"/></linearGradient>
+                </defs>
+                <rect width="400" height="178" fill="url(#wv1bg)"/>
+                <!-- grid -->
+                <line x1="100" y1="0" x2="100" y2="178" stroke="#E5E7EB" stroke-opacity="0.03"/><line x1="200" y1="0" x2="200" y2="178" stroke="#E5E7EB" stroke-opacity="0.03"/><line x1="300" y1="0" x2="300" y2="178" stroke="#E5E7EB" stroke-opacity="0.03"/><line x1="0" y1="89" x2="400" y2="89" stroke="#E5E7EB" stroke-opacity="0.03"/>
+                <!-- buildings left -->
+                <rect x="10" y="38" width="18" height="140" fill="#0C2147"/><rect x="13" y="44" width="4" height="4" fill="#C9A227" opacity="0.65" rx="0.5"/><rect x="20" y="44" width="4" height="4" fill="#C9A227" opacity="0.35" rx="0.5"/><rect x="13" y="54" width="4" height="4" fill="#C9A227" opacity="0.4" rx="0.5"/><rect x="20" y="54" width="4" height="4" fill="#C9A227" opacity="0.7" rx="0.5"/><rect x="13" y="64" width="4" height="4" fill="#C9A227" opacity="0.5" rx="0.5"/><rect x="20" y="64" width="4" height="4" fill="#C9A227" opacity="0.25" rx="0.5"/>
+                <rect x="32" y="56" width="24" height="122" fill="#0B1E42"/><rect x="36" y="63" width="5" height="5" fill="#C9A227" opacity="0.5" rx="0.5"/><rect x="46" y="63" width="5" height="5" fill="#C9A227" opacity="0.72" rx="0.5"/><rect x="36" y="74" width="5" height="5" fill="#C9A227" opacity="0.3" rx="0.5"/><rect x="46" y="74" width="5" height="5" fill="#C9A227" opacity="0.45" rx="0.5"/><rect x="36" y="85" width="5" height="5" fill="#C9A227" opacity="0.6" rx="0.5"/><rect x="46" y="85" width="5" height="5" fill="#C9A227" opacity="0.25" rx="0.5"/>
+                <rect x="60" y="78" width="28" height="100" fill="#0D2350"/><rect x="64" y="85" width="5" height="5" fill="#C9A227" opacity="0.45" rx="0.5"/><rect x="73" y="85" width="5" height="5" fill="#C9A227" opacity="0.65" rx="0.5"/><rect x="64" y="96" width="5" height="5" fill="#C9A227" opacity="0.3" rx="0.5"/><rect x="73" y="96" width="5" height="5" fill="#C9A227" opacity="0.5" rx="0.5"/>
+                <!-- buildings right -->
+                <rect x="272" y="44" width="22" height="134" fill="#0C2147"/><rect x="276" y="52" width="4" height="4" fill="#C9A227" opacity="0.6" rx="0.5"/><rect x="284" y="52" width="4" height="4" fill="#C9A227" opacity="0.35" rx="0.5"/><rect x="276" y="62" width="4" height="4" fill="#C9A227" opacity="0.45" rx="0.5"/><rect x="284" y="62" width="4" height="4" fill="#C9A227" opacity="0.7" rx="0.5"/>
+                <rect x="298" y="24" width="32" height="154" fill="#0B1E42"/><rect x="302" y="32" width="5" height="5" fill="#C9A227" opacity="0.65" rx="0.5"/><rect x="312" y="32" width="5" height="5" fill="#C9A227" opacity="0.4" rx="0.5"/><rect x="322" y="32" width="5" height="5" fill="#C9A227" opacity="0.55" rx="0.5"/><rect x="302" y="44" width="5" height="5" fill="#C9A227" opacity="0.35" rx="0.5"/><rect x="312" y="44" width="5" height="5" fill="#C9A227" opacity="0.7" rx="0.5"/><rect x="322" y="44" width="5" height="5" fill="#C9A227" opacity="0.25" rx="0.5"/><rect x="302" y="56" width="5" height="5" fill="#C9A227" opacity="0.5" rx="0.5"/><rect x="312" y="56" width="5" height="5" fill="#C9A227" opacity="0.45" rx="0.5"/>
+                <rect x="334" y="60" width="20" height="118" fill="#0D2350"/><rect x="338" y="68" width="4" height="4" fill="#C9A227" opacity="0.5" rx="0.5"/><rect x="346" y="68" width="4" height="4" fill="#C9A227" opacity="0.3" rx="0.5"/>
+                <rect x="358" y="46" width="18" height="132" fill="#0C2147"/><rect x="362" y="54" width="4" height="4" fill="#C9A227" opacity="0.55" rx="0.5"/><rect x="370" y="54" width="4" height="4" fill="#C9A227" opacity="0.3" rx="0.5"/><rect x="362" y="64" width="4" height="4" fill="#C9A227" opacity="0.4" rx="0.5"/><rect x="370" y="64" width="4" height="4" fill="#C9A227" opacity="0.7" rx="0.5"/>
+                <!-- road -->
+                <rect x="0" y="144" width="400" height="34" fill="#040D1C"/><rect x="0" y="143" width="400" height="2" fill="#162B55"/>
+                <rect x="0" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="38" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="76" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="114" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="152" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="190" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="228" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="266" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="304" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="342" y="160" width="26" height="1.5" fill="#C9A227" opacity="0.2"/><rect x="380" y="160" width="18" height="1.5" fill="#C9A227" opacity="0.2"/>
+                <!-- vehicle -->
+                <rect x="148" y="146" width="54" height="16" rx="3" fill="#163A74"/><rect x="155" y="139" width="38" height="13" rx="2.5" fill="#1B4488"/><circle cx="162" cy="162" r="4.5" fill="#03091B"/><circle cx="194" cy="162" r="4.5" fill="#03091B"/><ellipse cx="202" cy="153" rx="5" ry="2.5" fill="#C9A227" opacity="0.28"/>
+                <!-- camera on roof -->
+                <rect x="167" y="135" width="12" height="7" rx="1.5" fill="#C9A227" opacity="0.9"/><circle cx="173" cy="138.5" r="2.2" fill="#0A1F44"/><circle cx="173" cy="138.5" r="1" fill="#C9A227" opacity="0.5"/>
+                <!-- detection cone -->
+                <line x1="173" y1="137" x2="90" y2="153" stroke="#C9A227" stroke-opacity="0.18" stroke-width="0.8" stroke-dasharray="3,2.5"/><line x1="173" y1="137" x2="218" y2="153" stroke="#C9A227" stroke-opacity="0.13" stroke-width="0.8" stroke-dasharray="3,2.5"/>
+                <!-- detection boxes -->
+                <rect x="74" y="147" width="28" height="15" rx="1.5" stroke="#C9A227" stroke-width="1.5" fill="#C9A227" fill-opacity="0.08"><animate attributeName="opacity" values="1;0.2;1" dur="1.7s" repeatCount="indefinite"/></rect>
+                <text x="75" y="145" fill="#C9A227" font-size="5.5" font-family="monospace" opacity="0.9">DETECT<animate attributeName="opacity" values="0.9;0.15;0.9" dur="1.7s" repeatCount="indefinite"/></text>
+                <rect x="218" y="150" width="22" height="12" rx="1.5" stroke="#C9A227" stroke-width="1.5" fill="#C9A227" fill-opacity="0.08"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.3s" repeatCount="indefinite"/></rect>
+                <!-- scan line -->
+                <rect x="0" y="0" width="400" height="6" fill="url(#wv1scan)"><animateTransform attributeName="transform" type="translate" from="0,0" to="0,178" dur="3.2s" repeatCount="indefinite"/></rect>
+                <!-- HUD -->
+                <rect x="6" y="6" width="72" height="14" rx="2" fill="#0A1F44" fill-opacity="0.75"/>
+                <text x="10" y="16" fill="#C9A227" font-size="6.5" font-family="monospace" font-weight="600" opacity="0.85">● REC  LIVE</text>
+                <text x="8" y="28" fill="#E5E7EB" font-size="5.5" font-family="monospace" opacity="0.3">MUN-AI v2.4 · DETECTION ON</text>
+                <path d="M382 8 L392 8 L392 18" stroke="#C9A227" stroke-opacity="0.4" stroke-width="1" fill="none"/><path d="M382 170 L392 170 L392 160" stroke="#C9A227" stroke-opacity="0.4" stroke-width="1" fill="none"/><path d="M8 170 L8 160" stroke="#C9A227" stroke-opacity="0.3" stroke-width="1" fill="none"/>
+              </svg>
               <div class="work-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
             </div>
             <h3 class="work-title">Municipality AI System</h3>
@@ -885,8 +972,59 @@
 
           <article class="glass work-card mi" style="--md:145ms">
             <div class="work-visual">
-              <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?w=800&q=80" alt="Edge Document Intelligence">
-              <div class="work-overlay"></div>
+              <svg viewBox="0 0 400 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="wv2bg" x1="0" y1="0" x2="400" y2="178" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#071224"/><stop offset="1" stop-color="#0C2147"/></linearGradient>
+                  <linearGradient id="wv2chip" x1="150" y1="60" x2="250" y2="120" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#142D5E"/><stop offset="1" stop-color="#0A1F44"/></linearGradient>
+                </defs>
+                <rect width="400" height="178" fill="url(#wv2bg)"/>
+                <!-- subtle grid -->
+                <line x1="80" y1="0" x2="80" y2="178" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="160" y1="0" x2="160" y2="178" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="240" y1="0" x2="240" y2="178" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="320" y1="0" x2="320" y2="178" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="0" y1="60" x2="400" y2="60" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="0" y1="120" x2="400" y2="120" stroke="#E5E7EB" stroke-opacity="0.025"/>
+                <!-- central chip body -->
+                <rect x="148" y="54" width="104" height="70" rx="6" fill="url(#wv2chip)" stroke="#C9A227" stroke-opacity="0.4" stroke-width="1"/>
+                <!-- chip inner detail -->
+                <rect x="162" y="66" width="76" height="46" rx="3" fill="#0A1F44" stroke="#C9A227" stroke-opacity="0.25" stroke-width="0.8"/>
+                <rect x="170" y="74" width="60" height="30" rx="2" fill="#071224"/>
+                <!-- chip core label -->
+                <text x="200" y="87" fill="#C9A227" font-size="7" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.9">EDGE</text>
+                <text x="200" y="97" fill="#E5E7EB" font-size="5.5" font-family="monospace" text-anchor="middle" opacity="0.5">PROCESSOR</text>
+                <!-- chip pulse ring -->
+                <circle cx="200" cy="89" r="32" stroke="#C9A227" stroke-opacity="0" stroke-width="1.5" fill="none"><animate attributeName="r" values="32;48;32" dur="2.4s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="2.4s" repeatCount="indefinite"/></circle>
+                <!-- chip pins top -->
+                <rect x="168" y="47" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="180" y="47" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="192" y="47" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="204" y="47" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="216" y="47" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="228" y="47" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/>
+                <!-- chip pins bottom -->
+                <rect x="168" y="123" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="180" y="123" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="192" y="123" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="204" y="123" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="216" y="123" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/><rect x="228" y="123" width="4" height="8" rx="1" fill="#C9A227" opacity="0.5"/>
+                <!-- chip pins left -->
+                <rect x="133" y="68" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="133" y="78" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="133" y="88" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="133" y="98" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="133" y="108" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/>
+                <!-- chip pins right -->
+                <rect x="251" y="68" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="251" y="78" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="251" y="88" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="251" y="98" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/><rect x="251" y="108" width="16" height="3" rx="1" fill="#C9A227" opacity="0.5"/>
+                <!-- documents left (flowing in) -->
+                <g opacity="0.9"><rect x="28" y="48" width="50" height="64" rx="3" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.3" stroke-width="0.8"/><line x1="36" y1="62" x2="70" y2="62" stroke="#E5E7EB" stroke-opacity="0.35" stroke-width="1.5"/><line x1="36" y1="70" x2="70" y2="70" stroke="#E5E7EB" stroke-opacity="0.25" stroke-width="1.5"/><line x1="36" y1="78" x2="60" y2="78" stroke="#E5E7EB" stroke-opacity="0.2" stroke-width="1.5"/><line x1="36" y1="86" x2="70" y2="86" stroke="#E5E7EB" stroke-opacity="0.2" stroke-width="1.5"/><line x1="36" y1="94" x2="55" y2="94" stroke="#E5E7EB" stroke-opacity="0.15" stroke-width="1.5"/><text x="36" y="57" fill="#C9A227" font-size="5.5" font-family="monospace" opacity="0.7">DOC_1.pdf</text></g>
+                <g opacity="0.7"><rect x="46" y="82" width="44" height="56" rx="3" fill="#0B1E42" stroke="#C9A227" stroke-opacity="0.2" stroke-width="0.8"/><line x1="54" y1="94" x2="82" y2="94" stroke="#E5E7EB" stroke-opacity="0.3" stroke-width="1.5"/><line x1="54" y1="102" x2="82" y2="102" stroke="#E5E7EB" stroke-opacity="0.2" stroke-width="1.5"/><line x1="54" y1="110" x2="72" y2="110" stroke="#E5E7EB" stroke-opacity="0.2" stroke-width="1.5"/></g>
+                <!-- circuit trace from docs to chip -->
+                <path d="M90 79 L133 79" stroke="#C9A227" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3,2"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.2s" repeatCount="indefinite"/></path>
+                <path d="M90 89 L110 89 L110 89 L133 89" stroke="#C9A227" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3,2"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.6s" repeatCount="indefinite"/></path>
+                <!-- output right side -->
+                <!-- processed output boxes -->
+                <rect x="290" y="50" width="90" height="28" rx="4" fill="#071C3C" stroke="#C9A227" stroke-opacity="0.35" stroke-width="0.8"/>
+                <text x="300" y="60" fill="#C9A227" font-size="5.5" font-family="monospace" opacity="0.7">EXTRACTED</text>
+                <text x="300" y="70" fill="#E5E7EB" font-size="5" font-family="monospace" opacity="0.5">Fields: 24 / Match: 98%</text>
+                <rect x="290" y="86" width="90" height="28" rx="4" fill="#071C3C" stroke="#C9A227" stroke-opacity="0.25" stroke-width="0.8"/>
+                <text x="300" y="96" fill="#C9A227" font-size="5.5" font-family="monospace" opacity="0.7">VALIDATED</text>
+                <text x="300" y="106" fill="#E5E7EB" font-size="5" font-family="monospace" opacity="0.5">Confidence: HIGH</text>
+                <rect x="290" y="122" width="90" height="24" rx="4" fill="#071C3C" stroke="#C9A227" stroke-opacity="0.2" stroke-width="0.8"/>
+                <text x="300" y="132" fill="#C9A227" font-size="5.5" font-family="monospace" opacity="0.7">STORED</text>
+                <text x="300" y="142" fill="#E5E7EB" font-size="5" font-family="monospace" opacity="0.5">db.local → queue</text>
+                <!-- circuit trace chip to output -->
+                <path d="M267 79 L290 79" stroke="#C9A227" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="3,2"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.0s" repeatCount="indefinite"/></path>
+                <path d="M267 89 L290 100" stroke="#C9A227" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3,2"><animate attributeName="stroke-dashoffset" from="0" to="-20" dur="1.4s" repeatCount="indefinite"/></path>
+                <!-- OFFLINE badge -->
+                <rect x="8" y="150" width="62" height="20" rx="3" fill="#0A1F44" stroke="#C9A227" stroke-opacity="0.6" stroke-width="1"/>
+                <circle cx="18" cy="160" r="3" fill="#C9A227"><animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite"/></circle>
+                <text x="24" y="164" fill="#C9A227" font-size="7" font-family="monospace" font-weight="700" opacity="0.9">OFFLINE</text>
+                <!-- corner HUD -->
+                <path d="M382 8 L392 8 L392 18" stroke="#C9A227" stroke-opacity="0.35" stroke-width="1" fill="none"/><path d="M382 170 L392 170 L392 160" stroke="#C9A227" stroke-opacity="0.35" stroke-width="1" fill="none"/>
+              </svg>
               <div class="work-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
             </div>
             <h3 class="work-title">Edge Document Intelligence</h3>
@@ -896,8 +1034,69 @@
 
           <article class="glass work-card mi" style="--md:215ms">
             <div class="work-visual">
-              <img src="https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80" alt="RAG Knowledge Assistant">
-              <div class="work-overlay"></div>
+              <svg viewBox="0 0 400 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="wv3bg" x1="0" y1="0" x2="400" y2="178" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#06111F"/><stop offset="1" stop-color="#0A1F44"/></linearGradient>
+                  <radialGradient id="wv3hub" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#1A3B6E"/><stop offset="1" stop-color="#0A1F44"/></radialGradient>
+                  <radialGradient id="wv3glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#C9A227" stop-opacity="0.18"/><stop offset="1" stop-color="#C9A227" stop-opacity="0"/></radialGradient>
+                </defs>
+                <rect width="400" height="178" fill="url(#wv3bg)"/>
+                <!-- background glow -->
+                <ellipse cx="200" cy="89" rx="120" ry="80" fill="url(#wv3glow)"/>
+                <!-- subtle grid -->
+                <line x1="100" y1="0" x2="100" y2="178" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="200" y1="0" x2="200" y2="178" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="300" y1="0" x2="300" y2="178" stroke="#E5E7EB" stroke-opacity="0.025"/><line x1="0" y1="89" x2="400" y2="89" stroke="#E5E7EB" stroke-opacity="0.025"/>
+                <!-- satellite nodes + connection lines to hub (200,89) -->
+                <!-- node 1: top-left (80,28) -->
+                <line x1="200" y1="89" x2="80" y2="28" stroke="#C9A227" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="80" cy="28" r="14" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.45" stroke-width="1"/>
+                <text x="80" y="32" fill="#C9A227" font-size="6" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.85">EMBED</text>
+                <!-- node 2: top-center (200,18) -->
+                <line x1="200" y1="89" x2="200" y2="18" stroke="#C9A227" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="200" cy="18" r="14" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.45" stroke-width="1"/>
+                <text x="200" y="22" fill="#C9A227" font-size="6" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.85">INDEX</text>
+                <!-- node 3: top-right (320,28) -->
+                <line x1="200" y1="89" x2="320" y2="28" stroke="#C9A227" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="320" cy="28" r="14" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.45" stroke-width="1"/>
+                <text x="320" y="32" fill="#C9A227" font-size="6" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.85">RANK</text>
+                <!-- node 4: right (370,89) -->
+                <line x1="200" y1="89" x2="370" y2="89" stroke="#C9A227" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="370" cy="89" r="14" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.45" stroke-width="1"/>
+                <text x="370" y="93" fill="#C9A227" font-size="5.5" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.85">QUERY</text>
+                <!-- node 5: bottom-right (320,150) -->
+                <line x1="200" y1="89" x2="320" y2="150" stroke="#C9A227" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="320" cy="150" r="14" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.45" stroke-width="1"/>
+                <text x="320" y="154" fill="#C9A227" font-size="5.5" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.85">CTXT</text>
+                <!-- node 6: bottom-left (80,150) -->
+                <line x1="200" y1="89" x2="80" y2="150" stroke="#C9A227" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="80" cy="150" r="14" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.45" stroke-width="1"/>
+                <text x="80" y="154" fill="#C9A227" font-size="5.5" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.85">RESP</text>
+                <!-- node 7: left (30,89) -->
+                <line x1="200" y1="89" x2="30" y2="89" stroke="#C9A227" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="4,3"/>
+                <circle cx="30" cy="89" r="14" fill="#0D2452" stroke="#C9A227" stroke-opacity="0.45" stroke-width="1"/>
+                <text x="30" y="93" fill="#C9A227" font-size="5.5" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.85">VEC</text>
+                <!-- hub node -->
+                <circle cx="200" cy="89" r="36" fill="url(#wv3hub)" stroke="#C9A227" stroke-opacity="0.5" stroke-width="1.5"/>
+                <circle cx="200" cy="89" r="36" fill="none" stroke="#C9A227" stroke-opacity="0" stroke-width="2"><animate attributeName="r" values="36;52;36" dur="2.8s" repeatCount="indefinite"/><animate attributeName="stroke-opacity" values="0.35;0;0.35" dur="2.8s" repeatCount="indefinite"/></circle>
+                <text x="200" y="85" fill="#E5E7EB" font-size="7.5" font-family="monospace" font-weight="700" text-anchor="middle" opacity="0.9">RAG</text>
+                <text x="200" y="96" fill="#C9A227" font-size="5.5" font-family="monospace" text-anchor="middle" opacity="0.7">KNOWLEDGE</text>
+                <!-- animated data packet on line to hub (right node → hub) -->
+                <circle cx="0" cy="0" r="3" fill="#C9A227" opacity="0.9">
+                  <animateMotion dur="1.8s" repeatCount="indefinite" path="M370,89 L200,89"/>
+                  <animate attributeName="opacity" values="0;0.9;0" dur="1.8s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="0" cy="0" r="2.5" fill="#C9A227" opacity="0.8">
+                  <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.4s" path="M320,28 L200,89"/>
+                  <animate attributeName="opacity" values="0;0.8;0" dur="2.2s" repeatCount="indefinite" begin="0.4s"/>
+                </circle>
+                <circle cx="0" cy="0" r="2.5" fill="#C9A227" opacity="0.8">
+                  <animateMotion dur="2.0s" repeatCount="indefinite" begin="0.9s" path="M80,28 L200,89"/>
+                  <animate attributeName="opacity" values="0;0.8;0" dur="2.0s" repeatCount="indefinite" begin="0.9s"/>
+                </circle>
+                <!-- HUD label -->
+                <rect x="6" y="6" width="102" height="14" rx="2" fill="#0A1F44" fill-opacity="0.8"/>
+                <text x="10" y="16" fill="#C9A227" font-size="6" font-family="monospace" font-weight="600" opacity="0.8">RAG KNOWLEDGE GRAPH</text>
+                <path d="M382 8 L392 8 L392 18" stroke="#C9A227" stroke-opacity="0.35" stroke-width="1" fill="none"/><path d="M382 170 L392 170 L392 160" stroke="#C9A227" stroke-opacity="0.35" stroke-width="1" fill="none"/>
+              </svg>
               <div class="work-arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg></div>
             </div>
             <h3 class="work-title">RAG Knowledge Assistant</h3>
@@ -1057,6 +1256,19 @@
     (() => {
       const noMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+      /* Loader */
+      const loader = document.getElementById("loader");
+      if (loader) {
+        if (noMotion) {
+          loader.remove();
+        } else {
+          document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => loader.classList.add("done"), 820);
+            setTimeout(() => loader.remove(), 1420);
+          });
+        }
+      }
+
       /* Particles */
       if (!noMotion) {
         const pc = document.getElementById("particles");
@@ -1098,13 +1310,10 @@
 
       /* Scroll reveal */
       if (!noMotion) {
-        requestAnimationFrame(() => {
-          document.body.classList.add("motion-ready");
-          document.querySelectorAll("#intro .mi").forEach(el => el.classList.add("vis"));
-        });
+        requestAnimationFrame(() => { document.body.classList.add("motion-ready"); });
         const revObs = new IntersectionObserver(
           entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); revObs.unobserve(e.target); } }),
-          { threshold: 0.13, rootMargin: "0px 0px -8% 0px" }
+          { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
         );
         document.querySelectorAll(".mi").forEach(el => revObs.observe(el));
       }
