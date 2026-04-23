@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Yasser | Systems Architect</title>
-  <meta name="description" content="Mohamed Yasser designs intelligent systems that solve real problems, scale with purpose, and create lasting impact.">
+  <title>Mohamed Yasser | Solution Architect</title>
+  <meta name="description" content="Mohamed Yasser is a solution architect designing intelligent systems that solve real problems, scale with purpose, and create lasting impact.">
   <meta name="theme-color" content="#eef1f7">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -429,7 +429,9 @@
     .hero-art {
       position: relative;
       min-height: 620px;
-      padding: 1rem;
+      padding: 1rem 1rem 0;
+      display: flex;
+      align-items: flex-end;
       isolation: isolate;
     }
 
@@ -453,75 +455,37 @@
 
     .logo-stack {
       position: absolute;
-      top: 50%;
-      left: 54%;
-      width: min(100%, 520px);
+      inset: 1rem 0 3.8rem;
+      width: min(100%, 560px);
+      margin: 0 auto;
       aspect-ratio: 1;
       transform: translate(
-        calc(-50% + (var(--parallax-x) * 18px)),
-        calc(-50% + (var(--parallax-y) * 18px))
+        calc(var(--parallax-x) * 18px),
+        calc(var(--parallax-y) * 18px)
       );
       transition: transform 260ms ease-out;
       pointer-events: none;
     }
 
-    .stack-slab {
-      position: absolute;
-      left: 50%;
-      bottom: 18%;
-      width: 60%;
-      aspect-ratio: 1;
-      border-radius: 28px;
-      transform-origin: center;
-      transform: translateX(-50%) rotate(45deg);
-      box-shadow: 0 24px 46px rgba(10, 23, 48, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-    }
-
-    .stack-slab--one {
-      width: 66%;
-      bottom: 6%;
-      background: linear-gradient(180deg, rgba(24, 45, 79, 0.9), rgba(9, 19, 39, 0.96));
-    }
-
-    .stack-slab--two {
-      width: 58%;
-      bottom: 16%;
-      background: linear-gradient(180deg, rgba(45, 69, 112, 0.72), rgba(20, 37, 67, 0.84));
-    }
-
-    .stack-slab--three {
-      width: 49%;
-      bottom: 26%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(196, 205, 221, 0.36));
-      box-shadow: 0 18px 40px rgba(17, 37, 67, 0.1);
-    }
-
-    .stack-slab--four {
-      width: 42%;
-      bottom: 34%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(228, 234, 245, 0.72));
-      box-shadow: 0 24px 44px rgba(17, 37, 67, 0.12);
-    }
-
     .stack-glow {
       position: absolute;
-      inset: auto 50% 9% auto;
-      width: 60%;
-      height: 16%;
-      transform: translateX(50%);
-      background: radial-gradient(circle, rgba(197, 151, 69, 0.2), transparent 72%);
-      filter: blur(22px);
-      opacity: 0.8;
+      left: 50%;
+      bottom: 7%;
+      width: 76%;
+      height: 20%;
+      transform: translateX(-50%);
+      background: radial-gradient(circle, rgba(197, 151, 69, 0.24), rgba(17, 37, 67, 0.08) 40%, transparent 72%);
+      filter: blur(28px);
+      opacity: 0.84;
     }
 
     .brand-mark {
       position: absolute;
-      top: 4%;
+      top: 2%;
       left: 50%;
-      width: 46%;
+      width: min(92%, 520px);
       transform: translateX(-50%);
-      filter: drop-shadow(0 18px 28px rgba(17, 37, 67, 0.22));
+      filter: drop-shadow(0 26px 42px rgba(17, 37, 67, 0.22));
     }
 
     .portrait-card {
@@ -529,11 +493,11 @@
       right: 1rem;
       bottom: 1rem;
       display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 0.9rem;
+      grid-template-columns: 78px 1fr;
+      gap: 0.8rem;
       align-items: center;
-      width: min(72%, 280px);
-      padding: 0.85rem;
+      width: min(60%, 250px);
+      padding: 0.8rem;
       border-radius: 24px;
       border: 1px solid rgba(255, 255, 255, 0.82);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 241, 247, 0.76));
@@ -548,9 +512,9 @@
     }
 
     .portrait-card img {
-      width: 90px;
-      height: 90px;
-      border-radius: 24px;
+      width: 78px;
+      height: 78px;
+      border-radius: 20px;
       object-fit: cover;
       object-position: center;
       box-shadow: 0 14px 26px rgba(17, 37, 67, 0.16);
@@ -1232,29 +1196,9 @@
       filter: none;
     }
 
-    @keyframes floatSlabOne {
-      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
-      50% { transform: translateX(-50%) translateY(-14px) rotate(45deg); }
-    }
-
-    @keyframes floatSlabTwo {
-      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
-      50% { transform: translateX(-50%) translateY(-10px) rotate(45deg); }
-    }
-
-    @keyframes floatSlabThree {
-      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
-      50% { transform: translateX(-50%) translateY(-8px) rotate(45deg); }
-    }
-
-    @keyframes floatSlabFour {
-      0%, 100% { transform: translateX(-50%) translateY(0) rotate(45deg); }
-      50% { transform: translateX(-50%) translateY(-6px) rotate(45deg); }
-    }
-
     @keyframes glowPulse {
-      0%, 100% { opacity: 0.55; transform: translateX(50%) scale(0.95); }
-      50% { opacity: 0.9; transform: translateX(50%) scale(1.05); }
+      0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(0.95); }
+      50% { opacity: 0.9; transform: translateX(-50%) scale(1.05); }
     }
 
     @keyframes logoDrift {
@@ -1280,22 +1224,6 @@
     @keyframes ambientTilt {
       0%, 100% { transform: rotate(0deg) scale(1); }
       50% { transform: rotate(1deg) scale(1.02); }
-    }
-
-    .stack-slab--one {
-      animation: floatSlabOne 7.8s ease-in-out infinite;
-    }
-
-    .stack-slab--two {
-      animation: floatSlabTwo 7.2s ease-in-out infinite;
-    }
-
-    .stack-slab--three {
-      animation: floatSlabThree 6.8s ease-in-out infinite;
-    }
-
-    .stack-slab--four {
-      animation: floatSlabFour 6.3s ease-in-out infinite;
     }
 
     .stack-glow {
@@ -1341,10 +1269,6 @@
 
       .motion-ready .motion-item,
       .motion-ready .motion-item.is-visible,
-      .stack-slab--one,
-      .stack-slab--two,
-      .stack-slab--three,
-      .stack-slab--four,
       .stack-glow,
       .brand-mark,
       .portrait-card,
@@ -1472,18 +1396,18 @@
       }
 
       .hero-art {
-        min-height: 470px;
+        min-height: 420px;
       }
 
       .logo-stack {
-        left: 50%;
-        width: min(100%, 420px);
+        inset: 0.5rem 0 3rem;
+        width: min(100%, 440px);
       }
 
       .portrait-card {
-        position: static;
-        margin-top: auto;
-        width: 100%;
+        width: min(78%, 270px);
+        right: 0.75rem;
+        bottom: 0.75rem;
       }
     }
 
@@ -1506,19 +1430,25 @@
       }
 
       .hero-art {
-        min-height: 380px;
+        min-height: 320px;
       }
 
       .portrait-card,
       .impact-portrait {
-        grid-template-columns: 1fr;
+        grid-template-columns: 72px 1fr;
       }
 
       .portrait-card img,
       .impact-portrait img {
+        width: 72px;
+        height: 72px;
+        aspect-ratio: auto;
+      }
+
+      .portrait-card {
+        position: static;
         width: 100%;
-        height: auto;
-        aspect-ratio: 1;
+        margin-top: auto;
       }
 
       .hero-actions,
@@ -1536,7 +1466,7 @@
   <div class="page-shell">
     <aside class="phase-rail" aria-label="Section navigation">
       <a class="brand-chip" href="#intro" aria-label="Go to intro">
-        <img src="assets/brand-mark.svg" alt="MY monogram">
+        <img src="assets/brand-mark.svg" alt="MY logo">
       </a>
       <nav class="phase-nav">
         <a class="phase-link is-active" href="#intro" data-section="intro">
@@ -1554,15 +1484,15 @@
           <span class="phase-num">03</span>
           <span class="phase-label">Systems</span>
         </a>
-        <a class="phase-link" href="#thinking" data-section="thinking">
+        <a class="phase-link" href="#work" data-section="work">
           <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 7.5v9L12 21l7.5-4.5v-9L12 3Z"/><path d="M12 3v18"/><path d="M4.5 7.5 12 12l7.5-4.5"/></svg>
           <span class="phase-num">04</span>
-          <span class="phase-label">Thinking</span>
-        </a>
-        <a class="phase-link" href="#work" data-section="work">
-          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18"/><path d="m6 14 4-4 3 3 5-6"/><path d="M18 7h-4"/><path d="M18 7v4"/></svg>
-          <span class="phase-num">05</span>
           <span class="phase-label">Work</span>
+        </a>
+        <a class="phase-link" href="#thinking" data-section="thinking">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5a2.5 2.5 0 0 0-2.5 2.5c0 .85.33 1.63.87 2.2A3 3 0 0 0 6 12.75 3.25 3.25 0 0 0 9.25 16h.5"/><path d="M15 5.5a2.5 2.5 0 0 1 2.5 2.5c0 .85-.33 1.63-.87 2.2A3 3 0 0 1 18 12.75 3.25 3.25 0 0 1 14.75 16h-.5"/><path d="M9.75 8.5c.4-.55 1.05-.9 1.75-.9s1.35.35 1.75.9"/><path d="M10 16c0 1.1.9 2 2 2s2-.9 2-2"/><path d="M12 16v3"/></svg>
+          <span class="phase-num">05</span>
+          <span class="phase-label">Thinking</span>
         </a>
         <a class="phase-link" href="#mentorship" data-section="mentorship">
           <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M16 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0"/><path d="M12.5 19a3.5 3.5 0 0 1 7 0"/></svg>
@@ -1583,7 +1513,7 @@
         <section id="intro" class="panel hero">
           <div class="hero-grid">
             <div class="hero-copy">
-              <p class="section-kicker">Systems Architect</p>
+              <p class="section-kicker">Solution Architect</p>
               <h1 class="hero-title">
                 <span>Mohamed</span>
                 <span>Yasser</span>
@@ -1608,10 +1538,6 @@
             <div class="hero-art" aria-hidden="true">
               <div class="logo-stack">
                 <div class="stack-glow"></div>
-                <div class="stack-slab stack-slab--one"></div>
-                <div class="stack-slab stack-slab--two"></div>
-                <div class="stack-slab stack-slab--three"></div>
-                <div class="stack-slab stack-slab--four"></div>
                 <img class="brand-mark" src="assets/brand-mark.svg" alt="">
               </div>
               <div class="portrait-card">
