@@ -1,810 +1,1727 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Yasser - Solution Architect</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
- :root {
-    --primary-gradient: linear-gradient(135deg, #00897b, #00695c);
-    --secondary-gradient: linear-gradient(135deg, #4db6ac, #26a69a);
-    --light-gradient: linear-gradient(135deg, #f5f5f5, #e0f2f1);
-    --primary-color: #00695c;
-    --secondary-color: #26a69a;
-    --light-color: #f5f5f5;
-    --dark-color: #212121;
-    --text-color: #455a64;
-}   
-        body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
-            background-color: #ffffff;
-        }
-        
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-header {
-            margin-bottom: 60px;
-            position: relative;
-        }
-        
-        .section-title {
-            font-weight: 700;
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: var(--primary-gradient);
-            border-radius: 10px;
-        }
-        
-        .btn-primary-gradient {
-            background: var(--primary-gradient);
-            border: none;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(43, 81, 255, 0.2);
-        }
-        
-        .btn-primary-gradient:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(43, 81, 255, 0.3);
-        }
-        
-        .hero {
-            background: var(--light-gradient);
-            padding: 120px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero:before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: var(--secondary-gradient);
-            opacity: 0.05;
-            border-radius: 50%;
-        }
-        
-        .hero-img {
-            border-radius: 12px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border: 5px solid white;
-        }
-        
-        .profile-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .profile-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-        }
-        
-        .profile-header {
-            background: var(--primary-gradient);
-            padding: 30px;
-            color: white;
-        }
-        
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        
-        .exp-card {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 25px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .exp-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .exp-header {
-            background: var(--light-gradient);
-            padding: 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .exp-body {
-            padding: 20px;
-        }
-        
-        .skill-badge {
-            background: var(--light-gradient);
-            color: var(--primary-color);
-            border-radius: 50px;
-            padding: 8px 15px;
-            margin: 5px;
-            font-size: 13px;
-            font-weight: 500;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-badge:hover {
-            background: var(--primary-gradient);
-            color: white;
-            transform: translateY(-2px);
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--light-gradient);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin: 0 5px;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-        
-        .social-icon:hover {
-            background: var(--primary-gradient);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .footer {
-            background: var(--light-gradient);
-            padding: 40px 0;
-        }
-        
-        /* Service cards */
-        .service-card {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            height: 100%;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--light-gradient);
-            color: var(--primary-color);
-            font-size: 28px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .service-card:hover .service-icon {
-            background: var(--primary-gradient);
-            color: white;
-            transform: scale(1.1);
-        }
-        
-        /* Testimonial section */
-        .testimonial-card {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            margin: 20px 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            height: 100%;
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .testimonial-header {
-            padding: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .testimonial-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 3px solid white;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .testimonial-body {
-            padding: 0 20px 20px;
-            font-style: italic;
-            color: #6c757d;
-        }
-        
-        .quote-icon {
-            font-size: 24px;
-            color: var(--secondary-color);
-            opacity: 0.2;
-            margin-right: 10px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Yasser | Systems Architect</title>
+  <meta name="description" content="Mohamed Yasser designs intelligent systems that solve real problems, scale with purpose, and create lasting impact.">
+  <meta name="theme-color" content="#eef1f7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="assets/brand-mark.svg">
+  <style>
+    :root {
+      --paper: #eef1f7;
+      --paper-strong: #f8f9fc;
+      --panel: rgba(255, 255, 255, 0.72);
+      --panel-strong: rgba(255, 255, 255, 0.88);
+      --ink: #15294a;
+      --ink-soft: #51627e;
+      --line: rgba(21, 41, 74, 0.12);
+      --line-strong: rgba(21, 41, 74, 0.22);
+      --navy: #112543;
+      --navy-soft: #17345e;
+      --navy-deep: #0a1730;
+      --gold: #c59745;
+      --gold-soft: #efe0b1;
+      --glow: rgba(197, 151, 69, 0.22);
+      --shadow-lg: 0 32px 80px rgba(17, 37, 67, 0.12);
+      --shadow-md: 0 18px 48px rgba(17, 37, 67, 0.1);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --rail-width: 108px;
+      --content-max: 1380px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Manrope", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(197, 151, 69, 0.14), transparent 22%),
+        radial-gradient(circle at right center, rgba(17, 37, 67, 0.08), transparent 26%),
+        linear-gradient(180deg, #f7f8fb 0%, #eef1f7 38%, #edf1f8 100%);
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.16)),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 88px,
+          rgba(21, 41, 74, 0.035) 89px,
+          transparent 90px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 88px,
+          rgba(21, 41, 74, 0.035) 89px,
+          transparent 90px
+        );
+      opacity: 0.55;
+    }
+
+    body::after {
+      background:
+        radial-gradient(circle at 12% 16%, rgba(197, 151, 69, 0.22) 0 2px, transparent 2px),
+        radial-gradient(circle at 38% 44%, rgba(197, 151, 69, 0.16) 0 1.5px, transparent 1.5px),
+        radial-gradient(circle at 72% 22%, rgba(197, 151, 69, 0.16) 0 1.8px, transparent 1.8px),
+        radial-gradient(circle at 88% 58%, rgba(197, 151, 69, 0.18) 0 2px, transparent 2px),
+        radial-gradient(circle at 18% 74%, rgba(197, 151, 69, 0.18) 0 1.7px, transparent 1.7px);
+      opacity: 0.78;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    .phase-rail {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: var(--rail-width);
+      padding: 1.7rem 1rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(248, 249, 252, 0.78);
+      backdrop-filter: blur(16px);
+      border-right: 1px solid rgba(255, 255, 255, 0.72);
+      box-shadow: 18px 0 40px rgba(21, 41, 74, 0.06);
+    }
+
+    .brand-chip {
+      display: grid;
+      place-items: center;
+      width: 74px;
+      height: 74px;
+      padding: 0.7rem;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(232, 237, 246, 0.78));
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 18px 32px rgba(17, 37, 67, 0.11);
+    }
+
+    .brand-chip img {
+      width: 100%;
+      height: auto;
+    }
+
+    .phase-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      width: 100%;
+    }
+
+    .phase-link {
+      position: relative;
+      display: grid;
+      justify-items: center;
+      gap: 0.34rem;
+      padding: 0.48rem 0.2rem 0.58rem;
+      color: var(--ink-soft);
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .phase-link::before {
+      content: "";
+      position: absolute;
+      top: -0.5rem;
+      left: 50%;
+      width: 1px;
+      height: calc(100% + 1rem);
+      background: linear-gradient(180deg, transparent, rgba(21, 41, 74, 0.14), transparent);
+      transform: translateX(-50%);
+    }
+
+    .phase-link:hover,
+    .phase-link.is-active {
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .phase-link.is-active::after {
+      content: "";
+      position: absolute;
+      inset: 0.1rem 0.42rem;
+      border-radius: 18px;
+      border: 1px solid rgba(197, 151, 69, 0.24);
+      background: rgba(255, 255, 255, 0.68);
+      z-index: -1;
+      box-shadow: 0 12px 24px rgba(197, 151, 69, 0.12);
+    }
+
+    .phase-icon {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .phase-num {
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .phase-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .rail-note {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      color: rgba(81, 98, 126, 0.7);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .site-main {
+      margin-left: var(--rail-width);
+      padding: 2rem 1.75rem 4rem;
+    }
+
+    .stack {
+      width: min(100%, var(--content-max));
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.45rem;
+    }
+
+    .panel,
+    .section-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      background: linear-gradient(180deg, var(--panel-strong), rgba(245, 247, 251, 0.62));
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(14px);
+    }
+
+    .panel::before,
+    .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(130deg, rgba(255, 255, 255, 0.64), transparent 24%),
+        linear-gradient(315deg, rgba(197, 151, 69, 0.1), transparent 28%);
+      pointer-events: none;
+    }
+
+    .section-kicker {
+      margin: 0;
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+    }
+
+    .section-heading {
+      margin: 0.95rem 0 0;
+      font-size: clamp(2rem, 3vw, 3.25rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .section-copy {
+      margin: 1rem 0 0;
+      max-width: 44rem;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .hero {
+      padding: clamp(1.6rem, 3vw, 2.6rem);
+      min-height: clamp(760px, calc(100vh - 4rem), 980px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr) minmax(180px, 0.38fr);
+      gap: 1.2rem;
+      align-items: stretch;
+      min-height: clamp(700px, calc(100vh - 9rem), 900px);
+    }
+
+    .hero-copy,
+    .hero-aside {
+      position: relative;
+      padding: 1rem;
+      z-index: 1;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+      padding: clamp(1.4rem, 3vw, 3rem) clamp(1rem, 2vw, 2rem);
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(3.3rem, 8vw, 6.2rem);
+      line-height: 0.92;
+      letter-spacing: 0.18em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-lead {
+      margin: 0;
+      max-width: 27rem;
+      font-size: 1.05rem;
+      line-height: 1.95;
+      color: var(--ink-soft);
+    }
+
+    .hero-actions,
+    .hero-chips,
+    .contact-links,
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.72rem;
+    }
+
+    .hero-actions {
+      margin-top: 0.55rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0.95rem 1.35rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.92rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .button--primary {
+      color: white;
+      background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+      box-shadow: 0 18px 36px rgba(17, 37, 67, 0.18);
+    }
+
+    .button--secondary {
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.7);
+      border-color: rgba(21, 41, 74, 0.12);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 38px rgba(17, 37, 67, 0.12);
+    }
+
+    .chip,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 36px;
+      padding: 0.55rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(21, 41, 74, 0.12);
+      background: rgba(255, 255, 255, 0.7);
+      color: var(--ink-soft);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 18px rgba(21, 41, 74, 0.06);
+    }
+
+    .chip::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      box-shadow: 0 0 0 5px rgba(197, 151, 69, 0.12);
+    }
+
+    .hero-meta {
+      display: grid;
+      gap: 1rem;
+      max-width: 29rem;
+      margin-top: 0.3rem;
+    }
+
+    .meta-note {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 620px;
+      padding: 1rem;
+      isolation: isolate;
+    }
+
+    .hero-art::before,
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      inset: 2.5rem 8% auto auto;
+      width: 56%;
+      aspect-ratio: 1;
+      border: 1px solid rgba(21, 41, 74, 0.09);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .hero-art::after {
+      inset: auto auto 3.5rem 8%;
+      width: 45%;
+      border-color: rgba(197, 151, 69, 0.16);
+    }
+
+    .logo-stack {
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      width: min(100%, 520px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .stack-slab {
+      position: absolute;
+      left: 50%;
+      bottom: 18%;
+      width: 60%;
+      aspect-ratio: 1;
+      border-radius: 28px;
+      transform-origin: center;
+      transform: translateX(-50%) rotate(45deg);
+      box-shadow: 0 24px 46px rgba(10, 23, 48, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .stack-slab--one {
+      width: 66%;
+      bottom: 6%;
+      background: linear-gradient(180deg, rgba(24, 45, 79, 0.9), rgba(9, 19, 39, 0.96));
+    }
+
+    .stack-slab--two {
+      width: 58%;
+      bottom: 16%;
+      background: linear-gradient(180deg, rgba(45, 69, 112, 0.72), rgba(20, 37, 67, 0.84));
+    }
+
+    .stack-slab--three {
+      width: 49%;
+      bottom: 26%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.7), rgba(196, 205, 221, 0.36));
+      box-shadow: 0 18px 40px rgba(17, 37, 67, 0.1);
+    }
+
+    .stack-slab--four {
+      width: 42%;
+      bottom: 34%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(228, 234, 245, 0.72));
+      box-shadow: 0 24px 44px rgba(17, 37, 67, 0.12);
+    }
+
+    .stack-glow {
+      position: absolute;
+      inset: auto 50% 9% auto;
+      width: 60%;
+      height: 16%;
+      transform: translateX(50%);
+      background: radial-gradient(circle, rgba(197, 151, 69, 0.2), transparent 72%);
+      filter: blur(22px);
+    }
+
+    .brand-mark {
+      position: absolute;
+      top: 4%;
+      left: 50%;
+      width: 46%;
+      transform: translateX(-50%);
+      filter: drop-shadow(0 18px 28px rgba(17, 37, 67, 0.22));
+    }
+
+    .portrait-card {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0.9rem;
+      align-items: center;
+      width: min(72%, 280px);
+      padding: 0.85rem;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.82);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(238, 241, 247, 0.76));
+      box-shadow: 0 24px 54px rgba(17, 37, 67, 0.14);
+      backdrop-filter: blur(16px);
+      z-index: 2;
+    }
+
+    .portrait-card img {
+      width: 90px;
+      height: 90px;
+      border-radius: 24px;
+      object-fit: cover;
+      object-position: center;
+      box-shadow: 0 14px 26px rgba(17, 37, 67, 0.16);
+    }
+
+    .portrait-card strong {
+      display: block;
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .portrait-card span {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--ink);
+    }
+
+    .hero-aside {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-inline: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .aside-card {
+      position: relative;
+      width: 100%;
+      padding: 2rem 1rem 2rem 1.4rem;
+      border-left: 1px solid rgba(197, 151, 69, 0.34);
+      color: var(--ink-soft);
+    }
+
+    .aside-quote {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.45rem, 2.2vw, 2.1rem);
+      line-height: 1.24;
+      color: var(--ink);
+    }
+
+    .aside-card p {
+      margin: 1.3rem 0 0;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .section {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .section-shell {
+      padding: 1.55rem;
+    }
+
+    .section-top {
+      display: flex;
+      gap: 1.4rem;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .philosophy {
+      padding: 1.5rem;
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1.05fr repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .philosophy-intro {
+      padding: 1.2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .philosophy-intro h2,
+    .work-intro h2,
+    .connect-copy h2 {
+      margin: 0.9rem 0 0;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+    }
+
+    .philosophy-card {
+      padding: 1.4rem;
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .card-index {
+      color: var(--gold);
+      font-size: 1.55rem;
+      font-family: "Cormorant Garamond", serif;
+      line-height: 1;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      stroke: var(--navy-soft);
+      fill: none;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.25;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .card-text {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .systems-band {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(197, 151, 69, 0.12), transparent 18%),
+        radial-gradient(circle at 80% 80%, rgba(197, 151, 69, 0.1), transparent 24%),
+        linear-gradient(180deg, rgba(17, 37, 67, 0.98), rgba(10, 23, 48, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: white;
+    }
+
+    .systems-band::before {
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.08), transparent 28%),
+        linear-gradient(315deg, rgba(197, 151, 69, 0.12), transparent 30%);
+    }
+
+    .systems-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 0.34fr repeat(4, minmax(0, 1fr));
+      gap: 0;
+      min-height: 310px;
+      z-index: 1;
+    }
+
+    .systems-label {
+      padding: 1.7rem 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .systems-label span {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .systems-card {
+      position: relative;
+      padding: 1.6rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      align-content: start;
+      gap: 1rem;
+    }
+
+    .systems-card:last-child {
+      border-right: 0;
+    }
+
+    .systems-card .card-title {
+      color: white;
+    }
+
+    .systems-card .card-text,
+    .systems-card li {
+      color: rgba(232, 239, 252, 0.76);
+    }
+
+    .systems-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.72rem;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .systems-list li::before {
+      content: "•";
+      margin-right: 0.55rem;
+      color: var(--gold);
+    }
+
+    .thinking-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.66fr) minmax(0, 1.34fr);
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .thinking-copy {
+      padding: 1.65rem;
+      display: grid;
+      align-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .thinking-quote {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.15rem, 3.5vw, 3.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+    }
+
+    .thinking-foot {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .signature {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .architecture {
+      padding: 1.65rem;
+      display: grid;
+      grid-template-columns: minmax(0, 0.45fr) minmax(250px, 0.7fr) minmax(0, 0.45fr);
+      gap: 1.1rem;
+      align-items: center;
+    }
+
+    .flow-box {
+      padding: 1.25rem 1rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(21, 41, 74, 0.12);
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 18px 42px rgba(17, 37, 67, 0.08);
+    }
+
+    .flow-box h3 {
+      margin: 0 0 1rem;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .flow-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .flow-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      color: var(--ink);
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    .flow-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold-soft), var(--gold));
+      box-shadow: 0 0 0 6px rgba(197, 151, 69, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .layer-stack {
+      position: relative;
+      min-height: 340px;
+      display: grid;
+      place-items: center;
+    }
+
+    .layer-stack::before {
+      content: "";
+      position: absolute;
+      inset: 12% 10%;
+      border-radius: 32px;
+      background: radial-gradient(circle, rgba(197, 151, 69, 0.14), transparent 68%);
+      filter: blur(28px);
+      opacity: 0.8;
+    }
+
+    .layer-node {
+      position: absolute;
+      left: 50%;
+      width: clamp(200px, 22vw, 290px);
+      aspect-ratio: 1.6;
+      padding: 1rem 1.2rem;
+      display: grid;
+      place-items: center;
+      border-radius: 28px;
+      transform: translateX(-50%) rotate(-2deg);
+      text-align: center;
+      box-shadow: 0 26px 54px rgba(17, 37, 67, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(16px);
+    }
+
+    .layer-node strong {
+      display: block;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .layer-node span {
+      display: block;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      color: rgba(21, 41, 74, 0.72);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .layer-node--intelligence {
+      top: 3%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(225, 232, 243, 0.84));
+      z-index: 4;
+    }
+
+    .layer-node--logic {
+      top: 25%;
+      background: linear-gradient(180deg, rgba(241, 246, 255, 0.86), rgba(189, 202, 224, 0.72));
+      z-index: 3;
+    }
+
+    .layer-node--data {
+      top: 47%;
+      background: linear-gradient(180deg, rgba(46, 71, 112, 0.9), rgba(19, 37, 67, 0.92));
+      color: white;
+      z-index: 2;
+    }
+
+    .layer-node--data span,
+    .layer-node--infrastructure span,
+    .layer-node--data strong,
+    .layer-node--infrastructure strong {
+      color: rgba(245, 248, 255, 0.94);
+    }
+
+    .layer-node--infrastructure {
+      top: 69%;
+      background: linear-gradient(180deg, rgba(18, 34, 61, 0.98), rgba(10, 23, 48, 0.98));
+      color: white;
+      z-index: 1;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.42fr) repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .work-intro {
+      padding: 1.5rem;
+      display: grid;
+      align-content: space-between;
+      gap: 1rem;
+    }
+
+    .work-card {
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .work-visual {
+      position: relative;
+      min-height: 196px;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 18px 34px rgba(17, 37, 67, 0.1);
+    }
+
+    .work-visual::before,
+    .work-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    .work-visual::before {
+      background:
+        linear-gradient(125deg, rgba(255, 255, 255, 0.82), transparent 40%),
+        linear-gradient(135deg, rgba(17, 37, 67, 0.16), transparent 48%),
+        linear-gradient(180deg, rgba(17, 37, 67, 0.08), rgba(17, 37, 67, 0.16));
+    }
+
+    .work-visual::after {
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.45) 0, transparent 46%, rgba(197, 151, 69, 0.18) 100%),
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 18px,
+          rgba(255, 255, 255, 0.18) 19px
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 18px,
+          rgba(255, 255, 255, 0.18) 19px
+        );
+      mix-blend-mode: screen;
+      opacity: 0.55;
+    }
+
+    .work-visual--municipality {
+      background:
+        radial-gradient(circle at 25% 30%, rgba(255, 255, 255, 0.9), transparent 25%),
+        linear-gradient(135deg, #cad3e4 0%, #9aa9c1 35%, #dde5f1 100%);
+    }
+
+    .work-visual--edge {
+      background:
+        radial-gradient(circle at 70% 15%, rgba(255, 255, 255, 0.92), transparent 18%),
+        linear-gradient(135deg, #cdd7e6 0%, #8fa3c0 38%, #d7deeb 100%);
+    }
+
+    .work-visual--rag {
+      background:
+        radial-gradient(circle at 82% 22%, rgba(255, 255, 255, 0.96), transparent 19%),
+        linear-gradient(135deg, #dee5f0 0%, #bdc9db 36%, #eef2f8 100%);
+    }
+
+    .work-copy {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .work-copy h3 {
+      margin: 0;
+      font-size: 1.28rem;
+      line-height: 1.2;
+    }
+
+    .work-copy p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+      line-height: 1.76;
+    }
+
+    .tag {
+      min-height: 30px;
+      padding: 0.42rem 0.68rem;
+      font-size: 0.68rem;
+      color: var(--ink);
+    }
+
+    .impact {
+      padding: 1.35rem;
+      background:
+        radial-gradient(circle at 14% 14%, rgba(197, 151, 69, 0.11), transparent 18%),
+        linear-gradient(180deg, rgba(17, 37, 67, 0.98), rgba(10, 23, 48, 0.98));
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 1.1fr) repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .impact-intro {
+      padding: 1.6rem;
+      display: grid;
+      gap: 1rem;
+      align-content: space-between;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .impact-intro p,
+    .impact-card p {
+      margin: 0;
+      color: rgba(232, 239, 252, 0.76);
+      line-height: 1.8;
+    }
+
+    .impact-portrait {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .impact-portrait img {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .impact-card {
+      padding: 1.6rem;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: grid;
+      gap: 0.9rem;
+      align-content: start;
+    }
+
+    .impact-card h3,
+    .impact-intro h3 {
+      margin: 0;
+      color: white;
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .connect {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+      gap: 1rem;
+    }
+
+    .connect-copy,
+    .connect-card {
+      padding: 1.6rem;
+    }
+
+    .connect-copy {
+      display: grid;
+      align-content: space-between;
+      gap: 1.2rem;
+    }
+
+    .connect-copy .cta {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.6rem, 4.6vw, 4.4rem);
+      line-height: 0.94;
+      letter-spacing: -0.04em;
+    }
+
+    .connect-card {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .contact-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .contact-link {
+      padding: 1rem;
+      border-radius: 22px;
+      border: 1px solid rgba(21, 41, 74, 0.1);
+      background: rgba(255, 255, 255, 0.64);
+      box-shadow: 0 16px 32px rgba(17, 37, 67, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      border-color: rgba(197, 151, 69, 0.28);
+      box-shadow: 0 22px 36px rgba(17, 37, 67, 0.1);
+    }
+
+    .contact-label {
+      display: block;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      display: block;
+      margin-top: 0.42rem;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .contact-note {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.96rem;
+      line-height: 1.8;
+    }
+
+    .footer-note {
+      margin: 0;
+      color: rgba(81, 98, 126, 0.74);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 1200px) {
+      .hero-grid,
+      .philosophy-grid,
+      .systems-grid,
+      .work-grid,
+      .impact-grid,
+      .thinking-grid,
+      .connect,
+      .architecture {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-grid {
+        min-height: auto;
+      }
+
+      .hero-art {
+        min-height: 560px;
+      }
+
+      .hero-aside {
+        padding-top: 0;
+      }
+
+      .systems-label {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .systems-label span {
+        writing-mode: horizontal-tb;
+        transform: none;
+      }
+
+      .systems-card {
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .systems-card:last-child {
+        border-bottom: 0;
+      }
+
+      .contact-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      :root {
+        --rail-width: 0px;
+      }
+
+      .phase-rail {
+        position: sticky;
+        inset: 0 0 auto 0;
+        z-index: 20;
+        width: auto;
+        height: auto;
+        padding: 0.85rem 1rem;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .phase-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 0.35rem;
+        padding-bottom: 0.2rem;
+      }
+
+      .phase-link {
+        min-width: 86px;
+        padding: 0.48rem 0.7rem;
+      }
+
+      .phase-link::before {
+        display: none;
+      }
+
+      .phase-num {
+        font-size: 0.72rem;
+      }
+
+      .phase-label {
+        font-size: 0.56rem;
+      }
+
+      .brand-chip {
+        width: 60px;
+        height: 60px;
+        flex: 0 0 auto;
+      }
+
+      .rail-note {
+        display: none;
+      }
+
+      .site-main {
+        margin-left: 0;
+        padding: 1rem 1rem 3rem;
+      }
+
+      .hero-title {
+        letter-spacing: 0.12em;
+      }
+
+      .hero-art {
+        min-height: 470px;
+      }
+
+      .logo-stack {
+        left: 50%;
+        width: min(100%, 420px);
+      }
+
+      .portrait-card {
+        position: static;
+        margin-top: auto;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding: 1rem;
+      }
+
+      .hero-copy,
+      .hero-aside,
+      .philosophy,
+      .thinking-copy,
+      .architecture,
+      .work-intro,
+      .work-card,
+      .impact,
+      .connect-copy,
+      .connect-card {
+        padding: 1.1rem;
+      }
+
+      .hero-art {
+        min-height: 380px;
+      }
+
+      .portrait-card,
+      .impact-portrait {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-card img,
+      .impact-portrait img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+      }
+
+      .hero-actions,
+      .hero-chips {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <span style="font-weight: 700; color: var(--primary-color);">Mohamed</span> 
-                <span style="font-weight: 400; color: var(--secondary-color);">Yasser</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
+  <div class="page-shell">
+    <aside class="phase-rail" aria-label="Section navigation">
+      <a class="brand-chip" href="#intro" aria-label="Go to intro">
+        <img src="assets/brand-mark.svg" alt="MY monogram">
+      </a>
+      <nav class="phase-nav">
+        <a class="phase-link is-active" href="#intro" data-section="intro">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5"/><path d="M6.5 9.5V20h11V9.5"/><path d="M10 20v-5h4v5"/></svg>
+          <span class="phase-num">01</span>
+          <span class="phase-label">Intro</span>
+        </a>
+        <a class="phase-link" href="#philosophy" data-section="philosophy">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/></svg>
+          <span class="phase-num">02</span>
+          <span class="phase-label">Philosophy</span>
+        </a>
+        <a class="phase-link" href="#systems" data-section="systems">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 7 4-7 4-7-4 7-4Z"/><path d="m5 11 7 4 7-4"/><path d="m5 15 7 4 7-4"/></svg>
+          <span class="phase-num">03</span>
+          <span class="phase-label">Systems</span>
+        </a>
+        <a class="phase-link" href="#thinking" data-section="thinking">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 7.5v9L12 21l7.5-4.5v-9L12 3Z"/><path d="M12 3v18"/><path d="M4.5 7.5 12 12l7.5-4.5"/></svg>
+          <span class="phase-num">04</span>
+          <span class="phase-label">Thinking</span>
+        </a>
+        <a class="phase-link" href="#work" data-section="work">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18"/><path d="m6 14 4-4 3 3 5-6"/><path d="M18 7h-4"/><path d="M18 7v4"/></svg>
+          <span class="phase-num">05</span>
+          <span class="phase-label">Work</span>
+        </a>
+        <a class="phase-link" href="#mentorship" data-section="mentorship">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M16 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0"/><path d="M12.5 19a3.5 3.5 0 0 1 7 0"/></svg>
+          <span class="phase-num">06</span>
+          <span class="phase-label">Mentorship</span>
+        </a>
+        <a class="phase-link" href="#connect" data-section="connect">
+          <svg class="phase-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-9 20-2.7-8.3L2 11 22 2Z"/><path d="M22 2 10.3 13.7"/></svg>
+          <span class="phase-num">07</span>
+          <span class="phase-label">Connect</span>
+        </a>
+      </nav>
+      <p class="rail-note">© 2026 Mohamed Yasser</p>
+    </aside>
+
+    <main class="site-main">
+      <div class="stack">
+        <section id="intro" class="panel hero">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <p class="section-kicker">Systems Architect</p>
+              <h1 class="hero-title">
+                <span>Mohamed</span>
+                <span>Yasser</span>
+              </h1>
+              <p class="hero-lead">
+                I design intelligent systems that solve real problems, scale with purpose, and create lasting impact.
+              </p>
+              <div class="hero-actions">
+                <a class="button button--primary" href="#systems">Explore My World</a>
+                <a class="button button--secondary" href="#connect">Build Something Meaningful</a>
+              </div>
+              <div class="hero-meta">
+                <p class="meta-note">Currently exploring AI systems at the edge, local-first inference, retrieval architectures, and public-sector digital transformation.</p>
+                <div class="hero-chips">
+                  <span class="chip">AI Agents</span>
+                  <span class="chip">Edge AI</span>
+                  <span class="chip">RAG Systems</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+              <div class="logo-stack">
+                <div class="stack-glow"></div>
+                <div class="stack-slab stack-slab--one"></div>
+                <div class="stack-slab stack-slab--two"></div>
+                <div class="stack-slab stack-slab--three"></div>
+                <div class="stack-slab stack-slab--four"></div>
+                <img class="brand-mark" src="assets/brand-mark.svg" alt="">
+              </div>
+              <div class="portrait-card">
+                <img src="assets/mohamed-yasser-photo.jpg" alt="Mohamed Yasser portrait">
+                <div>
+                  <strong>In the room</strong>
+                  <span>Clarity in thinking. Depth in building. Scale with purpose.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-aside">
+              <div class="aside-card">
+                <p class="aside-quote">I don’t build features. I design systems that survive scale.</p>
+                <p>Focused on AI systems, edge architecture, and government-grade software that keeps working when the environment gets real.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="philosophy" class="panel philosophy section">
+          <div class="philosophy-grid">
+            <div class="philosophy-intro">
+              <p class="section-kicker">My Philosophy</p>
+              <h2>Clarity first. Systems before noise.</h2>
+              <p class="section-copy">Every build starts with the real problem. Then it gets structure, execution discipline, and a path to scale.</p>
+            </div>
+
+            <article class="section-card philosophy-card">
+              <span class="card-index">01</span>
+              <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M2 12h4"/><path d="M18 12h4"/></svg>
+              <h3 class="card-title">Clarify</h3>
+              <p class="card-text">I distill complexity into clarity. Understanding the real problem is always step one.</p>
+            </article>
+
+            <article class="section-card philosophy-card">
+              <span class="card-index">02</span>
+              <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 7 4-7 4-7-4 7-4Z"/><path d="m5 11 7 4 7-4"/><path d="m5 15 7 4 7-4"/></svg>
+              <h3 class="card-title">Design</h3>
+              <p class="card-text">I design systems with structure, logic, and long-term scalability in mind.</p>
+            </article>
+
+            <article class="section-card philosophy-card">
+              <span class="card-index">03</span>
+              <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4.5 7.5v9L12 21l7.5-4.5v-9L12 3Z"/><path d="M12 3v18"/><path d="M4.5 7.5 12 12l7.5-4.5"/></svg>
+              <h3 class="card-title">Build</h3>
+              <p class="card-text">I build with precision and purpose, turning strategy into reliable execution.</p>
+            </article>
+
+            <article class="section-card philosophy-card">
+              <span class="card-index">04</span>
+              <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18h18"/><path d="m6 14 4-4 3 3 5-6"/><path d="M18 7h-4"/><path d="M18 7v4"/></svg>
+              <h3 class="card-title">Scale</h3>
+              <p class="card-text">I build systems that grow, adapt, and multiply impact over time.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="systems" class="panel systems-band section">
+          <div class="systems-grid">
+            <div class="systems-label">
+              <span>Systems I Build</span>
+            </div>
+
+            <article class="systems-card">
+              <span class="card-index">01</span>
+              <h3 class="card-title">AI Systems</h3>
+              <ul class="systems-list">
+                <li>AI agents</li>
+                <li>Computer vision</li>
+                <li>NLP and RAG</li>
+                <li>Intelligent automation</li>
+              </ul>
+            </article>
+
+            <article class="systems-card">
+              <span class="card-index">02</span>
+              <h3 class="card-title">Edge / Local-First</h3>
+              <ul class="systems-list">
+                <li>Edge AI</li>
+                <li>On-device inference</li>
+                <li>Offline-first systems</li>
+                <li>Real-time processing</li>
+              </ul>
+            </article>
+
+            <article class="systems-card">
+              <span class="card-index">03</span>
+              <h3 class="card-title">RAG Architectures</h3>
+              <ul class="systems-list">
+                <li>Knowledge systems</li>
+                <li>Vector databases</li>
+                <li>Retrieval pipelines</li>
+                <li>AI assistants</li>
+              </ul>
+            </article>
+
+            <article class="systems-card">
+              <span class="card-index">04</span>
+              <h3 class="card-title">Government Solutions</h3>
+              <ul class="systems-list">
+                <li>Smart cities</li>
+                <li>Municipality systems</li>
+                <li>Digital transformation</li>
+                <li>Public impact</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section id="thinking" class="section">
+          <div class="thinking-grid">
+            <article class="panel thinking-copy">
+              <div>
+                <p class="section-kicker">My Thinking</p>
+                <p class="thinking-quote">I don’t build features. I design systems that survive scale.</p>
+              </div>
+              <div class="thinking-foot">
+                <p class="section-copy">Great systems are not accidental. They are designed with clarity, built with discipline, and scaled with purpose.</p>
+                <span class="signature">Mohamed Yasser</span>
+              </div>
+            </article>
+
+            <article class="panel architecture">
+              <div class="flow-box">
+                <h3>Inputs</h3>
+                <ul class="flow-list">
+                  <li><span class="flow-dot"></span>Users</li>
+                  <li><span class="flow-dot"></span>Data</li>
+                  <li><span class="flow-dot"></span>Devices</li>
+                  <li><span class="flow-dot"></span>Services</li>
                 </ul>
-            </div>
-        </div>
-    </nav>
+              </div>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1 class="display-4 fw-bold mb-4">Mohamed Yasser</h1>
-                    <h3 class="mb-4" style="color: var(--primary-color);">Government Solution Architect | Emerging Technology Strategist</h3>
-                    <p class="lead mb-4">A Goal-driven Software Solutions Architect with 18+ years of experience designing advanced software solutions for government organizations, specializing in blockchain, AI, and digital transformation.</p>
-                    <div class="d-flex mt-5">
-                        <a href="#contact" class="btn btn-primary-gradient me-3">Get In Touch</a>
-                        <a href="#experience" class="btn btn-outline-secondary px-4 py-2 rounded-pill">View Experience</a>
-                    </div>
+              <div class="layer-stack" aria-hidden="true">
+                <div class="layer-node layer-node--intelligence">
+                  <div>
+                    <strong>Intelligence Layer</strong>
+                    <span>AI / Models</span>
+                  </div>
                 </div>
-                <div class="col-lg-6 text-center">
-                    <img src="https://media.licdn.com/dms/image/v2/D5603AQE9qG3_y3hXsw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1704986493653?e=1757548800&v=beta&t=q1E50mmDNaiBifKg-GOcXKXzlpGLN4SblrTL9CIDM94" alt="Mohamed Yasser" class="img-fluid hero-img" style="max-width: 80%;">
+                <div class="layer-node layer-node--logic">
+                  <div>
+                    <strong>Logic Layer</strong>
+                    <span>Rules / AI Orchestrations</span>
+                  </div>
                 </div>
-            </div>
-        </div>
-    </section>
+                <div class="layer-node layer-node--data">
+                  <div>
+                    <strong>Data Layer</strong>
+                    <span>Storage / Context</span>
+                  </div>
+                </div>
+                <div class="layer-node layer-node--infrastructure">
+                  <div>
+                    <strong>Infrastructure Layer</strong>
+                    <span>Edge / Cloud</span>
+                  </div>
+                </div>
+              </div>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-header">
-                        <h2 class="section-title">About Me</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="profile-card">
-                        <div class="profile-header text-center">
-                            <img src="https://media.licdn.com/dms/image/v2/D5603AQE9qG3_y3hXsw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1704986493653?e=1757548800&v=beta&t=q1E50mmDNaiBifKg-GOcXKXzlpGLN4SblrTL9CIDM94">
-                            <h3 class="mb-1">Mohamed Yasser</h3>
-                            <p class="mb-3">Technology Analyst | Visionary Futurist | Community Builder</p>
-                            <div class="social-links">
-                                <a href="https://www.linkedin.com/in/moyasser/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://github.com/yasserrmd" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                                <a href="https://huggingface.co/yasserrmd" class="social-icon" target="_blank"><i class="fas fa-robot"></i></a>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="lead mb-4">A Goal-driven Software Solutions Architect with a distinguished career spanning over 18 years, renowned for designing and developing advanced software solutions for prestigious government organizations.</p>
-                            <p>Adept at leveraging a comprehensive range of technologies and tools to drive innovation and achieve exceptional outcomes. Demonstrated expertise in spearheading impactful Proof of Concept (POC) initiatives, showcasing proficiency in emerging technologies such as blockchain and AI.</p>
-                            <p>Committed to optimizing business productivity and efficiency through the implementation of cutting-edge software solutions. Passionate about mentoring future tech leaders and building technology communities.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+              <div class="flow-box">
+                <h3>Outcomes</h3>
+                <ul class="flow-list">
+                  <li><span class="flow-dot"></span>Automation</li>
+                  <li><span class="flow-dot"></span>Accuracy</li>
+                  <li><span class="flow-dot"></span>Efficiency</li>
+                  <li><span class="flow-dot"></span>Impact</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section" style="background: var(--light-gradient);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-header">
-                        <h2 class="section-title">Professional Experience</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="mb-0">Team Leader / Software Solution Architect</h4>
-                                <span class="badge bg-primary">2015 - Present</span>
-                            </div>
-                            <p class="mb-0 mt-2">Sharjah City Municipality - Sharjah, UAE</p>
-                        </div>
-                        <div class="exp-body">
-                            <ul class="mb-3">
-                                <li>Lead the end-to-end design and development of software solutions for complex government projects, ensuring scalability, reliability, and maintainability.</li>
-                                <li>Collaborate with cross-functional teams to analyze project requirements, define technical architectures, and deliver high-quality solutions within strict timelines.</li>
-                                <li>Champion the adoption of best practices, design patterns, and industry standards to streamline software development processes.</li>
-                                <li>Architect and implement robust APIs for seamless data exchange and integration, leveraging RESTful principles and microservices architecture.</li>
-                                <li>Design and optimize databases for performance, data integrity, and scalability, employing relational and NoSQL database technologies.</li>
-                            </ul>
-                            <div>
-                                <span class="skill-badge">Creative Problem Solving</span>
-                                <span class="skill-badge">Communication</span>
-                                <span class="skill-badge">Computer Vision</span>
-                                <span class="skill-badge">Data Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="mb-0">Senior Software Developer</h4>
-                                <span class="badge bg-primary">2013 - 2015</span>
-                            </div>
-                            <p class="mb-0 mt-2">IT Department - Sharjah, UAE</p>
-                        </div>
-                        <div class="exp-body">
-                            <ul class="mb-3">
-                                <li>Played a key role in the successful migration of existing systems to ASP.NET applications and SharePoint, improving system performance and user experience.</li>
-                                <li>Led the design and analysis of the architecture for the Sharjah Food Safety Program system, ensuring compliance with industry regulations and standards.</li>
-                                <li>Deployed applications in IIIS and SharePoint environments, ensuring smooth deployment and integration.</li>
-                                <li>Administered the Team Foundation Server, facilitating effective collaboration and version control among development teams.</li>
-                            </ul>
-                            <div>
-                                <span class="skill-badge">Creative Problem Solving</span>
-                                <span class="skill-badge">Communication</span>
-                                <span class="skill-badge">Computer Vision</span>
-                                <span class="skill-badge">Data Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="mb-0">Technical Consultant</h4>
-                                <span class="badge bg-primary">2012 - 2013</span>
-                            </div>
-                            <p class="mb-0 mt-2">Freelancing - Sharjah, UAE</p>
-                        </div>
-                        <div class="exp-body">
-                            <ul class="mb-3">
-                                <li>Provided expert consultation on IT systems and solutions, guiding clients in making informed technology decisions aligned with their business goals.</li>
-                                <li>Designed and developed web applications and commercial websites, focusing on user-centric design and seamless functionality.</li>
-                                <li>Managed web hosting and server administration, ensuring reliable and secure web presence for clients.</li>
-                                <li>Implemented robust security and surveillance systems, safeguarding client data and assets.</li>
-                            </ul>
-                            <div>
-                                <span class="skill-badge">Communication</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="exp-card">
-                        <div class="exp-header">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h4 class="mb-0">System Analyst</h4>
-                                <span class="badge bg-primary">2010 - 2012</span>
-                            </div>
-                            <p class="mb-0 mt-2">Nanosoft Solutions - Dubai, UAE</p>
-                        </div>
-                        <div class="exp-body">
-                            <ul class="mb-3">
-                                <li>Developed innovative solutions for complex business problems, analyzing user requirements and translating them into technical solutions.</li>
-                                <li>Collaborated closely with development teams to ensure seamless integration, technical compatibility, and user satisfaction.</li>
-                                <li>Led the successful implementation of various new systems, leveraging emerging technologies and industry best practices.</li>
-                            </ul>
-                            <div>
-                                <span class="skill-badge">Communication</span>
-                                <span class="skill-badge">Data Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <section id="work" class="section">
+          <div class="work-grid">
+            <article class="panel work-intro">
+              <div>
+                <p class="section-kicker">Featured Work</p>
+                <h2>Systems shaped for the real world.</h2>
+              </div>
+              <p class="section-copy">A few representative builds across AI, document intelligence, and knowledge systems.</p>
+              <a class="button button--secondary" href="#connect">View All Work</a>
+            </article>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-header">
-                        <h2 class="section-title">Technical Skills</h2>
-                    </div>
+            <article class="panel work-card">
+              <div class="work-visual work-visual--municipality"></div>
+              <div class="work-copy">
+                <h3>Municipality AI System</h3>
+                <p>AI-powered platform for urban management, field intelligence, and data-backed municipal decision-making.</p>
+                <div class="card-tags">
+                  <span class="tag">AI</span>
+                  <span class="tag">Vision</span>
+                  <span class="tag">Analytics</span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-4">
-                        <div class="card-body p-4">
-                            <div class="text-center mb-4">
-                                <div class="service-icon mx-auto">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h4>Software Development</h4>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                                <span class="skill-badge">ASP.NET</span>
-                                <span class="skill-badge">C#</span>
-                                <span class="skill-badge">JavaScript</span>
-                                <span class="skill-badge">Python</span>
-                                <span class="skill-badge">React</span>
-                                <span class="skill-badge">Node.js</span>
-                                <span class="skill-badge">REST APIs</span>
-                                <span class="skill-badge">Microservices</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-4">
-                        <div class="card-body p-4">
-                            <div class="text-center mb-4">
-                                <div class="service-icon mx-auto">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <h4>Database & Infrastructure</h4>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                                <span class="skill-badge">SQL Server</span>
-                                <span class="skill-badge">Oracle</span>
-                                <span class="skill-badge">MongoDB</span>
-                                <span class="skill-badge">Azure</span>
-                                <span class="skill-badge">AWS</span>
-                                <span class="skill-badge">DevOps</span>
-                                <span class="skill-badge">CI/CD</span>
-                                <span class="skill-badge">Docker</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="card h-100 border-0 shadow-sm rounded-4">
-                        <div class="card-body p-4">
-                            <div class="text-center mb-4">
-                                <div class="service-icon mx-auto">
-                                    <i class="fas fa-brain"></i>
-                                </div>
-                                <h4>Emerging Technologies</h4>
-                            </div>
-                            <div class="d-flex flex-wrap">
-                                <span class="skill-badge">Artificial Intelligence</span>
-                                <span class="skill-badge">Machine Learning</span>
-                                <span class="skill-badge">Blockchain</span>
-                                <span class="skill-badge">Computer Vision</span>
-                                <span class="skill-badge">IoT</span>
-                                <span class="skill-badge">Big Data</span>
-                                <span class="skill-badge">Data Analysis</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+              </div>
+            </article>
 
-    <!-- Services Section -->
-    <section id="services" class="section" style="background: var(--light-gradient);">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-header">
-                        <h2 class="section-title">Services</h2>
-                    </div>
+            <article class="panel work-card">
+              <div class="work-visual work-visual--edge"></div>
+              <div class="work-copy">
+                <h3>Edge Document Intelligence</h3>
+                <p>Offline-first document processing at the edge with high accuracy for OCR, classification, and extraction.</p>
+                <div class="card-tags">
+                  <span class="tag">Edge AI</span>
+                  <span class="tag">OCR</span>
+                  <span class="tag">Local</span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon mx-auto">
-                            <i class="fas fa-project-diagram"></i>
-                        </div>
-                        <h4 class="mb-3">Solution Architecture</h4>
-                        <p>Designing scalable, reliable, and maintainable software architectures for complex government and enterprise projects.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon mx-auto">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h4 class="mb-3">Digital Transformation</h4>
-                        <p>Guiding organizations through digital transformation journeys with strategic technology implementation and process optimization.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon mx-auto">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h4 class="mb-3">AI & Blockchain Integration</h4>
-                        <p>Leveraging cutting-edge AI and blockchain technologies to create innovative solutions for modern business challenges.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon mx-auto">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                        <h4 class="mb-3">DevOps Implementation</h4>
-                        <p>Establishing efficient CI/CD pipelines and DevOps practices to streamline software delivery and enhance team productivity.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon mx-auto">
-                            <i class="fas fa-users-cog"></i>
-                        </div>
-                        <h4 class="mb-3">Technical Consultation</h4>
-                        <p>Providing expert technical advice and strategic guidance for organizations looking to optimize their technology investments.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 mb-4">
-                    <div class="service-card p-4 text-center h-100">
-                        <div class="service-icon mx-auto">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4 class="mb-3">Technology Mentorship</h4>
-                        <p>Mentoring and training tech professionals to develop their skills and advance their careers in the rapidly evolving technology landscape.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+              </div>
+            </article>
 
-    <!-- Testimonials Section -->
-<section id="testimonials" class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="section-header">
-                    <h2 class="section-title">Testimonials</h2>
+            <article class="panel work-card">
+              <div class="work-visual work-visual--rag"></div>
+              <div class="work-copy">
+                <h3>RAG Knowledge Assistant</h3>
+                <p>Enterprise-grade retrieval system for internal knowledge discovery, support, and domain-specific assistants.</p>
+                <div class="card-tags">
+                  <span class="tag">RAG</span>
+                  <span class="tag">Vector DB</span>
+                  <span class="tag">LLM</span>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-card h-100">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFCt_tGLYI0sg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1712304024929?e=1746662400&v=beta&t=6u3JmqSZLHRVjobZvd77e2ochqtJpLdEG0oVSDGVXeU" alt="Adamu Muktar" class="img-fluid">
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Adamu Muktar</h5>
-                            <p class="mb-0 text-muted">Full Stack Developer</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>I've been mentored by Mohamed Yasser, an accomplished solution architect and e-government expert with a vast skill set. His guidance has been invaluable in my career growth, especially when he advised me to learn Flutter. His expertise and innovative approach make him an exceptional asset to any organization.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-card h-100">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">
-                            <img src="https://media.licdn.com/dms/image/v2/C4E03AQFwziIM9_xrCw/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1517661358773?e=1746662400&v=beta&t=METg96yvhUsk49008d1tAkr0yitZOgRWFFQiJZ0OpWc" alt="Nooruddin Bhatti" class="img-fluid">
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Nooruddin Bhatti</h5>
-                            <p class="mb-0 text-muted">Senior System Analyst</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>A driven, ambitious individual with an infectious enthusiasm for any project. I am personally envious of Mohamed Yasser's many obvious achievements and his dedication to the pursuit of business excellence. Very inspirational to work with him. A systematic and smart Developer who knows how to manage work.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-card h-100">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">
-                            <img src="https://media.licdn.com/dms/image/v2/C4D03AQEpull9cBUcyg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1516788723548?e=1746662400&v=beta&t=7fwQUCRX1E39JEA1i7lHImnrJWsEQfJPdYSKRuUlseM" alt="Atheek Ahamed" class="img-fluid">
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Atheek Ahamed</h5>
-                            <p class="mb-0 text-muted">Technical Lead</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Yasser arafath is a well skilled & experienced professional in IT development fields. He is also a good technical lead & team player. He is always curious on new technologies. And also a good solution provider for any kind of technical problems.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-card h-100">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">
-                            <img src="https://media.licdn.com/dms/image/v2/C5603AQFA-XmjejlXqA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1602568428907?e=1746662400&v=beta&t=5xTFKgEWt_LlViNo_TOyL8c4o9KUcAOlcu6W4gHTmQY" alt="Mohamed Riaz" class="img-fluid">
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Mohamed Riaz</h5>
-                            <p class="mb-0 text-muted">Logistics Digital Transformation Leader</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Yasser Arafat is a professional keen to identify the best fit solution for any given problem. Taking care of the customer needs is in his priority list and never shies away from taking ownership of providing the best service. He is a natural thought leader amongst a team. Excellent to work with.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-card h-100">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D03AQFlWp4_z_zezA/profile-displayphoto-shrink_100_100/B4DZRjHqfjHUAY-/0/1736829742034?e=1746662400&v=beta&t=rrnArsX18N4oXH52vzn2f5dgMTjs2zzeiEXSNNH6AVc" alt="Mohamed Fahad" class="img-fluid">
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Mohamed Fahad</h5>
-                            <p class="mb-0 text-muted">Systems Manager</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Mohammed Yasser Arafath is a well experienced analyst in IT development. Good solution provider for difficult technical task. Good team worker.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-4">
-                <div class="testimonial-card h-100">
-                    <div class="testimonial-header">
-                        <div class="testimonial-img">
-                            <img src="https://media.licdn.com/dms/image/v2/C4E03AQGeNvYeDX3EFg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1517720598924?e=1746662400&v=beta&t=WOsu5Rpy7GgBnrD_28vHa-LxN7xANqn3pVGTbee8ny0" alt="Adnan Ali" class="img-fluid">
-                        </div>
-                        <div>
-                            <h5 class="mb-0">Adnan Ali</h5>
-                            <p class="mb-0 text-muted">Senior Software Engineer</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-body">
-                        <p><span class="quote-icon"><i class="fas fa-quote-left"></i></span>Yasser is a thorough professional. With remarkable solution finding skills and technological enthusiasm; he was an asset to the team, and will continue to be so in any organization which he would be working for.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+              </div>
+            </article>
+          </div>
+        </section>
 
-<!-- Contact Section -->
-<section id="contact" class="section" style="background: var(--light-gradient);">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="section-header">
-                    <h2 class="section-title">Get In Touch</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card border-0 shadow-sm rounded-4 p-4">
-                    <div class="card-body">
-                        <div class="row mb-4">
-                            <div class="col-md-4 mb-3 mb-md-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="service-icon me-3" style="width: 50px; height: 50px; font-size: 20px;">
-                                        <i class="far fa-envelope"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">Email</h5>
-                                        <a href="mailto:yasser.experiments@gmail.com" class="text-decoration-none" style="color: var(--primary-color);">yasser.experiments@gmail.com</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3 mb-md-0">
-                                <div class="d-flex align-items-center">
-                                    <div class="service-icon me-3" style="width: 50px; height: 50px; font-size: 20px;">
-                                        <i class="fab fa-linkedin"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">LinkedIn</h5>
-                                        <a href="https://www.linkedin.com/in/moyasser/" class="text-decoration-none" style="color: var(--primary-color);" target="_blank">moyasser</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="service-icon me-3" style="width: 50px; height: 50px; font-size: 20px;">
-                                        <i class="fab fa-github"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="mb-1">GitHub</h5>
-                                        <a href="https://github.com/yasserrmd" class="text-decoration-none" style="color: var(--primary-color);" target="_blank">yasserrmd</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mt-4">
-                            <h5 class="mb-3">Connect With Me</h5>
-                            <div class="d-flex justify-content-center">
-                                <a href="https://www.linkedin.com/in/moyasser/" class="social-icon mx-2" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://github.com/yasserrmd" class="social-icon mx-2" target="_blank"><i class="fab fa-github"></i></a>
-                                <a href="https://huggingface.co/yasserrmd" class="social-icon mx-2" target="_blank"><i class="fas fa-robot"></i></a>
-                                <a href="mailto:yasser.experiments@gmail.com" class="social-icon mx-2"><i class="far fa-envelope"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        <section id="mentorship" class="panel impact section">
+          <div class="impact-grid">
+            <article class="impact-intro">
+              <div>
+                <p class="section-kicker">Mentorship &amp; Impact</p>
+                <h3>I help engineers think in systems, not tools.</h3>
+              </div>
+              <div class="impact-portrait">
+                <img src="assets/mohamed-yasser-photo.jpg" alt="Mohamed Yasser portrait">
+                <p>I build people so they can build what matters, with architectural thinking, execution discipline, and long-term clarity.</p>
+              </div>
+            </article>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <p class="mb-0">&copy; 2025 Mohamed Yasser. All Rights Reserved.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+            <article class="impact-card">
+              <h3>1:1 Mentorship</h3>
+              <p>Personal guidance for engineers and builders navigating architecture, execution, and technical direction.</p>
+            </article>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+            <article class="impact-card">
+              <h3>Community</h3>
+              <p>Building spaces where system thinkers, developers, and technology leaders sharpen how they design and ship.</p>
+            </article>
+
+            <article class="impact-card">
+              <h3>Talks &amp; Writing</h3>
+              <p>Sharing ideas on systems, AI architecture, public-sector technology, and building with purpose.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="connect" class="section">
+          <div class="connect">
+            <article class="panel connect-copy">
+              <div>
+                <p class="section-kicker">Let’s Build</p>
+                <h2 class="cta">Something meaningful.</h2>
+              </div>
+              <p class="section-copy">If the problem matters, the system should too. I’m interested in ambitious products, public impact, and architecture that survives real constraints.</p>
+              <p class="footer-note">Sharjah, UAE</p>
+            </article>
+
+            <article class="panel connect-card">
+              <div>
+                <p class="section-kicker">Connect</p>
+                <p class="contact-note">Reach out for architecture work, AI systems, edge deployments, RAG initiatives, or mentorship.</p>
+              </div>
+              <div class="contact-links">
+                <a class="contact-link" href="https://www.linkedin.com/in/moyasser/" target="_blank" rel="noreferrer">
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">linkedin.com/in/moyasser</span>
+                </a>
+                <a class="contact-link" href="https://github.com/yasserrmd" target="_blank" rel="noreferrer">
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">github.com/yasserrmd</span>
+                </a>
+                <a class="contact-link" href="https://huggingface.co/yasserrmd" target="_blank" rel="noreferrer">
+                  <span class="contact-label">Hugging Face</span>
+                  <span class="contact-value">huggingface.co/yasserrmd</span>
+                </a>
+                <a class="contact-link" href="mailto:yasser.experiments@gmail.com">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">yasser.experiments@gmail.com</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
 </body>
 </html>

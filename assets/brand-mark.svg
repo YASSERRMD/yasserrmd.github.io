@@ -1,0 +1,25 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gold" x1="34" y1="20" x2="222" y2="236" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7E8B5"/>
+      <stop offset="0.35" stop-color="#D9B561"/>
+      <stop offset="0.7" stop-color="#A46E22"/>
+      <stop offset="1" stop-color="#F3D58A"/>
+    </linearGradient>
+    <linearGradient id="slate" x1="54" y1="46" x2="194" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9FBFF"/>
+      <stop offset="0.4" stop-color="#DEE6F3"/>
+      <stop offset="1" stop-color="#9FB0CA"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="256" height="256" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#0D1E39" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M128 20L232 128L128 236L24 128L128 20Z" fill="rgba(255,255,255,0.02)"/>
+    <path d="M128 28L224 128L128 228L32 128L128 28Z" fill="none" stroke="url(#gold)" stroke-width="8"/>
+    <path d="M128 48L204 128L128 208L52 128L128 48Z" fill="url(#slate)" fill-opacity="0.32" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
+    <text x="78" y="152" fill="#1C355C" font-family="'Times New Roman', Georgia, serif" font-size="96" font-weight="700">M</text>
+    <text x="145" y="172" fill="url(#gold)" font-family="'Times New Roman', Georgia, serif" font-size="76" font-weight="700">Y</text>
+  </g>
+</svg>
