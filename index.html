@@ -908,19 +908,22 @@
       .hero-copy,
       .hero-art,
       .hero-persona { min-width: 0; }
-      .hero-copy { width: min(100%, calc(100vw - 5.25rem)); padding: 0.8rem; gap: 0.85rem; }
-      .hero-name { font-size: 2.85rem; line-height: 1; letter-spacing: 0.08em; }
-      .hero-lead { max-width: 100%; font-size: 0.95rem; line-height: 1.75; }
+      .hero-copy { width: 100%; padding: 0.8rem; gap: 0.85rem; }
+      .hero-name { font-size: 2.6rem; line-height: 1; letter-spacing: 0.08em; }
+      .hero-lead { max-width: 100%; font-size: 0.93rem; line-height: 1.72; }
       .hero-tagline { max-width: 100%; flex-direction: column; align-items: flex-start; font-size: 0.68rem; line-height: 1.55; letter-spacing: 0.09em; gap: 0.08rem; overflow-wrap: anywhere; }
       .hero-tagline span:not(:last-child)::after { content: none; }
-      .hero-persona { min-height: 370px; }
-      .hero-photo-frame { width: min(74%, 265px); transform: none; border-radius: 28px; padding: 8px; }
+      .hero-art { min-height: auto; padding: 0.5rem 0.5rem 1rem; overflow: visible; }
+      .hero-persona { min-height: 290px; animation: none; transform: none; }
+      .hero-photo-frame { width: min(65%, 230px); transform: none; border-radius: 24px; padding: 6px; }
       .hero-photo-frame img,
-      .hero-photo-frame::before { border-radius: 22px; }
-      .hero-logo-badge { width: 104px; left: 6%; bottom: 7%; border-radius: 18px; padding: 0.62rem; }
-      .hero-role-card { width: 138px; right: 5%; top: 9%; border-radius: 18px; padding: 0.74rem 0.78rem; }
-      .hero-role-card span { font-size: 0.55rem; letter-spacing: 0.16em; }
-      .hero-role-card strong { font-size: 0.78rem; line-height: 1.35; }
+      .hero-photo-frame::before { border-radius: 20px; }
+      /* top: stays at 5% from desktop (top-left); remove the conflicting bottom override */
+      .hero-logo-badge { width: 90px; left: 4%; padding: 0.5rem; border-radius: 16px; animation: none; transform: none; }
+      /* bottom: stays at 8% from desktop (bottom-right); remove the conflicting top override */
+      .hero-role-card { width: 124px; right: 4%; border-radius: 16px; padding: 0.6rem 0.65rem; }
+      .hero-role-card span { font-size: 0.52rem; letter-spacing: 0.16em; }
+      .hero-role-card strong { font-size: 0.74rem; line-height: 1.32; }
       .hero-eyebrow,
       .hero-name,
       .hero-lead,
