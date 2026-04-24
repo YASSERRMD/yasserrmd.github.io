@@ -1175,7 +1175,6 @@
       </button>
       <div class="mob-nav-sub" id="mnav-systems">
         <a class="mob-sub-link" href="#systems"><span class="mob-sub-num">04</span>Architecture</a>
-        <a class="mob-sub-link" href="#built"><span class="mob-sub-num">07</span>Built &amp; Deployed</a>
         <a class="mob-sub-link" href="#patterns"><span class="mob-sub-num">08</span>Patterns</a>
         <a class="mob-sub-link" href="#ai-thinking"><span class="mob-sub-num">09</span>AI Thinking</a>
       </div>
@@ -1247,7 +1246,6 @@
         <div class="phase-flyout" role="menu" aria-label="Systems sub-sections">
           <a class="phase-fly-link" href="#systems" role="menuitem"><span class="phase-fly-num">04</span>Architecture</a>
           <div class="phase-fly-sep"></div>
-          <a class="phase-fly-link" href="#built" role="menuitem"><span class="phase-fly-num">07</span>Built &amp; Deployed</a>
           <a class="phase-fly-link" href="#patterns" role="menuitem"><span class="phase-fly-num">08</span>Patterns</a>
           <a class="phase-fly-link" href="#ai-thinking" role="menuitem"><span class="phase-fly-num">09</span>AI Thinking</a>
         </div>
@@ -1372,8 +1370,8 @@
             <div class="kicker-bar"></div>
             <h2>Failure first.<br>Scale second.<br>Features last.</h2>
             <p class="sig">Mohamed</p>
-            <a class="btn-sm" href="#built">
-              See Systems Built
+            <a class="btn-sm" href="#systems">
+              See Architecture
               <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </div>
@@ -1882,82 +1880,6 @@
         </div>
       </section>
 
-      <!-- ══════════════ NEW: SYSTEMS BUILT ══════════════ -->
-      <section id="built" class="glass-dark systems-band">
-        <div class="systems-inner-wrap">
-          <div class="systems-grid">
-
-            <div class="systems-header mi">
-              <div>
-                <p class="kicker">Systems I Have Built</p>
-                <h2>BUILT.<br>DEPLOYED.<br><span class="gold-text">RUNNING.</span></h2>
-              </div>
-              <a class="btn-gold" href="#connect">
-                Discuss a Project
-                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-
-            <article class="sys-card mi" style="--md:70ms">
-              <div class="sys-icon-wrap">
-                <svg class="sys-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>
-              </div>
-              <h3 class="sys-title">Municipality AI Detection</h3>
-              <ul class="sys-list">
-                <li>Vehicle-mounted edge cameras scan city infrastructure</li>
-                <li>VLM classifies issue type and severity on-device</li>
-                <li>Central control revalidates and reranks flagged events</li>
-                <li>GIS system maps each incident with coordinates</li>
-                <li>Automated complaint generated into municipal CRM</li>
-              </ul>
-            </article>
-
-            <article class="sys-card mi" style="--md:135ms">
-              <div class="sys-icon-wrap">
-                <svg class="sys-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </div>
-              <h3 class="sys-title">WhatsApp Complaint Automation</h3>
-              <ul class="sys-list">
-                <li>Citizen sends image via WhatsApp</li>
-                <li>VLM extracts issue type, location context, severity</li>
-                <li>Structured complaint auto-generated and routed</li>
-                <li>Removes manual transcription from the reporting chain</li>
-                <li>Reduces report-to-action time significantly</li>
-              </ul>
-            </article>
-
-            <article class="sys-card mi" style="--md:200ms">
-              <div class="sys-icon-wrap">
-                <svg class="sys-icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              </div>
-              <h3 class="sys-title">ANPR Smart Parking</h3>
-              <ul class="sys-list">
-                <li>Camera-based license plate detection at entry and exit</li>
-                <li>Real-time occupancy tracking per zone</li>
-                <li>Predictive analytics for demand patterns</li>
-                <li>Decision support dashboard for operations team</li>
-                <li>Advisory architecture for smart city rollout</li>
-              </ul>
-            </article>
-
-            <article class="sys-card mi" style="--md:265ms">
-              <div class="sys-icon-wrap">
-                <svg class="sys-icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-              </div>
-              <h3 class="sys-title">AI Medical Triage Concept</h3>
-              <ul class="sys-list">
-                <li>Voice intake converted to structured clinical text</li>
-                <li>Symptoms extracted into triage priority categories</li>
-                <li>Scoring based on clinical rules, not model confidence</li>
-                <li>Reduces cognitive load on emergency staff</li>
-                <li>Human-in-the-loop validation at every decision point</li>
-              </ul>
-            </article>
-
-          </div>
-        </div>
-      </section>
-
       <!-- ══════════════ NEW: ARCHITECTURE PATTERNS ══════════════ -->
       <section id="patterns" class="glass philosophy">
         <div class="philo-grid">
@@ -2440,7 +2362,7 @@
       }
 
       /* Navigation active state */
-      const subParent = { built:"systems", "ai-thinking":"systems", patterns:"systems", oss:"about", achievements:"about", differentiators:"about", approach:"philosophy" };
+      const subParent = { "ai-thinking":"systems", patterns:"systems", oss:"about", achievements:"about", differentiators:"about", approach:"philosophy" };
       const navLinks = [...document.querySelectorAll(".phase-link[data-section]")];
       const sections = navLinks.map(l => document.getElementById(l.dataset.section)).filter(Boolean);
       const subSections = Object.keys(subParent).map(id => document.getElementById(id)).filter(Boolean);
