@@ -1009,35 +1009,68 @@
     /* ── WORK CARD SVG ── */
     .work-visual svg { display: block; width: 100%; height: 178px; border-radius: 18px; }
 
-    /* ── SIDEBAR FLYOUT SUB-NAV ── */
+    /* ── SIDEBAR FLYOUT — dark-navy glass, gold accents ── */
     .phase-item { position: relative; display: flex; flex-direction: column; }
     .phase-flyout {
-      position: absolute; left: calc(100% + 10px); top: 50%;
-      transform: translateY(-50%) translateX(-6px);
-      background: rgba(250,252,255,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255,255,255,0.90); border-radius: 14px;
-      padding: 0.42rem 0.22rem; box-shadow: 12px 4px 36px rgba(14,31,56,0.18);
-      min-width: 152px; z-index: 60;
+      position: absolute; left: calc(100% + 14px); top: 50%;
+      transform: translateY(-50%) translateX(-10px) scale(0.94);
+      background: linear-gradient(152deg, rgba(10,26,58,0.98) 0%, rgba(5,12,26,0.99) 100%);
+      backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(201,162,39,0.26);
+      border-top-color: rgba(201,162,39,0.50);
+      border-radius: 18px;
+      padding: 0.68rem 0.36rem;
+      box-shadow:
+        20px 8px 60px rgba(2,5,14,0.64),
+        inset 0 1px 0 rgba(255,255,255,0.06),
+        inset 0 -1px 0 rgba(0,0,0,0.28);
+      min-width: 182px; z-index: 60;
       opacity: 0; pointer-events: none; visibility: hidden;
-      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
+      transition: opacity 0.26s ease, transform 0.28s cubic-bezier(0.2,0.85,0.18,1), visibility 0s linear 0.26s;
+    }
+    /* Arrow caret pointing back to sidebar */
+    .phase-flyout::before {
+      content: ""; position: absolute; right: 100%; top: 50%; transform: translateY(-50%);
+      border: 7px solid transparent; border-right-color: rgba(201,162,39,0.32);
+    }
+    .phase-flyout::after {
+      content: ""; position: absolute; right: 100%; top: 50%; transform: translateY(-50%) translateX(2px);
+      border: 6px solid transparent; border-right-color: rgba(8,18,42,0.99);
     }
     .phase-item:hover .phase-flyout,
     .phase-item:focus-within .phase-flyout {
       opacity: 1; pointer-events: all; visibility: visible;
-      transform: translateY(-50%) translateX(0);
-      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0s;
+      transform: translateY(-50%) translateX(0) scale(1);
+      transition: opacity 0.26s ease, transform 0.28s cubic-bezier(0.2,0.85,0.18,1), visibility 0s linear 0s;
     }
     .phase-fly-link {
-      display: block; padding: 0.34rem 0.70rem;
-      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--ink-soft); border-radius: 8px; white-space: nowrap;
-      transition: color 0.15s, background 0.15s;
+      display: flex; align-items: center; gap: 0.52rem;
+      padding: 0.44rem 0.82rem;
+      font-size: 0.59rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(185,208,248,0.50); border-radius: 10px; white-space: nowrap;
+      border-left: 2px solid transparent;
+      transition: color 0.18s, background 0.18s, border-color 0.18s, padding-left 0.18s;
     }
-    .phase-fly-link:hover, .phase-fly-link.sub-active { color: var(--gold); background: rgba(201,162,39,0.07); }
-    .phase-fly-sep { height: 1px; background: rgba(20,37,62,0.08); margin: 0.22rem 0.52rem; }
+    .phase-fly-link:hover, .phase-fly-link.sub-active {
+      color: #F0D68A; background: rgba(201,162,39,0.10);
+      border-left-color: var(--gold); padding-left: 1rem;
+    }
+    .phase-fly-num {
+      font-size: 0.46rem; font-weight: 900; letter-spacing: 0.10em;
+      color: rgba(201,162,39,0.45); flex-shrink: 0; font-variant-numeric: tabular-nums;
+      transition: color 0.18s;
+    }
+    .phase-fly-link:hover .phase-fly-num, .phase-fly-link.sub-active .phase-fly-num {
+      color: rgba(201,162,39,0.90);
+    }
+    .phase-fly-sep {
+      height: 1px; margin: 0.28rem 0.68rem;
+      background: linear-gradient(90deg, transparent, rgba(201,162,39,0.22), transparent);
+    }
     .phase-sub-dot {
       position: absolute; top: 0.28rem; right: 0.26rem;
-      width: 5px; height: 5px; background: var(--gold); border-radius: 50%; opacity: 0.72;
+      width: 5px; height: 5px; background: var(--gold); border-radius: 50%; opacity: 0.75;
+      box-shadow: 0 0 6px rgba(201,162,39,0.60);
     }
 
     /* ── MOBILE NAV ACCORDION ── */
@@ -1061,18 +1094,25 @@
     .mob-nav-sub {
       display: flex; flex-direction: column;
       max-height: 0; overflow: hidden;
-      transition: max-height 0.34s cubic-bezier(0.32,0,0.08,1);
+      transition: max-height 0.36s cubic-bezier(0.32,0,0.08,1);
       margin-left: 0.4rem; padding-left: 0.85rem;
-      border-left: 2px solid rgba(201,162,39,0.24);
+      border-left: 2px solid rgba(201,162,39,0.28);
     }
-    .mob-nav-sub.open { max-height: 500px; }
+    .mob-nav-sub.open { max-height: 520px; }
     .mob-sub-link {
-      font-family: var(--font-sans); font-size: 1.06rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.52rem;
+      font-family: var(--font-sans); font-size: 1.04rem; font-weight: 600;
       letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft);
-      padding: 0.40rem 0; border-bottom: 1px solid rgba(20,37,62,0.05);
-      transition: color 0.16s;
+      padding: 0.42rem 0.2rem; border-bottom: 1px solid rgba(20,37,62,0.05);
+      transition: color 0.18s, padding-left 0.18s;
     }
-    .mob-sub-link:hover { color: var(--gold); }
+    .mob-sub-link:hover { color: var(--gold); padding-left: 0.4rem; }
+    .mob-sub-num {
+      font-size: 0.58rem; font-weight: 900; color: var(--gold); opacity: 0.45;
+      letter-spacing: 0.10em; flex-shrink: 0; min-width: 1.5rem;
+      transition: opacity 0.18s;
+    }
+    .mob-sub-link:hover .mob-sub-num { opacity: 1; }
 
     /* ── SYSTEMS GRID: intermediate tablet breakpoint ── */
     @media (min-width: 1201px) and (max-width: 1440px) {
@@ -1121,12 +1161,12 @@
         <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="mob-nav-sub" id="mnav-identity">
-        <a class="mob-sub-link" href="#about">About</a>
-        <a class="mob-sub-link" href="#philosophy">Philosophy</a>
-        <a class="mob-sub-link" href="#approach">Approach</a>
-        <a class="mob-sub-link" href="#oss">Open Source</a>
-        <a class="mob-sub-link" href="#achievements">Achievements</a>
-        <a class="mob-sub-link" href="#differentiators">Differentiators</a>
+        <a class="mob-sub-link" href="#about"><span class="mob-sub-num">02</span>About</a>
+        <a class="mob-sub-link" href="#philosophy"><span class="mob-sub-num">03</span>Philosophy</a>
+        <a class="mob-sub-link" href="#oss"><span class="mob-sub-num">10</span>Open Source</a>
+        <a class="mob-sub-link" href="#achievements"><span class="mob-sub-num">11</span>Achievements</a>
+        <a class="mob-sub-link" href="#approach"><span class="mob-sub-num">12</span>Approach</a>
+        <a class="mob-sub-link" href="#differentiators"><span class="mob-sub-num">13</span>Differentiators</a>
       </div>
     </div>
     <div class="mob-nav-group">
@@ -1135,10 +1175,10 @@
         <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="mob-nav-sub" id="mnav-systems">
-        <a class="mob-sub-link" href="#systems">Architecture</a>
-        <a class="mob-sub-link" href="#built">Built &amp; Deployed</a>
-        <a class="mob-sub-link" href="#ai-thinking">AI Thinking</a>
-        <a class="mob-sub-link" href="#patterns">Patterns</a>
+        <a class="mob-sub-link" href="#systems"><span class="mob-sub-num">04</span>Architecture</a>
+        <a class="mob-sub-link" href="#built"><span class="mob-sub-num">07</span>Built &amp; Deployed</a>
+        <a class="mob-sub-link" href="#patterns"><span class="mob-sub-num">08</span>Patterns</a>
+        <a class="mob-sub-link" href="#ai-thinking"><span class="mob-sub-num">09</span>AI Thinking</a>
       </div>
     </div>
     <div class="mob-nav-group">
@@ -1147,8 +1187,8 @@
         <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="mob-nav-sub" id="mnav-work">
-        <a class="mob-sub-link" href="#work">Case Studies</a>
-        <a class="mob-sub-link" href="#thinking">Arch. Thinking</a>
+        <a class="mob-sub-link" href="#work"><span class="mob-sub-num">05</span>Case Studies</a>
+        <a class="mob-sub-link" href="#thinking"><span class="mob-sub-num">06</span>Arch. Thinking</a>
       </div>
     </div>
     <div class="mob-nav-group">
@@ -1157,8 +1197,8 @@
         <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="mob-nav-sub" id="mnav-community">
-        <a class="mob-sub-link" href="#mentorship">Mentorship</a>
-        <a class="mob-sub-link" href="#connect">Connect</a>
+        <a class="mob-sub-link" href="#mentorship"><span class="mob-sub-num">14</span>Mentorship</a>
+        <a class="mob-sub-link" href="#connect"><span class="mob-sub-num">15</span>Connect</a>
       </div>
     </div>
   </nav>
@@ -1180,10 +1220,11 @@
           <span class="phase-num">02</span><span class="phase-label">About</span>
         </a>
         <div class="phase-flyout" role="menu" aria-label="About sub-sections">
-          <a class="phase-fly-link" href="#about" role="menuitem">About Me</a>
-          <a class="phase-fly-link" href="#oss" role="menuitem">Open Source</a>
-          <a class="phase-fly-link" href="#achievements" role="menuitem">Achievements</a>
-          <a class="phase-fly-link" href="#differentiators" role="menuitem">Differentiators</a>
+          <a class="phase-fly-link" href="#about" role="menuitem"><span class="phase-fly-num">02</span>About Me</a>
+          <div class="phase-fly-sep"></div>
+          <a class="phase-fly-link" href="#oss" role="menuitem"><span class="phase-fly-num">10</span>Open Source</a>
+          <a class="phase-fly-link" href="#achievements" role="menuitem"><span class="phase-fly-num">11</span>Achievements</a>
+          <a class="phase-fly-link" href="#differentiators" role="menuitem"><span class="phase-fly-num">13</span>Differentiators</a>
         </div>
       </div>
       <div class="phase-item">
@@ -1193,9 +1234,9 @@
           <span class="phase-num">03</span><span class="phase-label">Philosophy</span>
         </a>
         <div class="phase-flyout" role="menu" aria-label="Philosophy sub-sections">
-          <a class="phase-fly-link" href="#philosophy" role="menuitem">Philosophy</a>
-          <a class="phase-fly-link" href="#approach" role="menuitem">Approach</a>
-          <a class="phase-fly-link" href="#patterns" role="menuitem">Patterns</a>
+          <a class="phase-fly-link" href="#philosophy" role="menuitem"><span class="phase-fly-num">03</span>Philosophy</a>
+          <div class="phase-fly-sep"></div>
+          <a class="phase-fly-link" href="#approach" role="menuitem"><span class="phase-fly-num">12</span>Approach</a>
         </div>
       </div>
       <div class="phase-item">
@@ -1205,9 +1246,11 @@
           <span class="phase-num">04</span><span class="phase-label">Systems</span>
         </a>
         <div class="phase-flyout" role="menu" aria-label="Systems sub-sections">
-          <a class="phase-fly-link" href="#systems" role="menuitem">Architecture</a>
-          <a class="phase-fly-link" href="#built" role="menuitem">Built &amp; Deployed</a>
-          <a class="phase-fly-link" href="#ai-thinking" role="menuitem">AI Thinking</a>
+          <a class="phase-fly-link" href="#systems" role="menuitem"><span class="phase-fly-num">04</span>Architecture</a>
+          <div class="phase-fly-sep"></div>
+          <a class="phase-fly-link" href="#built" role="menuitem"><span class="phase-fly-num">07</span>Built &amp; Deployed</a>
+          <a class="phase-fly-link" href="#patterns" role="menuitem"><span class="phase-fly-num">08</span>Patterns</a>
+          <a class="phase-fly-link" href="#ai-thinking" role="menuitem"><span class="phase-fly-num">09</span>AI Thinking</a>
         </div>
       </div>
       <a class="phase-link" href="#work" data-section="work">
@@ -2396,7 +2439,7 @@
       }
 
       /* Navigation active state */
-      const subParent = { built:"systems", "ai-thinking":"systems", patterns:"philosophy", oss:"about", achievements:"about", differentiators:"about", approach:"philosophy" };
+      const subParent = { built:"systems", "ai-thinking":"systems", patterns:"systems", oss:"about", achievements:"about", differentiators:"about", approach:"philosophy" };
       const navLinks = [...document.querySelectorAll(".phase-link[data-section]")];
       const sections = navLinks.map(l => document.getElementById(l.dataset.section)).filter(Boolean);
       const subSections = Object.keys(subParent).map(id => document.getElementById(id)).filter(Boolean);
