@@ -93,6 +93,35 @@
       background: rgba(9,17,33,0.95); backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
       border: 1px solid rgba(255,255,255,0.09); box-shadow: 0 28px 90px rgba(0,0,0,0.34);
     }
+    .intro-copy-panel,
+    .thinking-panel,
+    .arch-panel,
+    .work-intro-panel,
+    .work-card,
+    .impact-intro,
+    .impact-stat-card,
+    .connect-copy,
+    .connect-card {
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+      transform-origin: center;
+    }
+    .intro-copy-panel:hover,
+    .thinking-panel:hover,
+    .arch-panel:hover,
+    .work-intro-panel:hover,
+    .work-card:hover,
+    .connect-copy:hover,
+    .connect-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 68px rgba(14,31,56,0.14);
+    }
+    .impact-intro:hover,
+    .impact-stat-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(197,151,69,0.18);
+      box-shadow: 0 26px 54px rgba(3,8,18,0.24);
+    }
     .gold-text {
       background: linear-gradient(135deg, #C59745 0%, #F0D68A 50%, #C59745 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
@@ -124,6 +153,7 @@
     .phase-link {
       position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
       padding: 0.52rem 0.28rem 0.62rem; color: var(--ink-soft);
+      overflow: hidden;
       transition: color 0.20s ease, transform 0.20s ease;
     }
     .phase-link:hover, .phase-link.is-active { color: var(--gold); transform: translateY(-1px); }
@@ -132,10 +162,21 @@
       border: 1px solid rgba(201,162,39,0.24); background: rgba(255,255,255,0.70);
       box-shadow: 0 8px 20px rgba(201,162,39,0.10); z-index: -1;
     }
+    .phase-link.is-active::after {
+      content: ""; position: absolute; left: 50%; bottom: 0.26rem; width: 28px; height: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, rgba(197,151,69,0), rgba(197,151,69,0.95), rgba(197,151,69,0));
+      box-shadow: 0 0 12px rgba(197,151,69,0.36);
+      animation: navGlow 2.2s ease-in-out infinite;
+    }
     .phase-icon { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
     .phase-num   { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; }
     .phase-label { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; text-align: center; line-height: 1.2; }
     .rail-foot   { writing-mode: vertical-rl; transform: rotate(180deg); color: rgba(82,96,112,0.60); font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; }
+    @keyframes navGlow {
+      0%, 100% { opacity: 0.36; transform: translateX(-50%) scaleX(0.76); }
+      50% { opacity: 1; transform: translateX(-50%) scaleX(1.08); }
+    }
 
     /* ── MOBILE HEADER ── */
     .mobile-hdr {
@@ -162,9 +203,24 @@
     .scroll-ind {
       position: fixed; right: 1.3rem; top: 50%; transform: translateY(-50%); z-index: 20;
       display: flex; flex-direction: column; align-items: center; gap: 0.65rem;
+      animation: scrollFloat 4.6s ease-in-out infinite;
     }
-    .scroll-line { width: 1px; height: 52px; background: linear-gradient(to bottom, transparent, rgba(197,151,69,0.38), transparent); }
+    .scroll-line {
+      width: 1px; height: 52px;
+      background: linear-gradient(to bottom, transparent, rgba(197,151,69,0.18), rgba(197,151,69,0.7), transparent);
+      background-size: 100% 180%;
+      animation: scrollBeam 2.8s linear infinite;
+    }
     .scroll-txt  { writing-mode: vertical-rl; font-size: 0.56rem; font-weight: 700; letter-spacing: 0.30em; text-transform: uppercase; color: rgba(82,96,112,0.60); }
+    @keyframes scrollFloat {
+      0%, 100% { transform: translateY(-50%); }
+      50% { transform: translateY(calc(-50% - 8px)); }
+    }
+    @keyframes scrollBeam {
+      0% { background-position: 0 0%; opacity: 0.46; }
+      50% { background-position: 0 100%; opacity: 0.92; }
+      100% { background-position: 0 180%; opacity: 0.46; }
+    }
 
     /* ── LAYOUT ── */
     .site-main { margin-left: var(--rail); position: relative; z-index: 1; }
@@ -232,9 +288,21 @@
       display: inline-flex; align-items: center; gap: 0.55rem; min-height: 48px;
       padding: 0.85rem 1.4rem; border-radius: 999px; border: 1px solid transparent;
       font-size: 0.80rem; font-weight: 800; letter-spacing: 0.10em; text-transform: uppercase;
+      position: relative; overflow: hidden; isolation: isolate;
       transition: transform 0.20s ease, box-shadow 0.20s ease, background 0.20s ease, border-color 0.20s ease;
     }
     .btn:hover { transform: translateY(-2px); }
+    .btn::after {
+      content: ""; position: absolute; top: -120%; left: -26%; width: 34%; height: 340%;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.32), rgba(255,255,255,0));
+      transform: translateX(-220%) rotate(16deg);
+      opacity: 0; pointer-events: none;
+      transition: transform 0.62s ease, opacity 0.18s ease;
+    }
+    .btn:hover::after {
+      transform: translateX(420%) rotate(16deg);
+      opacity: 0.5;
+    }
     .btn-primary { background: linear-gradient(135deg, var(--navy), var(--navy-mid)); color: white; box-shadow: 0 14px 34px rgba(14,31,56,0.20); }
     .btn-primary:hover { background: var(--gold); box-shadow: 0 20px 42px rgba(14,31,56,0.16); }
     .btn-secondary { background: rgba(255,255,255,0.70); color: var(--ink); border-color: rgba(20,37,62,0.13); }
@@ -261,11 +329,24 @@
       animation: logoFloat 7s ease-in-out infinite;
       transform-origin: center center;
     }
+    .logo-hero-wrap::after {
+      content: ""; position: absolute; inset: 14% 10%; z-index: -1; pointer-events: none;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, rgba(197,151,69,0), rgba(197,151,69,0.24), rgba(20,37,62,0.10), rgba(197,151,69,0));
+      filter: blur(20px);
+      animation: haloSpin 15s linear infinite;
+      opacity: 0.7;
+    }
     .logo-hero-wrap img { width: 100%; height: auto; }
     @keyframes logoFloat {
       0%,100% { transform: translateY(0); }
       40%      { transform: translateY(-12px); }
       70%      { transform: translateY(-5px); }
+    }
+    @keyframes haloSpin {
+      from { transform: rotate(0deg) scale(0.96); }
+      50% { transform: rotate(180deg) scale(1.03); }
+      to { transform: rotate(360deg) scale(0.96); }
     }
     .logo-glow {
       position: absolute; left: 50%; bottom: -10%; z-index: 1;
@@ -402,9 +483,18 @@
     .sys-card {
       padding: 1.7rem 1.25rem; border-left: 1px solid rgba(255,255,255,0.08);
       display: flex; flex-direction: column; gap: 0.85rem;
-      transition: background 0.26s ease, border-color 0.26s ease;
+      position: relative; overflow: hidden;
+      transition: transform 0.26s ease, background 0.26s ease, border-color 0.26s ease, box-shadow 0.26s ease;
     }
-    .sys-card:hover { background: rgba(255,255,255,0.04); border-left-color: rgba(197,151,69,0.26); }
+    .sys-card::after {
+      content: ""; position: absolute; inset: -30% auto -30% -18%; width: 34%;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(197,151,69,0.16), rgba(255,255,255,0));
+      transform: translateX(-220%) rotate(14deg);
+      opacity: 0; pointer-events: none;
+      transition: transform 0.8s ease, opacity 0.2s ease;
+    }
+    .sys-card:hover { transform: translateY(-6px); background: rgba(255,255,255,0.04); border-left-color: rgba(197,151,69,0.26); box-shadow: 0 18px 38px rgba(3,8,18,0.18); }
+    .sys-card:hover::after { transform: translateX(420%) rotate(14deg); opacity: 0.55; }
     .sys-icon-wrap { width: 38px; height: 38px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); display: grid; place-items: center; transition: border-color 0.22s; }
     .sys-card:hover .sys-icon-wrap { border-color: rgba(197,151,69,0.42); }
     .sys-icon { width: 17px; height: 17px; stroke: var(--gold); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
@@ -478,8 +568,14 @@
       content: ""; position: absolute; inset: 0; pointer-events: none;
       background: linear-gradient(180deg, rgba(255,255,255,0.44), rgba(255,255,255,0) 40%, rgba(20,37,62,0.03));
     }
-    .flow-box--input  { animation: sidePanelFloat 8.8s ease-in-out infinite; }
-    .flow-box--output { animation: sidePanelFloat 8.8s ease-in-out infinite reverse; }
+    .flow-box::after {
+      content: ""; position: absolute; inset: -35% auto -35% -16%; width: 34%;
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(197,151,69,0.18), rgba(255,255,255,0));
+      transform: translateX(-240%) rotate(14deg);
+      opacity: 0.34; pointer-events: none;
+      animation: flowSweep 7.2s ease-in-out infinite;
+    }
+    .flow-box--output::after { animation-delay: 1.8s; }
     .flow-title { font-size: 0.64rem; font-weight: 800; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.9rem; }
     .flow-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.82rem; }
     .flow-list li {
@@ -534,11 +630,16 @@
     .arch-link--three { --y: 53%; }
     .arch-link--four  { --y: 68%; }
 
+    .arch-stage-visual {
+      position: relative; display: grid; place-items: center;
+      width: min(100%, 438px); min-height: 390px;
+      animation: diagramFloat 10s ease-in-out infinite;
+    }
+
     .arch-diagram {
       position: relative; z-index: 2;
-      display: block; width: min(100%, 438px); height: auto;
+      display: block; width: 100%; height: auto;
       filter: drop-shadow(0 28px 42px rgba(14,31,56,0.18));
-      animation: diagramFloat 10s ease-in-out infinite;
     }
     .arch-diagram .plate-label {
       font-family: 'Inter', sans-serif;
@@ -612,9 +713,11 @@
       0%,100% { transform: translateX(-50%) rotate(-1.8deg) translateY(0); }
       50% { transform: translateX(-50%) rotate(-1.8deg) translateY(-8px); }
     }
-    @keyframes sidePanelFloat {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
+    @keyframes flowSweep {
+      0%, 12% { transform: translateX(-240%) rotate(14deg); opacity: 0; }
+      26% { opacity: 0.42; }
+      64% { opacity: 0.18; }
+      100% { transform: translateX(460%) rotate(14deg); opacity: 0; }
     }
     @keyframes sheenMove {
       0% { transform: translateX(-120%) rotate(14deg); opacity: 0; }
@@ -1350,106 +1453,108 @@
               </div>
 
               <div class="arch-stage" aria-hidden="true">
-                <span class="arch-link arch-link--left arch-link--one" style="--delay:0s"></span>
-                <span class="arch-link arch-link--left arch-link--two" style="--delay:0.35s"></span>
-                <span class="arch-link arch-link--left arch-link--three" style="--delay:0.7s"></span>
-                <span class="arch-link arch-link--left arch-link--four" style="--delay:1.05s"></span>
-                <span class="arch-link arch-link--right arch-link--one" style="--delay:0.18s"></span>
-                <span class="arch-link arch-link--right arch-link--two" style="--delay:0.53s"></span>
-                <span class="arch-link arch-link--right arch-link--three" style="--delay:0.88s"></span>
-                <span class="arch-link arch-link--right arch-link--four" style="--delay:1.23s"></span>
+                <div class="arch-stage-visual">
+                  <span class="arch-link arch-link--left arch-link--one" style="--delay:0s"></span>
+                  <span class="arch-link arch-link--left arch-link--two" style="--delay:0.35s"></span>
+                  <span class="arch-link arch-link--left arch-link--three" style="--delay:0.7s"></span>
+                  <span class="arch-link arch-link--left arch-link--four" style="--delay:1.05s"></span>
+                  <span class="arch-link arch-link--right arch-link--one" style="--delay:0.18s"></span>
+                  <span class="arch-link arch-link--right arch-link--two" style="--delay:0.53s"></span>
+                  <span class="arch-link arch-link--right arch-link--three" style="--delay:0.88s"></span>
+                  <span class="arch-link arch-link--right arch-link--four" style="--delay:1.23s"></span>
 
-                <svg class="arch-diagram" viewBox="0 0 440 390" role="img" aria-label="System flow architecture diagram">
-                  <defs>
-                    <linearGradient id="plateLight" x1="220" y1="64" x2="220" y2="120" gradientUnits="userSpaceOnUse">
-                      <stop offset="0" stop-color="#FFFFFF"/>
-                      <stop offset="1" stop-color="#DDE8F7"/>
-                    </linearGradient>
-                    <linearGradient id="plateMid" x1="221" y1="126" x2="221" y2="186" gradientUnits="userSpaceOnUse">
-                      <stop offset="0" stop-color="#EEF5FF"/>
-                      <stop offset="1" stop-color="#B7CBE7"/>
-                    </linearGradient>
-                    <linearGradient id="plateDark" x1="221" y1="188" x2="221" y2="252" gradientUnits="userSpaceOnUse">
-                      <stop offset="0" stop-color="#274677"/>
-                      <stop offset="1" stop-color="#0D1D39"/>
-                    </linearGradient>
-                    <linearGradient id="plateBase" x1="221" y1="250" x2="221" y2="322" gradientUnits="userSpaceOnUse">
-                      <stop offset="0" stop-color="#101F3F"/>
-                      <stop offset="1" stop-color="#020A16"/>
-                    </linearGradient>
-                    <linearGradient id="plateEdge" x1="52" y1="286" x2="390" y2="286" gradientUnits="userSpaceOnUse">
-                      <stop offset="0" stop-color="#F4DEA0"/>
-                      <stop offset="0.35" stop-color="#C59745"/>
-                      <stop offset="0.7" stop-color="#0D1D39"/>
-                      <stop offset="1" stop-color="#F4DEA0"/>
-                    </linearGradient>
-                    <filter id="plateShadow" x="24" y="48" width="392" height="328" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                      <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#0C1933" flood-opacity="0.18"/>
-                    </filter>
-                  </defs>
+                  <svg class="arch-diagram" viewBox="0 0 440 390" role="img" aria-label="System flow architecture diagram">
+                    <defs>
+                      <linearGradient id="plateLight" x1="220" y1="64" x2="220" y2="120" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#FFFFFF"/>
+                        <stop offset="1" stop-color="#DDE8F7"/>
+                      </linearGradient>
+                      <linearGradient id="plateMid" x1="221" y1="126" x2="221" y2="186" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#EEF5FF"/>
+                        <stop offset="1" stop-color="#B7CBE7"/>
+                      </linearGradient>
+                      <linearGradient id="plateDark" x1="221" y1="188" x2="221" y2="252" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#274677"/>
+                        <stop offset="1" stop-color="#0D1D39"/>
+                      </linearGradient>
+                      <linearGradient id="plateBase" x1="221" y1="250" x2="221" y2="322" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#101F3F"/>
+                        <stop offset="1" stop-color="#020A16"/>
+                      </linearGradient>
+                      <linearGradient id="plateEdge" x1="52" y1="286" x2="390" y2="286" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#F4DEA0"/>
+                        <stop offset="0.35" stop-color="#C59745"/>
+                        <stop offset="0.7" stop-color="#0D1D39"/>
+                        <stop offset="1" stop-color="#F4DEA0"/>
+                      </linearGradient>
+                      <filter id="plateShadow" x="24" y="48" width="392" height="328" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                        <feDropShadow dx="0" dy="18" stdDeviation="14" flood-color="#0C1933" flood-opacity="0.18"/>
+                      </filter>
+                    </defs>
 
-                  <g fill="none" opacity="0.42">
-                    <path d="M118 30 372 30 408 64 408 326 372 360 118 360 32 276 32 114 118 30Z" class="arch-grid-line"/>
-                    <path d="M88 82 352 82" class="arch-grid-line"/>
-                    <path d="M72 156 370 156" class="arch-grid-line"/>
-                    <path d="M62 220 380 220" class="arch-grid-line"/>
-                    <path d="M52 286 390 286" class="arch-grid-line"/>
-                    <path d="M118 30 52 286" class="arch-grid-line"/>
-                    <path d="M372 30 390 286" class="arch-grid-line"/>
-                  </g>
+                    <g fill="none" opacity="0.42">
+                      <path d="M118 30 372 30 408 64 408 326 372 360 118 360 32 276 32 114 118 30Z" class="arch-grid-line"/>
+                      <path d="M88 82 352 82" class="arch-grid-line"/>
+                      <path d="M72 156 370 156" class="arch-grid-line"/>
+                      <path d="M62 220 380 220" class="arch-grid-line"/>
+                      <path d="M52 286 390 286" class="arch-grid-line"/>
+                      <path d="M118 30 52 286" class="arch-grid-line"/>
+                      <path d="M372 30 390 286" class="arch-grid-line"/>
+                    </g>
 
-                  <g opacity="0.72">
-                    <path d="M88 92 44 92" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                    <path d="M72 156 44 156" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                    <path d="M62 220 44 220" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                    <path d="M52 286 44 286" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                    <path d="M352 92 396 92" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                    <path d="M370 156 396 156" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                    <path d="M380 220 396 220" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                    <path d="M390 286 396 286" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
-                  </g>
+                    <g opacity="0.72">
+                      <path d="M88 92 44 92" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                      <path d="M72 156 44 156" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                      <path d="M62 220 44 220" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                      <path d="M52 286 44 286" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                      <path d="M352 92 396 92" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                      <path d="M370 156 396 156" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                      <path d="M380 220 396 220" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                      <path d="M390 286 396 286" stroke="#C59745" stroke-opacity="0.16" stroke-width="2"/>
+                    </g>
 
-                  <g filter="url(#plateShadow)">
-                    <polygon points="112,64 330,64 360,92 330,120 112,120 82,92" fill="url(#plateLight)" stroke="#FFFFFF" stroke-opacity="0.7"/>
-                    <polygon points="104,126 338,126 370,156 338,186 104,186 72,156" fill="url(#plateMid)" stroke="#FFFFFF" stroke-opacity="0.58"/>
-                    <polygon points="96,188 346,188 380,220 346,252 96,252 62,220" fill="url(#plateDark)" stroke="#D7E8FF" stroke-opacity="0.24"/>
-                    <polygon points="88,250 354,250 390,286 354,322 88,322 52,286" fill="url(#plateBase)" stroke="#D7E8FF" stroke-opacity="0.18"/>
-                    <path d="M112 64 330 64" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="1.1"/>
-                    <path d="M104 126 338 126" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1.1"/>
-                    <path d="M96 188 346 188" stroke="url(#plateEdge)" stroke-opacity="0.65" stroke-width="1.1"/>
-                    <path d="M88 250 354 250" stroke="url(#plateEdge)" stroke-opacity="0.5" stroke-width="1.1"/>
-                  </g>
+                    <g filter="url(#plateShadow)">
+                      <polygon points="112,64 330,64 360,92 330,120 112,120 82,92" fill="url(#plateLight)" stroke="#FFFFFF" stroke-opacity="0.7"/>
+                      <polygon points="104,126 338,126 370,156 338,186 104,186 72,156" fill="url(#plateMid)" stroke="#FFFFFF" stroke-opacity="0.58"/>
+                      <polygon points="96,188 346,188 380,220 346,252 96,252 62,220" fill="url(#plateDark)" stroke="#D7E8FF" stroke-opacity="0.24"/>
+                      <polygon points="88,250 354,250 390,286 354,322 88,322 52,286" fill="url(#plateBase)" stroke="#D7E8FF" stroke-opacity="0.18"/>
+                      <path d="M112 64 330 64" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="1.1"/>
+                      <path d="M104 126 338 126" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="1.1"/>
+                      <path d="M96 188 346 188" stroke="url(#plateEdge)" stroke-opacity="0.65" stroke-width="1.1"/>
+                      <path d="M88 250 354 250" stroke="url(#plateEdge)" stroke-opacity="0.5" stroke-width="1.1"/>
+                    </g>
 
-                  <g>
-                    <circle class="arch-pulse" cx="82" cy="92" r="4" fill="#C59745"/>
-                    <circle class="arch-pulse arch-pulse--b" cx="72" cy="156" r="4" fill="#C59745"/>
-                    <circle class="arch-pulse arch-pulse--c" cx="62" cy="220" r="4" fill="#C59745"/>
-                    <circle class="arch-pulse arch-pulse--d" cx="52" cy="286" r="4" fill="#C59745"/>
-                    <circle class="arch-pulse arch-pulse--b" cx="352" cy="92" r="4" fill="#C59745"/>
-                    <circle class="arch-pulse arch-pulse--c" cx="370" cy="156" r="4" fill="#C59745"/>
-                    <circle class="arch-pulse arch-pulse--d" cx="380" cy="220" r="4" fill="#C59745"/>
-                    <circle class="arch-pulse" cx="390" cy="286" r="4" fill="#C59745"/>
-                  </g>
+                    <g>
+                      <circle class="arch-pulse" cx="82" cy="92" r="4" fill="#C59745"/>
+                      <circle class="arch-pulse arch-pulse--b" cx="72" cy="156" r="4" fill="#C59745"/>
+                      <circle class="arch-pulse arch-pulse--c" cx="62" cy="220" r="4" fill="#C59745"/>
+                      <circle class="arch-pulse arch-pulse--d" cx="52" cy="286" r="4" fill="#C59745"/>
+                      <circle class="arch-pulse arch-pulse--b" cx="352" cy="92" r="4" fill="#C59745"/>
+                      <circle class="arch-pulse arch-pulse--c" cx="370" cy="156" r="4" fill="#C59745"/>
+                      <circle class="arch-pulse arch-pulse--d" cx="380" cy="220" r="4" fill="#C59745"/>
+                      <circle class="arch-pulse" cx="390" cy="286" r="4" fill="#C59745"/>
+                    </g>
 
-                  <g>
-                    <text x="221" y="90" class="plate-label" fill="#173058">INTELLIGENCE LAYER</text>
-                    <text x="221" y="106" class="plate-sub" fill="#536885">AI / MODELS</text>
+                    <g>
+                      <text x="221" y="90" class="plate-label" fill="#173058">INTELLIGENCE LAYER</text>
+                      <text x="221" y="106" class="plate-sub" fill="#536885">AI / MODELS</text>
 
-                    <text x="221" y="154" class="plate-label" fill="#173058">PROCESSING LAYER</text>
-                    <text x="221" y="170" class="plate-sub" fill="#536885">LOGIC / ORCHESTRATION</text>
+                      <text x="221" y="154" class="plate-label" fill="#173058">PROCESSING LAYER</text>
+                      <text x="221" y="170" class="plate-sub" fill="#536885">LOGIC / ORCHESTRATION</text>
 
-                    <text x="221" y="219" class="plate-label" fill="#F5F8FD">VALIDATION LAYER</text>
-                    <text x="221" y="235" class="plate-sub" fill="#D6E3F6">ACCURACY / CONTROL</text>
+                      <text x="221" y="219" class="plate-label" fill="#F5F8FD">VALIDATION LAYER</text>
+                      <text x="221" y="235" class="plate-sub" fill="#D6E3F6">ACCURACY / CONTROL</text>
 
-                    <text x="221" y="286" class="plate-label" fill="#F5F8FD">INFRASTRUCTURE LAYER</text>
-                    <text x="221" y="302" class="plate-sub" fill="#C9D6E8">EDGE / CLOUD</text>
-                  </g>
+                      <text x="221" y="286" class="plate-label" fill="#F5F8FD">INFRASTRUCTURE LAYER</text>
+                      <text x="221" y="302" class="plate-sub" fill="#C9D6E8">EDGE / CLOUD</text>
+                    </g>
 
-                  <circle cx="221" cy="76" r="3" fill="#C59745" opacity="0.85">
-                    <animateMotion dur="3.4s" repeatCount="indefinite" path="M221 76 L221 302"/>
-                    <animate attributeName="opacity" values="0;1;0" dur="3.4s" repeatCount="indefinite"/>
-                  </circle>
-                </svg>
+                    <circle cx="221" cy="76" r="3" fill="#C59745" opacity="0.85">
+                      <animateMotion dur="3.4s" repeatCount="indefinite" path="M221 76 L221 302"/>
+                      <animate attributeName="opacity" values="0;1;0" dur="3.4s" repeatCount="indefinite"/>
+                    </circle>
+                  </svg>
+                </div>
               </div>
 
               <div class="flow-box flow-box--output">
