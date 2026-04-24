@@ -873,13 +873,14 @@
 
     /* footer line */
     .footer-line { text-align: center; padding: 1.5rem 0 0; font-size: 0.70rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(82,96,112,0.60); }
+    .diff-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; }
 
     /* ═══════════════════════════════════
        RESPONSIVE
        ═══════════════════════════════════ */
     @media (max-width: 1200px) {
       .hero-grid, .intro-grid, .philo-grid, .systems-grid, .work-grid,
-      .thinking-grid, .impact-grid, .connect-grid { grid-template-columns: 1fr; }
+      .thinking-grid, .impact-grid, .connect-grid { grid-template-columns: 1fr !important; }
       .arch-flow-head, .arch-flow-shell { grid-template-columns: 1fr; }
       .arch-flow-head { display: grid; align-items: start; }
       .arch-flow-shell { display: grid; grid-template-columns: 1fr; }
@@ -945,6 +946,8 @@
       .flow-icon-chip { width: 28px; height: 28px; }
       .flow-icon-chip svg { width: 13px; height: 13px; }
       .portrait-row img { width: 72px; height: 72px; }
+      .diff-pair { grid-template-columns: 1fr !important; }
+      .kicker { letter-spacing: 0.10em; overflow-wrap: break-word; word-break: break-word; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -2190,7 +2193,7 @@
             </div>
           </article>
 
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.15rem">
+          <div class="diff-pair">
             <article class="glass intro-copy-panel mi" style="--md:100ms">
               <p class="kicker">Technical Stack</p>
               <div class="kicker-bar"></div>
