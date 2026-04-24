@@ -945,6 +945,7 @@
       .flow-icon-chip svg { width: 13px; height: 13px; }
       .portrait-row { grid-template-columns: 84px 1fr; }
       .portrait-row img { width: 84px; height: 84px; }
+      .portrait-row p { grid-column: 1 / -1; grid-row: 2; align-self: start; font-size: 0.86rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1007,6 +1008,83 @@
 
     /* ── WORK CARD SVG ── */
     .work-visual svg { display: block; width: 100%; height: 178px; border-radius: 18px; }
+
+    /* ── SIDEBAR FLYOUT SUB-NAV ── */
+    .phase-item { position: relative; display: flex; flex-direction: column; }
+    .phase-flyout {
+      position: absolute; left: calc(100% + 10px); top: 50%;
+      transform: translateY(-50%) translateX(-6px);
+      background: rgba(250,252,255,0.98); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.90); border-radius: 14px;
+      padding: 0.42rem 0.22rem; box-shadow: 12px 4px 36px rgba(14,31,56,0.18);
+      min-width: 152px; z-index: 60;
+      opacity: 0; pointer-events: none; visibility: hidden;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
+    }
+    .phase-item:hover .phase-flyout,
+    .phase-item:focus-within .phase-flyout {
+      opacity: 1; pointer-events: all; visibility: visible;
+      transform: translateY(-50%) translateX(0);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0s;
+    }
+    .phase-fly-link {
+      display: block; padding: 0.34rem 0.70rem;
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-soft); border-radius: 8px; white-space: nowrap;
+      transition: color 0.15s, background 0.15s;
+    }
+    .phase-fly-link:hover, .phase-fly-link.sub-active { color: var(--gold); background: rgba(201,162,39,0.07); }
+    .phase-fly-sep { height: 1px; background: rgba(20,37,62,0.08); margin: 0.22rem 0.52rem; }
+    .phase-sub-dot {
+      position: absolute; top: 0.28rem; right: 0.26rem;
+      width: 5px; height: 5px; background: var(--gold); border-radius: 50%; opacity: 0.72;
+    }
+
+    /* ── MOBILE NAV ACCORDION ── */
+    .mobile-nav { justify-content: flex-start !important; padding-top: 4.5rem !important; gap: 0 !important; overflow-y: auto; }
+    .mob-nav-parent {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%; background: none; border: none; border-top: none; border-left: none; border-right: none;
+      cursor: pointer; text-align: left; text-decoration: none;
+      font-family: var(--font-sans); font-size: 1.52rem; font-weight: 700;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--ink); padding: 0.52rem 0; border-bottom: 1px solid rgba(20,37,62,0.07);
+      transition: color 0.18s;
+    }
+    .mob-nav-parent:hover { color: var(--gold); }
+    .mob-chevron {
+      width: 18px; height: 18px; stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+      transition: transform 0.26s cubic-bezier(0.32,0,0.08,1);
+    }
+    .mob-nav-toggle[aria-expanded="true"] .mob-chevron { transform: rotate(180deg); }
+    .mob-nav-sub {
+      display: flex; flex-direction: column;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.34s cubic-bezier(0.32,0,0.08,1);
+      margin-left: 0.4rem; padding-left: 0.85rem;
+      border-left: 2px solid rgba(201,162,39,0.24);
+    }
+    .mob-nav-sub.open { max-height: 500px; }
+    .mob-sub-link {
+      font-family: var(--font-sans); font-size: 1.06rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft);
+      padding: 0.40rem 0; border-bottom: 1px solid rgba(20,37,62,0.05);
+      transition: color 0.16s;
+    }
+    .mob-sub-link:hover { color: var(--gold); }
+
+    /* ── SYSTEMS GRID: intermediate tablet breakpoint ── */
+    @media (min-width: 1201px) and (max-width: 1440px) {
+      .systems-grid {
+        grid-template-columns: minmax(180px, 0.42fr) repeat(2, minmax(0, 1fr));
+        min-height: auto;
+      }
+      .systems-header { grid-row: span 2; }
+      .sys-card:nth-child(4), .sys-card:nth-child(5) {
+        border-top: 1px solid rgba(255,255,255,0.08);
+      }
+    }
   </style>
 </head>
 <body>
@@ -1036,14 +1114,53 @@
     <button id="menu-close" style="position:absolute;top:1.1rem;right:1.1rem;background:none;border:none;cursor:pointer;padding:0.4rem" aria-label="Close menu">
       <svg viewBox="0 0 24 24" style="width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
-    <a class="mobile-nav-link" href="#intro">01 Home</a>
-    <a class="mobile-nav-link" href="#about">02 About</a>
-    <a class="mobile-nav-link" href="#philosophy">03 Philosophy</a>
-    <a class="mobile-nav-link" href="#systems">04 Systems</a>
-    <a class="mobile-nav-link" href="#work">05 Work</a>
-    <a class="mobile-nav-link" href="#thinking">06 Thinking</a>
-    <a class="mobile-nav-link" href="#mentorship">07 Mentorship</a>
-    <a class="mobile-nav-link" href="#connect">08 Connect</a>
+    <a class="mob-nav-parent" href="#intro">01 Home</a>
+    <div class="mob-nav-group">
+      <button class="mob-nav-parent mob-nav-toggle" aria-expanded="false" data-target="mnav-identity">
+        <span>02 Identity</span>
+        <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="mob-nav-sub" id="mnav-identity">
+        <a class="mob-sub-link" href="#about">About</a>
+        <a class="mob-sub-link" href="#philosophy">Philosophy</a>
+        <a class="mob-sub-link" href="#approach">Approach</a>
+        <a class="mob-sub-link" href="#oss">Open Source</a>
+        <a class="mob-sub-link" href="#achievements">Achievements</a>
+        <a class="mob-sub-link" href="#differentiators">Differentiators</a>
+      </div>
+    </div>
+    <div class="mob-nav-group">
+      <button class="mob-nav-parent mob-nav-toggle" aria-expanded="false" data-target="mnav-systems">
+        <span>03 Systems</span>
+        <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="mob-nav-sub" id="mnav-systems">
+        <a class="mob-sub-link" href="#systems">Architecture</a>
+        <a class="mob-sub-link" href="#built">Built &amp; Deployed</a>
+        <a class="mob-sub-link" href="#ai-thinking">AI Thinking</a>
+        <a class="mob-sub-link" href="#patterns">Patterns</a>
+      </div>
+    </div>
+    <div class="mob-nav-group">
+      <button class="mob-nav-parent mob-nav-toggle" aria-expanded="false" data-target="mnav-work">
+        <span>04 Work</span>
+        <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="mob-nav-sub" id="mnav-work">
+        <a class="mob-sub-link" href="#work">Case Studies</a>
+        <a class="mob-sub-link" href="#thinking">Arch. Thinking</a>
+      </div>
+    </div>
+    <div class="mob-nav-group">
+      <button class="mob-nav-parent mob-nav-toggle" aria-expanded="false" data-target="mnav-community">
+        <span>05 Community</span>
+        <svg class="mob-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="mob-nav-sub" id="mnav-community">
+        <a class="mob-sub-link" href="#mentorship">Mentorship</a>
+        <a class="mob-sub-link" href="#connect">Connect</a>
+      </div>
+    </div>
   </nav>
 
   <!-- Sidebar -->
@@ -1052,35 +1169,60 @@
       <img src="assets/logo.png" alt="MY logo">
     </a>
     <nav class="phase-nav">
-      <a class="phase-link is-active" href="#intro"       data-section="intro">
+      <a class="phase-link is-active" href="#intro" data-section="intro">
         <svg class="phase-icon" viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5"/><path d="M6.5 9.5V20h11V9.5"/><path d="M10 20v-5h4v5"/></svg>
         <span class="phase-num">01</span><span class="phase-label">Home</span>
       </a>
-      <a class="phase-link" href="#about"       data-section="about">
-        <svg class="phase-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        <span class="phase-num">02</span><span class="phase-label">About</span>
-      </a>
-      <a class="phase-link" href="#philosophy"  data-section="philosophy">
-        <svg class="phase-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
-        <span class="phase-num">03</span><span class="phase-label">Philosophy</span>
-      </a>
-      <a class="phase-link" href="#systems"     data-section="systems">
-        <svg class="phase-icon" viewBox="0 0 24 24"><path d="m12 3 7 4-7 4-7-4Z"/><path d="m5 11 7 4 7-4"/><path d="m5 15 7 4 7-4"/></svg>
-        <span class="phase-num">04</span><span class="phase-label">Systems</span>
-      </a>
-      <a class="phase-link" href="#work"        data-section="work">
+      <div class="phase-item">
+        <a class="phase-link" href="#about" data-section="about">
+          <span class="phase-sub-dot" aria-hidden="true"></span>
+          <svg class="phase-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span class="phase-num">02</span><span class="phase-label">About</span>
+        </a>
+        <div class="phase-flyout" role="menu" aria-label="About sub-sections">
+          <a class="phase-fly-link" href="#about" role="menuitem">About Me</a>
+          <a class="phase-fly-link" href="#oss" role="menuitem">Open Source</a>
+          <a class="phase-fly-link" href="#achievements" role="menuitem">Achievements</a>
+          <a class="phase-fly-link" href="#differentiators" role="menuitem">Differentiators</a>
+        </div>
+      </div>
+      <div class="phase-item">
+        <a class="phase-link" href="#philosophy" data-section="philosophy">
+          <span class="phase-sub-dot" aria-hidden="true"></span>
+          <svg class="phase-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+          <span class="phase-num">03</span><span class="phase-label">Philosophy</span>
+        </a>
+        <div class="phase-flyout" role="menu" aria-label="Philosophy sub-sections">
+          <a class="phase-fly-link" href="#philosophy" role="menuitem">Philosophy</a>
+          <a class="phase-fly-link" href="#approach" role="menuitem">Approach</a>
+          <a class="phase-fly-link" href="#patterns" role="menuitem">Patterns</a>
+        </div>
+      </div>
+      <div class="phase-item">
+        <a class="phase-link" href="#systems" data-section="systems">
+          <span class="phase-sub-dot" aria-hidden="true"></span>
+          <svg class="phase-icon" viewBox="0 0 24 24"><path d="m12 3 7 4-7 4-7-4Z"/><path d="m5 11 7 4 7-4"/><path d="m5 15 7 4 7-4"/></svg>
+          <span class="phase-num">04</span><span class="phase-label">Systems</span>
+        </a>
+        <div class="phase-flyout" role="menu" aria-label="Systems sub-sections">
+          <a class="phase-fly-link" href="#systems" role="menuitem">Architecture</a>
+          <a class="phase-fly-link" href="#built" role="menuitem">Built &amp; Deployed</a>
+          <a class="phase-fly-link" href="#ai-thinking" role="menuitem">AI Thinking</a>
+        </div>
+      </div>
+      <a class="phase-link" href="#work" data-section="work">
         <svg class="phase-icon" viewBox="0 0 24 24"><path d="M12 3 4.5 7.5v9L12 21l7.5-4.5v-9L12 3Z"/><path d="M12 3v18"/><path d="M4.5 7.5 12 12l7.5-4.5"/></svg>
         <span class="phase-num">05</span><span class="phase-label">Work</span>
       </a>
-      <a class="phase-link" href="#thinking"    data-section="thinking">
+      <a class="phase-link" href="#thinking" data-section="thinking">
         <svg class="phase-icon" viewBox="0 0 24 24"><path d="M9 5.5a2.5 2.5 0 0 0-2.5 2.5c0 .85.33 1.63.87 2.2A3 3 0 0 0 6 12.75 3.25 3.25 0 0 0 9.25 16h.5"/><path d="M15 5.5a2.5 2.5 0 0 1 2.5 2.5c0 .85-.33 1.63-.87 2.2A3 3 0 0 1 18 12.75 3.25 3.25 0 0 1 14.75 16h-.5"/><path d="M12 16v3"/></svg>
         <span class="phase-num">06</span><span class="phase-label">Thinking</span>
       </a>
-      <a class="phase-link" href="#mentorship"  data-section="mentorship">
+      <a class="phase-link" href="#mentorship" data-section="mentorship">
         <svg class="phase-icon" viewBox="0 0 24 24"><path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M16 13a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M3.5 19a4.5 4.5 0 0 1 9 0"/><path d="M12.5 19a3.5 3.5 0 0 1 7 0"/></svg>
         <span class="phase-num">07</span><span class="phase-label">Mentorship</span>
       </a>
-      <a class="phase-link" href="#connect"     data-section="connect">
+      <a class="phase-link" href="#connect" data-section="connect">
         <svg class="phase-icon" viewBox="0 0 24 24"><path d="m22 2-9 20-2.7-8.3L2 11 22 2Z"/><path d="M22 2 10.3 13.7"/></svg>
         <span class="phase-num">08</span><span class="phase-label">Connect</span>
       </a>
@@ -2254,11 +2396,14 @@
       }
 
       /* Navigation active state */
+      const subParent = { built:"systems", "ai-thinking":"systems", patterns:"philosophy", oss:"about", achievements:"about", differentiators:"about", approach:"philosophy" };
       const navLinks = [...document.querySelectorAll(".phase-link[data-section]")];
       const sections = navLinks.map(l => document.getElementById(l.dataset.section)).filter(Boolean);
+      const subSections = Object.keys(subParent).map(id => document.getElementById(id)).filter(Boolean);
       const setActive = id => {
+        const activeId = subParent[id] || id;
         navLinks.forEach(l => {
-          const on = l.dataset.section === id;
+          const on = l.dataset.section === activeId;
           l.classList.toggle("is-active", on);
           on ? l.setAttribute("aria-current","true") : l.removeAttribute("aria-current");
         });
@@ -2268,16 +2413,36 @@
         entries => { const v = entries.filter(e => e.isIntersecting).sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0]; if (v) setActive(v.target.id); },
         { threshold: [0.2,0.5], rootMargin: "-12% 0px -40% 0px" }
       );
-      sections.forEach(s => secObs.observe(s));
+      [...sections, ...subSections].forEach(s => secObs.observe(s));
 
       /* Mobile menu */
       const mobileNav = document.getElementById("mobile-nav");
       const menuBtn   = document.getElementById("menu-btn");
       const closeBtn  = document.getElementById("menu-close");
-      const toggle = open => { mobileNav.classList.toggle("open", open); menuBtn.setAttribute("aria-expanded", open); document.body.style.overflow = open ? "hidden" : ""; };
+      const toggle = open => {
+        mobileNav.classList.toggle("open", open);
+        menuBtn.setAttribute("aria-expanded", open);
+        document.body.style.overflow = open ? "hidden" : "";
+        if (!open) {
+          document.querySelectorAll(".mob-nav-sub.open").forEach(s => s.classList.remove("open"));
+          document.querySelectorAll(".mob-nav-toggle[aria-expanded='true']").forEach(b => b.setAttribute("aria-expanded","false"));
+        }
+      };
       menuBtn.addEventListener("click",  () => toggle(true));
       closeBtn.addEventListener("click", () => toggle(false));
-      document.querySelectorAll(".mobile-nav-link").forEach(l => l.addEventListener("click", () => toggle(false)));
+      document.querySelectorAll(".mob-nav-parent:not(.mob-nav-toggle)").forEach(l => l.addEventListener("click", () => toggle(false)));
+      document.querySelectorAll(".mob-sub-link").forEach(l => l.addEventListener("click", () => toggle(false)));
+      document.querySelectorAll(".mob-nav-toggle").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const sub = document.getElementById(btn.dataset.target);
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+          document.querySelectorAll(".mob-nav-sub.open").forEach(s => {
+            if (s !== sub) { s.classList.remove("open"); const b = document.querySelector(`[data-target="${s.id}"]`); if (b) b.setAttribute("aria-expanded","false"); }
+          });
+          btn.setAttribute("aria-expanded", String(!isOpen));
+          sub.classList.toggle("open", !isOpen);
+        });
+      });
 
       /* Scroll reveal */
       if (!noMotion) {
