@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed Yasser — Solution Architect</title>
+  <title>Mohamed Yasser | Solution Architect</title>
   <meta name="description" content="Mohamed Yasser designs systems that solve real problems, scale with purpose, and hold under pressure.">
   <meta name="theme-color" content="#EEF1F7">
   <link rel="icon" type="image/png" href="assets/logo.png">
@@ -527,8 +527,9 @@
     }
     .systems-header h2 {
       margin: 0.55rem 0 0; font-family: var(--font-display);
-      font-size: clamp(2rem, 3.2vw, 3.2rem); line-height: 0.93;
+      font-size: clamp(1.4rem, 1.9vw, 2.0rem); line-height: 0.95;
       text-transform: uppercase; color: white; font-weight: 500;
+      overflow-wrap: break-word; word-break: break-word;
     }
     .btn-gold {
       display: inline-flex; align-items: center; gap: 0.55rem; color: var(--gold);
@@ -840,11 +841,11 @@
     }
     .impact-intro h3 { margin: 0.45rem 0 0; font-family: var(--font-sans); font-size: clamp(1.24rem, 1.9vw, 1.65rem); font-weight: 700; line-height: 1.28; letter-spacing: 0.02em; color: white; }
     .portrait-row {
-      display: grid; grid-template-columns: 108px 1fr; grid-template-rows: auto auto; gap: 0.85rem;
+      display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;
       padding: 0.95rem; border-radius: 20px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.09);
     }
-    .portrait-row img { width: 108px; height: 108px; border-radius: 20px; object-fit: cover; object-position: center top; grid-column: 1; grid-row: 1; align-self: start; }
-    .portrait-row p { margin: 0; font-size: 0.84rem; line-height: 1.80; color: rgba(218,232,255,0.76); grid-column: 2; grid-row: 2; align-self: end; }
+    .portrait-row img { width: 80px; height: 80px; border-radius: 16px; object-fit: cover; object-position: center top; flex-shrink: 0; }
+    .portrait-row p { margin: 0; font-size: 0.84rem; line-height: 1.80; color: rgba(218,232,255,0.76); }
     .impact-stat-card { padding: 1.65rem; border-radius: 26px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column; gap: 0.75rem; }
     .stat-num { font-family: var(--font-sans); font-size: 3.1rem; font-weight: 800; letter-spacing: -0.05em; color: var(--gold); line-height: 0.94; display: block; }
     .stat-label { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(218,232,255,0.70); }
@@ -943,9 +944,7 @@
       .flow-list li { grid-template-columns: 28px 1fr; gap: 0.6rem; }
       .flow-icon-chip { width: 28px; height: 28px; }
       .flow-icon-chip svg { width: 13px; height: 13px; }
-      .portrait-row { grid-template-columns: 84px 1fr; }
-      .portrait-row img { width: 84px; height: 84px; }
-      .portrait-row p { grid-column: 1 / -1; grid-row: 2; align-self: start; font-size: 0.86rem; }
+      .portrait-row img { width: 72px; height: 72px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -1047,21 +1046,21 @@
       display: flex; align-items: center; gap: 0.52rem;
       padding: 0.44rem 0.82rem;
       font-size: 0.59rem; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
-      color: rgba(185,208,248,0.50); border-radius: 10px; white-space: nowrap;
+      color: rgba(224,236,255,0.88); border-radius: 10px; white-space: nowrap;
       border-left: 2px solid transparent;
       transition: color 0.18s, background 0.18s, border-color 0.18s, padding-left 0.18s;
     }
     .phase-fly-link:hover, .phase-fly-link.sub-active {
-      color: #F0D68A; background: rgba(201,162,39,0.10);
+      color: #F0D68A; background: rgba(201,162,39,0.12);
       border-left-color: var(--gold); padding-left: 1rem;
     }
     .phase-fly-num {
       font-size: 0.46rem; font-weight: 900; letter-spacing: 0.10em;
-      color: rgba(201,162,39,0.45); flex-shrink: 0; font-variant-numeric: tabular-nums;
+      color: rgba(201,162,39,0.72); flex-shrink: 0; font-variant-numeric: tabular-nums;
       transition: color 0.18s;
     }
     .phase-fly-link:hover .phase-fly-num, .phase-fly-link.sub-active .phase-fly-num {
-      color: rgba(201,162,39,0.90);
+      color: rgba(201,162,39,1);
     }
     .phase-fly-sep {
       height: 1px; margin: 0.28rem 0.68rem;
@@ -1299,7 +1298,7 @@
             <p class="hero-lead">
               I design systems that hold under pressure, scale with intent, and respect constraints.
             </p>
-            <p style="margin:0;font-size:0.88rem;line-height:1.82;color:var(--ink-soft);max-width:32rem">Two decades across domains — enterprise platforms, government infrastructure, AI-driven operations. The measure is whether it keeps running.</p>
+            <p style="margin:0;font-size:0.88rem;line-height:1.82;color:var(--ink-soft);max-width:32rem">Two decades across domains: enterprise platforms, government infrastructure, AI-driven operations. The measure is whether it keeps running.</p>
             <p class="hero-tagline">
               <span>Clarity in thinking</span>
               <span>Depth in building</span>
@@ -1321,7 +1320,7 @@
                 <img src="assets/mohamed-yasser-photo.jpg" alt="Mohamed Yasser">
               </figure>
               <div class="hero-logo-badge" aria-label="MY logo">
-                <img src="assets/logo.png" alt="MY — Solution Architect logo">
+                <img src="assets/logo.png" alt="MY | Solution Architect logo">
               </div>
               <div class="hero-role-card">
                 <span>Systems</span>
@@ -1340,7 +1339,7 @@
             <p class="kicker">Identity</p>
             <div class="kicker-bar"></div>
             <h2>Systems thinker. Builder. Operator.</h2>
-            <p>I design systems end to end — from constraint analysis to operational handoff. My focus is not technology selection. It is whether the system behaves correctly when the conditions are not ideal.</p>
+            <p>I design systems end to end, from constraint analysis to operational handoff. My focus is not technology selection. It is whether the system behaves correctly when the conditions are not ideal.</p>
             <ul style="list-style:none;margin:0.6rem 0 0;padding:0;display:flex;flex-direction:column;gap:0.55rem">
               <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.88rem;line-height:1.6;color:var(--ink-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.48em"></span>Design systems under real-world constraints</li>
               <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.88rem;line-height:1.6;color:var(--ink-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.48em"></span>Build AI pipelines that integrate into operations</li>
@@ -1353,7 +1352,7 @@
             <div class="kicker-bar"></div>
             <h2>Building under constraints is the work.</h2>
             <ul style="list-style:none;margin:0.4rem 0 0;padding:0;display:flex;flex-direction:column;gap:0.6rem">
-              <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.90rem;line-height:1.60;color:var(--ink-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.50em"></span>20+ years building production systems — enterprise and government</li>
+              <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.90rem;line-height:1.60;color:var(--ink-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.50em"></span>20+ years building production systems, enterprise and government</li>
               <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.90rem;line-height:1.60;color:var(--ink-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.50em"></span>Designing architectures and making deliberate trade-offs</li>
               <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.90rem;line-height:1.60;color:var(--ink-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.50em"></span>Integrating AI into operational workflows, not prototypes</li>
               <li style="display:flex;align-items:flex-start;gap:0.7rem;font-size:0.90rem;line-height:1.60;color:var(--ink-soft)"><span style="width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:0.50em"></span>Debugging real production failures</li>
@@ -1403,7 +1402,7 @@
             </div>
             <div class="step-num">03</div>
             <h3 class="step-title">AI Needs Integration</h3>
-            <p class="step-text">AI without integration into operations is a demo. Value comes from where the AI connects to the rest of the system — not from the model accuracy on a benchmark.</p>
+            <p class="step-text">AI without integration into operations is a demo. Value comes from where the AI connects to the rest of the system, not from the model accuracy on a benchmark.</p>
           </article>
 
           <article class="step-card glass mi" style="--md:265ms">
@@ -2042,7 +2041,7 @@
               <h3 class="sys-title">Data Quality Over Model Size</h3>
               <ul class="sys-list">
                 <li>Better data beats bigger models</li>
-                <li>Garbage in, garbage out — always</li>
+                <li>Garbage in, garbage out. Always.</li>
                 <li>Clean pipelines over clever models</li>
                 <li>Validate inputs before trusting outputs</li>
               </ul>
@@ -2067,7 +2066,7 @@
               </div>
               <h3 class="sys-title">Human-in-the-Loop</h3>
               <ul class="sys-list">
-                <li>Not a fallback — it is architecture</li>
+                <li>Not a fallback: it is architecture</li>
                 <li>Design validation checkpoints intentionally</li>
                 <li>Escalation paths are part of the system</li>
                 <li>Confidence thresholds route, not decide</li>
@@ -2102,7 +2101,7 @@
             <div class="kicker-bar"></div>
             <h2 style="font-size:clamp(1.1rem,1.7vw,1.55rem);margin:0.4rem 0 0">Browser-Native RAG</h2>
             <p style="font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">Runs retrieval-augmented generation entirely in the browser. No server. No API calls. Embeddings and inference run locally using ONNX and Web Workers.</p>
-            <p style="font-size:0.80rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-top:auto">Why it matters — RAG without infrastructure dependency. Works offline. Keeps data local.</p>
+            <p style="font-size:0.80rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-top:auto">Why it matters: RAG without infrastructure dependency. Works offline. Keeps data local.</p>
           </article>
 
           <article class="glass intro-copy-panel mi" style="--md:200ms">
@@ -2110,7 +2109,7 @@
             <div class="kicker-bar"></div>
             <h2 style="font-size:clamp(1.1rem,1.7vw,1.55rem);margin:0.4rem 0 0">Embedding Streaming System</h2>
             <p style="font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">Streaming-first embedding pipeline for large document corpora. Handles chunking, embedding, and indexing without loading full datasets into memory.</p>
-            <p style="font-size:0.80rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-top:auto">Why it matters — Makes vector search viable on constrained hardware. Edge-deployable.</p>
+            <p style="font-size:0.80rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-top:auto">Why it matters: Makes vector search viable on constrained hardware. Edge-deployable.</p>
           </article>
 
         </div>
@@ -2120,7 +2119,7 @@
             <p class="kicker">Model Distillation Work</p>
             <div class="kicker-bar"></div>
             <h2 style="font-size:clamp(1.1rem,1.7vw,1.55rem);margin:0.4rem 0 0">Small Models. Real Performance.</h2>
-            <p style="font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">Domain-specific distillation and quantization. Reducing model footprint without losing accuracy on targeted tasks — Text2SQL, medical AI, safety classification.</p>
+            <p style="font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">Domain-specific distillation and quantization. Reducing model footprint without losing accuracy on targeted tasks: Text2SQL, medical AI, safety classification.</p>
             <p style="font-size:0.80rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;margin-top:auto">Constraint is the design brief, not the obstacle.</p>
           </article>
 
@@ -2140,7 +2139,7 @@
             <p class="kicker">Engineering Focus</p>
             <div class="kicker-bar"></div>
             <h2 style="font-size:clamp(1.1rem,1.7vw,1.55rem);margin:0.4rem 0 0">Efficiency Over Scale</h2>
-            <p style="font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">The assumption that more compute solves every problem is wrong. I work on the opposite — doing more with less. Quantization, distillation, streaming inference on constrained hardware.</p>
+            <p style="font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">The assumption that more compute solves every problem is wrong. I work on the opposite: doing more with less. Quantization, distillation, streaming inference on constrained hardware.</p>
           </article>
 
         </div>
@@ -2173,9 +2172,9 @@
             <article class="impact-stat-card mi" style="--md:145ms">
               <p class="kicker" style="margin-bottom:0.5rem">Government &amp; Innovation</p>
               <ul class="focus-list" style="margin-top:0">
-                <li>Municipality AI detection — deployed</li>
-                <li>WhatsApp complaint automation — operational</li>
-                <li>Smart parking advisory — production</li>
+                <li>Municipality AI detection: deployed</li>
+                <li>WhatsApp complaint automation: operational</li>
+                <li>Smart parking advisory: in production</li>
                 <li>Innovation showcase participation</li>
                 <li>Public sector AI architecture work</li>
               </ul>
@@ -2185,7 +2184,7 @@
               <p class="kicker" style="margin-bottom:0.5rem">Open Source &amp; Community</p>
               <ul class="focus-list" style="margin-top:0">
                 <li>Multiple AI models on Hugging Face</li>
-                <li>AI community leadership — UAE</li>
+                <li>AI community leadership, UAE</li>
                 <li>CodersHQ AI/ML involvement</li>
                 <li>Mentor in national AI challenges</li>
                 <li>Certificate: Decoding Data Science</li>
@@ -2240,7 +2239,7 @@
             </div>
             <div class="step-num">04</div>
             <h3 class="step-title">Scale, Observe, Optimize</h3>
-            <p class="step-text">Add scale mechanisms and instrumentation deliberately. Optimize what the production data shows — not what the assumptions suggested before it was built.</p>
+            <p class="step-text">Add scale mechanisms and instrumentation deliberately. Optimize what the production data shows, not what the assumptions suggested before it was built.</p>
           </article>
 
         </div>
@@ -2297,7 +2296,7 @@
             <article class="glass intro-copy-panel mi" style="--md:220ms">
               <p class="kicker">Constraints → Tools</p>
               <div class="kicker-bar"></div>
-              <p style="margin:0;font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">Most engineers select tools first. I select constraints first. The tool follows the problem definition — not the trend cycle. This is the reason my systems behave differently under pressure.</p>
+              <p style="margin:0;font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">Most engineers select tools first. I select constraints first. The tool follows the problem definition, not the trend cycle. This is the reason my systems behave differently under pressure.</p>
             </article>
 
             <article class="glass intro-copy-panel mi" style="--md:280ms">
@@ -2341,11 +2340,13 @@
             <article class="impact-stat-card mi" style="--md:145ms">
               <p class="kicker" style="margin-bottom:0.8rem">Community Involvement</p>
               <ul class="focus-list" style="margin-top:0">
-                <li>CodersHQ AI/ML community — UAE</li>
+                <li>CodersHQ AI/ML community, UAE</li>
+                <li>ACE AI Club, member &amp; contributor</li>
+                <li>UAE | MENA Software Engineers &amp; QA Professionals</li>
+                <li>Nirant Gen AI community</li>
                 <li>Mentor in national AI challenges</li>
                 <li>AI community leadership in the region</li>
                 <li>Speaker and judge in tech events</li>
-                <li>Certificate: Decoding Data Science</li>
               </ul>
             </article>
 
@@ -2373,7 +2374,7 @@
               <div class="kicker-bar"></div>
               <h2 class="connect-cta">If it needs<br>to <span style="color:var(--gold);font-style:italic">hold.</span></h2>
             </div>
-            <p style="margin:0;font-size:0.93rem;line-height:1.88;color:var(--ink-soft)">If you are building something real — something that needs to scale, something that must work under constraints, or something that cannot afford to fail — we should talk.</p>
+            <p style="margin:0;font-size:0.93rem;line-height:1.88;color:var(--ink-soft)">If you are building something real: something that needs to scale, something that must work under constraints, or something that cannot afford to fail. We should talk.</p>
             <p style="margin:0.7rem 0 0;font-size:0.88rem;line-height:1.82;color:var(--ink-soft)">Not interested in demos. Interested in systems.</p>
             <p class="foot-note">Sharjah, UAE</p>
           </article>
