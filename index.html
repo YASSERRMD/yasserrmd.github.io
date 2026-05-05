@@ -1270,7 +1270,14 @@
         <span class="phase-num">08</span><span class="phase-label">Connect</span>
       </a>
     </nav>
-    <p class="rail-foot">© Apr 2026 MY</p>
+   <p class="rail-foot">
+  <script>
+    const now = new Date();
+    const month = now.toLocaleString('en-US', { month: 'short' });
+    const year = now.getFullYear();
+    document.write(`© ${year} MY`);
+  </script>
+</p>
   </aside>
 
   <!-- Scroll indicator -->
