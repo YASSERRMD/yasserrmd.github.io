@@ -186,7 +186,7 @@
     .mobile-menu-btn { background: none; border: none; padding: 0.4rem; color: var(--ink); }
     .mobile-menu-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; }
     .mobile-nav {
-      position: fixed; inset: 0; z-index: 45;
+      position: fixed; inset: 0; z-index: 55;
       background: rgba(243,245,248,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       transform: translateX(100%); transition: transform 0.36s cubic-bezier(0.32,0,0.08,1);
       display: flex; flex-direction: column; justify-content: center; gap: 0.4rem; padding: 2rem;
@@ -1014,7 +1014,7 @@
     /* ── SIDEBAR FLYOUT — dark-navy glass, gold accents ── */
     .phase-item { position: relative; display: flex; flex-direction: column; }
     .phase-flyout {
-      position: absolute; left: calc(100% + 14px); top: 50%;
+      position: absolute; left: calc(100% + 2px); top: 50%;
       transform: translateY(-50%) translateX(-10px) scale(0.94);
       background: linear-gradient(152deg, rgba(10,26,58,0.98) 0%, rgba(5,12,26,0.99) 100%);
       backdrop-filter: blur(28px); -webkit-backdrop-filter: blur(28px);
@@ -2404,7 +2404,7 @@
           document.querySelectorAll(".mob-nav-toggle[aria-expanded='true']").forEach(b => b.setAttribute("aria-expanded","false"));
         }
       };
-      menuBtn.addEventListener("click",  () => toggle(true));
+      menuBtn.addEventListener("click",  () => toggle(!mobileNav.classList.contains("open")));
       closeBtn.addEventListener("click", () => toggle(false));
       document.querySelectorAll(".mob-nav-parent:not(.mob-nav-toggle)").forEach(l => l.addEventListener("click", () => toggle(false)));
       document.querySelectorAll(".mob-sub-link").forEach(l => l.addEventListener("click", () => toggle(false)));
